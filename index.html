@@ -88,12 +88,12 @@
             font-weight: 700;
         }
 
-        nav {
+        nav.desktop-nav {
             display: flex;
             gap: 20px;
         }
 
-        nav a {
+        nav.desktop-nav a {
             color: var(--text-white);
             text-decoration: none;
             font-size: 0.85rem;
@@ -103,8 +103,76 @@
             transition: var(--transition);
         }
 
-        nav a:hover {
+        nav.desktop-nav a:hover {
             color: var(--primary-gold);
+        }
+
+        /* Menu Hamburguer */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-gold);
+            transition: var(--transition);
+        }
+
+        /* Lateral Menu (Side Drawer) */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: var(--bg-black);
+            z-index: 2000;
+            padding: 80px 30px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            transition: right 0.4s ease;
+            border-left: 1px solid rgba(198, 165, 92, 0.2);
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        .side-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .side-menu nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(198, 165, 92, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1900;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .menu-overlay.active {
+            display: block;
         }
 
         /* Hero Section */
@@ -163,10 +231,6 @@
             padding: 0 20px;
         }
 
-        .authority-subheader strong {
-            color: var(--primary-gold);
-        }
-
         .btn-group {
             display: flex;
             justify-content: flex-start;
@@ -214,12 +278,12 @@
 
         .slider-wrapper {
             position: relative;
-            max-width: 450px; /* Largura otimizada para formato vertical/retrato */
+            max-width: 450px;
             margin: 0 auto;
             border: 1px solid rgba(198, 165, 92, 0.3);
             border-radius: 12px;
             overflow: hidden;
-            aspect-ratio: 3/4; /* Formato retrato para fotos enviadas */
+            aspect-ratio: 3/4;
             cursor: grab;
             user-select: none;
             background: #111;
@@ -436,13 +500,14 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            nav { display: none; }
+            nav.desktop-nav { display: none; }
+            .header-cta { display: none; }
+            .menu-toggle { display: flex; }
         }
 
         @media (max-width: 768px) {
             .hero { text-align: center; padding: 60px 0 40px; background-attachment: scroll; }
             .hero-content { margin: 0 auto; }
-            /* Removendo botões duplicados no mobile como solicitado */
             .hero .btn-group { display: none; } 
             .mobile-bar { display: grid; }
             .hero h1 { font-size: 1.8rem; }
@@ -551,19 +616,42 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="logo">Dr. Deives Marcel</a>
-                <nav>
+                
+                <!-- Desktop Nav -->
+                <nav class="desktop-nav">
                     <a href="/">Criminalista</a>
                     <a href="/direito-bancario">Direito Bancário</a>
                     <a href="/direito-transito">Trânsito</a>
                     <a href="/livros">Livros</a>
                     <a href="#contato">Contato</a>
                 </nav>
-                <div class="contact-top">
+
+                <!-- Header CTA (Hidden on Mobile) -->
+                <div class="header-cta">
                     <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="btn btn-gold" style="padding: 10px 18px; font-size: 0.75rem;">WhatsApp 24h</a>
+                </div>
+
+                <!-- Menu Hamburguer -->
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Side Menu (Mobile) -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <nav>
+            <a href="/">Criminalista</a>
+            <a href="/direito-bancario">Direito Bancário</a>
+            <a href="/direito-transito">Direito de Trânsito</a>
+            <a href="/livros">Livros</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
 
     <section class="hero">
         <div class="container">
@@ -620,7 +708,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Controles apenas via Dots para visual minimalista -->
             <div class="slider-dots" id="sliderDots">
                 <div class="dot active"></div>
                 <div class="dot"></div>
@@ -763,6 +850,24 @@
         // Update year automatically
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        // Menu Toggle Logic
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        function toggleMenu() {
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when a link is clicked
+        document.querySelectorAll('.side-menu nav a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
         // FAQ Toggle Logic
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
@@ -809,7 +914,6 @@
             }, 3000);
         }
 
-        // Event Listeners for dots
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentIndex = index;
@@ -818,7 +922,6 @@
             });
         });
 
-        // Pause and Swipe Logic (Desktop)
         wrapper.addEventListener('mousedown', (e) => {
             isPaused = true;
             startX = e.pageX;
@@ -834,7 +937,6 @@
             }
         });
 
-        // Pause and Swipe Logic (Mobile)
         wrapper.addEventListener('touchstart', (e) => {
             isPaused = true;
             startX = e.touches[0].pageX;
@@ -848,7 +950,6 @@
             startAutoPlay();
         }, { passive: true });
 
-        // Init
         startAutoPlay();
     </script>
 </body>

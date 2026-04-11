@@ -204,7 +204,7 @@
             color: var(--primary-gold);
         }
 
-        /* --- Banner Slider Section (Feed Format 4:3) --- */
+        /* --- Banner Slider Section (Portrait Format 3:4) --- */
         .banner-slider {
             background: #000;
             padding: 30px 0;
@@ -214,12 +214,12 @@
 
         .slider-wrapper {
             position: relative;
-            max-width: 700px; /* Largura ajustada para formato Feed */
+            max-width: 450px; /* Largura otimizada para formato vertical/retrato */
             margin: 0 auto;
-            border: 2px solid var(--primary-gold);
+            border: 1px solid rgba(198, 165, 92, 0.3);
             border-radius: 12px;
             overflow: hidden;
-            aspect-ratio: 4/3; /* Formato Feed solicitado */
+            aspect-ratio: 3/4; /* Formato retrato para fotos enviadas */
             cursor: grab;
             user-select: none;
             background: #111;
@@ -245,39 +245,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .slider-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 15px;
-            pointer-events: none;
-        }
-
-        .control-btn {
-            background: rgba(0, 0, 0, 0.6);
-            color: var(--primary-gold);
-            border: 1px solid var(--primary-gold);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            pointer-events: auto;
-            transition: var(--transition);
-            font-size: 1.2rem;
-            backdrop-filter: blur(4px);
-        }
-
-        .control-btn:hover {
-            background: var(--primary-gold);
-            color: #000;
         }
 
         .slider-dots {
@@ -475,13 +442,14 @@
         @media (max-width: 768px) {
             .hero { text-align: center; padding: 60px 0 40px; background-attachment: scroll; }
             .hero-content { margin: 0 auto; }
-            .btn-group { justify-content: center; }
+            /* Removendo botões duplicados no mobile como solicitado */
+            .hero .btn-group { display: none; } 
             .mobile-bar { display: grid; }
             .hero h1 { font-size: 1.8rem; }
             section { padding: 40px 0; }
-            .floating-wa { display: none; } /* Removido no mobile como solicitado */
+            .floating-wa { display: none; } 
             body { padding-bottom: 70px; }
-            .slider-wrapper { max-width: 90%; }
+            .slider-wrapper { max-width: 85%; }
         }
     </style>
 
@@ -625,7 +593,7 @@
         </div>
     </div>
 
-    <!-- Seção de Banner Carousel com 5 Imagens (Formato Feed 4:3) -->
+    <!-- Seção de Banner Carousel (Formato Retrato 3:4 e sem setas) -->
     <section class="banner-slider">
         <div class="container">
             <div class="slider-wrapper" id="sliderWrapper">
@@ -651,12 +619,8 @@
                         <img src="img/livro-crimes-de-transito.jpg" alt="Livro Crimes de Trânsito">
                     </div>
                 </div>
-                
-                <div class="slider-controls">
-                    <div class="control-btn" id="prevBtn">❮</div>
-                    <div class="control-btn" id="nextBtn">❯</div>
-                </div>
             </div>
+            <!-- Controles apenas via Dots para visual minimalista -->
             <div class="slider-dots" id="sliderDots">
                 <div class="dot active"></div>
                 <div class="dot"></div>
@@ -814,8 +778,6 @@
         const slides = Array.from(track.children);
         const dotsContainer = document.getElementById('sliderDots');
         const dots = Array.from(dotsContainer.children);
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
         const wrapper = document.getElementById('sliderWrapper');
         
         let currentIndex = 0;
@@ -847,32 +809,32 @@
             }, 3000);
         }
 
-        // Event Listeners
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            startAutoPlay();
+        // Event Listeners for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+                startAutoPlay();
+            });
         });
 
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            startAutoPlay();
-        });
-
-        // Pause on Hold (Desktop)
+        // Pause and Swipe Logic (Desktop)
         wrapper.addEventListener('mousedown', (e) => {
             isPaused = true;
             startX = e.pageX;
         });
 
         window.addEventListener('mouseup', (e) => {
-            isPaused = false;
-            const endX = e.pageX;
-            if (startX - endX > 50) nextSlide();
-            else if (endX - startX > 50) prevSlide();
-            startAutoPlay();
+            if (isPaused) {
+                isPaused = false;
+                const endX = e.pageX;
+                if (startX - endX > 50) nextSlide();
+                else if (endX - startX > 50) prevSlide();
+                startAutoPlay();
+            }
         });
 
-        // Pause on Touch (Mobile)
+        // Pause and Swipe Logic (Mobile)
         wrapper.addEventListener('touchstart', (e) => {
             isPaused = true;
             startX = e.touches[0].pageX;
@@ -885,14 +847,6 @@
             else if (endX - startX > 50) prevSlide();
             startAutoPlay();
         }, { passive: true });
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlider();
-                startAutoPlay();
-            });
-        });
 
         // Init
         startAutoPlay();

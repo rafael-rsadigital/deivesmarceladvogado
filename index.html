@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advogado Criminalista em Mogi das Cruzes 24h | Dr. Deives Marcel</title>
-    <meta name="description" content="Advogado criminalista em Mogi das Cruzes. Defesa especializada em prisões, flagrantes, audiências e investigações. Atendimento 24h em Mogi, Suzano e região.">
+    <title>Advogado Criminalista em Mogi das Cruzes 24h | Marcel & D'ingiullo Advogados Associados</title>
+    <meta name="description" content="Advogado criminalista em Mogi das Cruzes 24h. Marcel & D'ingiullo Advogados Associados. Defesa em prisões, flagrantes, investigações e crimes de trânsito. Atendimento imediato em Mogi, Suzano e região.">
     <meta name="keywords" content="advogado criminalista mogi das cruzes, advogado criminal mogi das cruzes, advogado criminal 24 horas mogi, advogado prisão flagrante mogi, advogado criminal urgente mogi das cruzes, advogado criminal são miguel paulista, advogado criminal suzano, advogado criminal itaquaquecetuba">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://deivesmarceladvogado.vercel.app">
+    <link rel="canonical" href="https://deivesmarceladvogado.vercel.app/">
     
     <!-- Open Graph / Redes Sociais -->
-    <meta property="og:title" content="Advogado Criminalista em Mogi das Cruzes 24h - Dr. Deives Marcel">
+    <meta property="og:title" content="Advogado Criminalista em Mogi das Cruzes 24h - Marcel & D'ingiullo">
     <meta property="og:description" content="Defesa criminal especializada em prisões, flagrantes e investigações. Atendimento imediato em toda a região.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deivesmarceladvogado.vercel.app">
+    <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000">
 
     <!-- Fontes -->
@@ -215,10 +215,6 @@
 
         .hero-bg-layer.active { opacity: 1; }
 
-        .hero-person-layer {
-            display: none;
-        }
-
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -237,14 +233,23 @@
 
         .hero h1 {
             font-size: clamp(2.2rem, 5vw, 4rem);
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             line-height: 1.1;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
         .hero .local-seo {
             color: var(--primary-gold);
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: block;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -268,6 +273,7 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             padding: 15px 30px;
             border-radius: 4px;
             text-decoration: none;
@@ -278,11 +284,12 @@
             cursor: pointer;
             gap: 10px;
             font-size: 0.9rem;
+            border: none;
         }
 
         .btn-gold { background-color: var(--primary-gold); color: #000; }
         .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-2px); }
-        .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); }
+        .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
         .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
 
         /* Mobile Photos Section Dedicated */
@@ -356,7 +363,11 @@
         .modal-option small { display: block; color: var(--text-gray); font-weight: 400; font-size: 0.8rem; }
 
         /* Footer */
-        .ampersand { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--primary-gold); }
+        .ampersand { 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 400;
+            color: inherit; /* Seguirá a cor do elemento pai */
+        }
         .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.2); }
         .footer-map-container iframe { width: 100%; height: 250px; filter: grayscale(1) invert(0.92) contrast(1.1); }
         footer { background: #050505; padding: 80px 0 120px; border-top: 1px solid rgba(198, 165, 92, 0.2); }
@@ -380,8 +391,9 @@
             .hero { min-height: 50vh; text-align: center; padding-top: 110px; align-items: flex-start; }
             .hero-overlay { background: radial-gradient(circle at top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 100%); }
             .hero h1 { font-size: 1.8rem; }
+            .hero-sub { font-size: 0.9rem; margin-bottom: 15px; }
             .hero p { font-size: 1rem; }
-            .hero .btn-group { display: none !important; } /* Removido da versão mobile */
+            .hero .btn-group { display: none !important; } /* Garantindo remoção no mobile */
             .mobile-professionals { display: block; }
             .mobile-bar { display: grid; }
             .floating-wa { display: none; }
@@ -393,6 +405,16 @@
     <!-- Schema Logic -->
     <script type="application/ld+json">
     [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Marcel & D'ingiullo - Advogados Associados",
+        "url": "https://deivesmarceladvogado.vercel.app",
+        "logo": "https://deivesmarceladvogado.vercel.app/img/logotipo-letra-branca.png",
+        "sameAs": [
+          "https://www.instagram.com/deivesmarcelcriminalista/"
+        ]
+      },
       {
         "@context": "https://schema.org",
         "@type": ["Attorney", "LegalService"],
@@ -464,13 +486,13 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="logo">
-                    <img src="img/logotipo-letra-branca.png" alt="Marcel & D'ingiullo" class="logo-img">
+                    <img src="img/logotipo-letra-branca.png" alt="Marcel & D'ingiullo Advogados Associados" class="logo-img">
                 </a>
                 
                 <nav class="desktop-nav">
-                    <a href="/">Criminalista</a>
+                    <a href="/">Advogado Criminalista</a>
                     <a href="/direito-bancario">Direito Bancário</a>
-                    <a href="/direito-transito">Trânsito</a>
+                    <a href="/direito-transito">Direito de Trânsito</a>
                     <a href="/livros">Livros</a>
                     <a href="#contato">Contato</a>
                 </nav>
@@ -489,7 +511,7 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="side-menu" id="sideMenu">
         <nav>
-            <a href="/">Criminalista</a>
+            <a href="/">Advogado Criminalista</a>
             <a href="/direito-bancario">Direito Bancário</a>
             <a href="/direito-transito">Direito de Trânsito</a>
             <a href="/livros">Livros</a>
@@ -500,7 +522,7 @@
     <section class="hero" id="heroSlider">
         <!-- Fundos Crossfade -->
         <div class="hero-bg-layer active" style="background-image: url('img/background-direito-criminal.jpg');"></div>
-        <div class="hero-bg-layer" style="background-image: url('img/background-direito-bancário.png');"></div>
+        <div class="hero-bg-layer" style="background-image: url('img/background-direito-bancario.png');"></div>
         
         <div class="hero-overlay"></div>
 
@@ -508,7 +530,8 @@
             <div class="hero-content">
                 <span class="local-seo">Mogi das Cruzes • Suzano • São Paulo</span>
                 <h1>Advogado Criminalista em Mogi das Cruzes 24h</h1>
-                <p>Defesa técnica estratégica em prisões, flagrantes e investigações com atendimento imediato em toda a Grande São Paulo.</p>
+                <p class="hero-sub">Marcel & D'ingiullo Advogados Associados • Atendimento 24h</p>
+                <p class="desktop-long">Defesa técnica estratégica em prisões, flagrantes e investigações com atendimento imediato em toda a Grande São Paulo.</p>
                 <div class="btn-group">
                     <a href="javascript:void(0)" onclick="openContactModal('wa')" class="btn btn-gold">WhatsApp Agora</a>
                     <a href="javascript:void(0)" onclick="openContactModal('tel')" class="btn btn-outline">Ligar Urgente</a>
@@ -634,7 +657,7 @@
                 <div class="faq-item"><div class="faq-question">Advogado criminalista atende 24 horas? <span>+</span></div><div class="faq-answer">Sim. O plantão criminal é 24h para prisões e intercorrências policiais em Mogi e toda região.</div></div>
                 <div class="faq-item"><div class="faq-question">Quanto custa um advogado criminalista? <span>+</span></div><div class="faq-answer">Os honorários seguem a tabela ética da OAB/SP e variam conforme a complexidade de cada caso.</div></div>
                 <div class="faq-item"><div class="faq-question">O advogado pode ir à delegacia em qualquer horário? <span>+</span></div><div class="faq-answer">Sim, é um direito constitucional garantido por lei. O advogado tem livre acesso ao cliente em qualquer repartição policial.</div></div>
-                <div class="faq-item"><div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div><div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e em toda a Grande SP.</div></div>
+                <div class="faq-item"><div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div><div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e em toda a Grande São Paulo.</div></div>
                 <div class="faq-item"><div class="faq-question">Quando devo procurar um advogado criminal? <span>+</span></div><div class="faq-answer">Imediatamente após receber uma intimação ou ter ciência de qualquer investigação. A defesa preventiva é sempre o melhor caminho.</div></div>
                 <div class="faq-item"><div class="faq-question">Posso falar com a polícia sem a presença de um advogado? <span>+</span></div><div class="faq-answer">Não é recomendável. Você tem o direito de permanecer em silêncio. Falar sem orientação pode prejudicar gravemente a sua defesa futura.</div></div>
                 <div class="faq-item"><div class="faq-question">O que acontece após a prisão em flagrante? <span>+</span></div><div class="faq-answer">Ocorre a Audiência de Custódia em até 24 horas, onde o juiz analisará a legalidade da prisão e a possibilidade de responder em liberdade.</div></div>

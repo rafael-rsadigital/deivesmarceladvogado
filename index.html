@@ -214,6 +214,37 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
         }
 
+        /* Mobile Section for Professional Photos Below Hero Text */
+        .mobile-professionals {
+            display: none;
+            background: var(--bg-black);
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
+        }
+
+        .hero-person-mobile {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .hero-person-mobile img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: auto;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .hero-person-mobile img.active {
+            opacity: 1;
+        }
+
         .btn-group {
             display: flex;
             justify-content: flex-start;
@@ -251,12 +282,7 @@
             color: var(--primary-gold);
         }
 
-        .btn-outline:hover {
-            background-color: var(--primary-gold);
-            color: #000;
-        }
-
-        /* --- Seção Áreas de Atuação (Accordion) --- */
+        /* Accordion Area */
         .areas-accordion-section {
             padding: 100px 0;
             background-color: #050505;
@@ -265,18 +291,6 @@
         .section-intro {
             text-align: center;
             margin-bottom: 60px;
-        }
-
-        .section-intro h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: 15px;
-        }
-
-        .section-intro p {
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
         }
 
         .accordion-container {
@@ -295,7 +309,6 @@
 
         .accordion-item:hover {
             border-color: var(--primary-gold);
-            box-shadow: 0 0 15px rgba(198, 165, 92, 0.1);
         }
 
         .accordion-header {
@@ -304,21 +317,10 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            user-select: none;
         }
 
         .accordion-header h3 {
             font-size: 1.4rem;
-            margin-bottom: 5px;
-            transition: var(--transition);
-        }
-
-        .accordion-header small {
-            display: block;
-            color: var(--text-gray);
-            font-weight: 400;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
         }
 
         .accordion-icon {
@@ -331,16 +333,18 @@
             transition: transform 0.4s ease;
         }
 
-        .accordion-icon svg {
-            width: 20px;
-            height: 20px;
-        }
-
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: var(--transition);
-            background: rgba(0,0,0,0.2);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
         }
 
         .accordion-body {
@@ -348,59 +352,7 @@
             color: var(--text-gray);
         }
 
-        .accordion-body ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .accordion-body ul li {
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .accordion-body ul li::before {
-            content: '•';
-            color: var(--primary-gold);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Active State */
-        .accordion-item.active {
-            border-color: var(--primary-gold);
-            background: #1a1a1a;
-        }
-
-        .accordion-item.active .accordion-header h3 {
-            color: var(--text-white);
-        }
-
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 1000px;
-            padding-top: 10px;
-        }
-
-        /* CTA Após Seção */
-        .cta-section-simple {
-            padding: 60px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, #050505, #0a0a0a);
-        }
-
-        .cta-section-simple h2 {
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-        }
-
-        /* --- Banner Slider (3:4) --- */
+        /* Banner Slider (3:4) */
         .banner-slider {
             background: #000;
             padding: 60px 0;
@@ -417,7 +369,6 @@
             overflow: hidden;
             aspect-ratio: 3/4;
             cursor: grab;
-            user-select: none;
             background: #0d0d0d;
         }
 
@@ -427,17 +378,8 @@
             height: 100%;
         }
 
-        .slider-item {
-            min-width: 100%;
-            height: 100%;
-        }
-
-        .slider-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+        .slider-item { min-width: 100%; height: 100%; }
+        .slider-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .slider-dots {
             display: flex;
@@ -446,101 +388,15 @@
             margin-top: 20px;
         }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: #222;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid var(--primary-gold);
-        }
-
-        .dot.active {
-            background: var(--primary-gold);
-            transform: scale(1.3);
-        }
-
-        /* Grid Lists */
-        .grid-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .grid-item {
-            background: var(--card-black);
-            padding: 25px;
-            border-left: 3px solid var(--primary-gold);
-            transition: var(--transition);
-        }
-
-        .grid-item:hover {
-            background: #1d1d1d;
-        }
-
-        /* Section Global */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .section-title .divider {
-            width: 80px;
-            height: 3px;
-            background: var(--primary-gold);
-            margin: 0 auto;
-        }
+        .dot { width: 12px; height: 12px; background: #222; border-radius: 50%; cursor: pointer; border: 1px solid var(--primary-gold); }
+        .dot.active { background: var(--primary-gold); transform: scale(1.3); }
 
         /* FAQ */
-        .faq-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 12px;
-            border: 1px solid rgba(198, 165, 92, 0.15);
-            border-radius: 4px;
-        }
-
-        .faq-question {
-            padding: 20px 25px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card-black);
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            color: var(--primary-gold);
-        }
-
-        .faq-answer {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            color: var(--text-gray);
-            background: #0d0d0d;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 25px;
-            max-height: 600px;
-            border-top: 1px solid rgba(198, 165, 92, 0.1);
-        }
+        .faq-wrapper { max-width: 900px; margin: 0 auto; }
+        .faq-item { margin-bottom: 12px; border: 1px solid rgba(198, 165, 92, 0.15); border-radius: 4px; }
+        .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--card-black); font-weight: 600; font-family: 'Playfair Display', serif; color: var(--primary-gold); }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); }
+        .faq-item.active .faq-answer { padding: 25px; max-height: 600px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
 
         /* Mobile Action Bar */
         .mobile-bar {
@@ -555,22 +411,10 @@
             z-index: 3000;
         }
 
-        .mobile-bar a {
-            padding: 18px;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
+        .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .bar-wa { background: #25d366; color: #000 !important; }
         .bar-call { background: var(--bg-black); color: var(--primary-gold) !important; }
 
-        /* Botão Flutuante (Desktop) */
         .floating-wa {
             position: fixed;
             bottom: 30px;
@@ -587,11 +431,23 @@
             transition: var(--transition);
         }
 
-        .floating-wa:hover {
-            transform: scale(1.1);
+        .floating-wa:hover { transform: scale(1.1); }
+
+        /* Footer Maps */
+        .footer-map-container {
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(198, 165, 92, 0.2);
         }
 
-        /* Footer */
+        .footer-map-container iframe {
+            width: 100%;
+            height: 250px;
+            filter: grayscale(1) invert(0.92) contrast(1.1); /* Dark map effect */
+        }
+
         footer {
             background: #050505;
             padding: 80px 0 120px;
@@ -600,7 +456,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
 
@@ -613,53 +469,31 @@
 
         @media (max-width: 768px) {
             .hero { 
-                height: 100vh;
+                min-height: 50vh;
                 text-align: center;
-                padding-top: 80px;
-                background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                padding-top: 100px;
+                background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
                                   url('img/background.jpg');
             }
             .hero-content { 
                 margin: 0 auto; 
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
             }
+            .mobile-professionals { display: block; } 
             .hero .btn-group { display: none; } 
             .mobile-bar { display: grid; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
             .floating-wa { display: none; } 
             .slider-wrapper { 
                 max-width: 95%; 
                 aspect-ratio: 3/4.2; 
             }
-            /* Mobile Accordion Adjustments */
-            .accordion-header { padding: 20px; }
             .accordion-header h3 { font-size: 1.2rem; }
-            .accordion-body { padding: 0 20px 20px; }
-            .accordion-body ul { grid-template-columns: 1fr; }
-            .authority-subheader { display: none; } 
         }
     </style>
-
-    <!-- Schema Logic -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": ["Attorney", "LegalService"],
-        "name": "Dr. Deives Marcel - Advocacia Especializada",
-        "url": "https://deivesmarceladvogado.vercel.app",
-        "telephone": "+55-11-93453-2422",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Mogi das Cruzes",
-          "addressRegion": "SP"
-        }
-      }
-    ]
-    </script>
 </head>
 <body>
 
@@ -667,10 +501,9 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="logo">
-                    <img src="img/logotipo-fundo-transparente.png" alt="Logotipo Dr. Deives Marcel" class="logo-img">
+                    <img src="img/logotipo-fundo-transparente.png" alt="Logotipo Marcel & D'ingiullo" class="logo-img">
                 </a>
                 
-                <!-- Desktop Nav -->
                 <nav class="desktop-nav">
                     <a href="/">Criminalista</a>
                     <a href="/direito-bancario">Direito Bancário</a>
@@ -706,20 +539,24 @@
             <div class="hero-content">
                 <span class="local-seo">Mogi das Cruzes • Suzano • São Paulo</span>
                 <h1>Advogado Criminalista em Mogi das Cruzes 24h</h1>
-                
-                <p class="desktop-long">Defesa técnica estratégica em prisões, flagrantes e investigações com atendimento imediato em toda a Grande São Paulo.</p>
-                
+                <p>Defesa técnica estratégica em prisões, flagrantes e investigações com atendimento imediato em toda a Grande São Paulo.</p>
                 <div class="btn-group">
-                    <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="btn btn-gold">
-                        WhatsApp Agora
-                    </a>
+                    <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="btn btn-gold">WhatsApp Agora</a>
                     <a href="tel:11934532422" class="btn btn-outline">Ligar Urgente</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Áreas de Atuação (Accordion Premium) -->
+    <!-- Seção de fotos dos advogados no mobile (alternando abaixo do texto) -->
+    <section class="mobile-professionals">
+        <div class="hero-person-mobile" id="mobilePersonSlider">
+            <img src="img/Deives-Marcel.webp" alt="Dr. Deives Marcel" class="active">
+            <img src="img/Adriana-Dingiullo.png" alt="Drª Adriana Dingiullo">
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
     <section class="areas-accordion-section" id="areas-atuacao">
         <div class="container">
             <div class="section-intro">
@@ -728,134 +565,72 @@
             </div>
 
             <div class="accordion-container">
-                <!-- BOTÃO 1 -->
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div>
-                            <h3>Direito Criminal</h3>
-                            <small>Especialista em todas as fases do processo criminal</small>
-                        </div>
-                        <div class="accordion-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
+                        <div><h3>Direito Criminal</h3><small>Especialista em todas as fases do processo criminal</small></div>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <p>Atuação em todas as fases da persecução penal, incluindo:</p>
                             <ul>
-                                <li>Prisões em flagrante</li>
-                                <li>Audiência de custódia</li>
-                                <li>Investigação policial</li>
-                                <li>Inquérito policial</li>
-                                <li>Defesa pré-processual</li>
-                                <li>Audiências criminais</li>
-                                <li>Recursos criminais</li>
-                                <li>Execução penal</li>
+                                <li>Prisões em flagrante</li><li>Audiência de custódia</li><li>Investigação policial</li><li>Defesa pré-processual</li><li>Audiências criminais</li><li>Execução penal</li>
                             </ul>
-                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Defesa técnica com sigilo, estratégia e atuação imediata.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOTÃO 2 -->
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div>
-                            <h3>Direito de Trânsito</h3>
-                            <small>Defesa em infrações e crimes de trânsito</small>
-                        </div>
-                        <div class="accordion-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
+                        <div><h3>Direito de Trânsito</h3><small>Defesa em infrações e crimes de trânsito</small></div>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <ul>
-                                <li>Acidentes de trânsito</li>
-                                <li>Embriaguez ao volante</li>
-                                <li>CNH suspensa</li>
-                                <li>Defesa em processos administrativos</li>
-                                <li>Defesa judicial</li>
-                                <li>Lei seca</li>
-                                <li>Recusa ao bafômetro</li>
-                                <li>Defesa em multas</li>
-                                <li>Defesa no DETRAN</li>
+                                <li>Embriaguez ao volante</li><li>CNH suspensa</li><li>Defesa DETRAN</li><li>Lei seca</li><li>Recusa bafômetro</li>
                             </ul>
-                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Atuação estratégica para preservar direitos e evitar penalidades.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOTÃO 3 -->
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div>
-                            <h3>Crimes de Trânsito</h3>
-                            <small>Defesa técnica em crimes previstos no Código de Trânsito</small>
-                        </div>
-                        <div class="accordion-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
+                        <div><h3>Crimes de Trânsito</h3><small>Defesa técnica em crimes do CTB</small></div>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <ul>
-                                <li>Homicídio culposo (art. 302 do CTB)</li>
-                                <li>Homicídio no trânsito</li>
-                                <li>Lesão corporal</li>
-                                <li>Omissão de socorro</li>
-                                <li>Embriaguez ao volante</li>
-                                <li>Direção perigosa</li>
+                                <li>Homicídio culposo (art. 302)</li><li>Lesão corporal</li><li>Omissão de socorro</li><li>Direção perigosa</li>
                             </ul>
-                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Defesa especializada em processos criminais decorrentes de acidentes.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOTÃO 4 -->
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div>
-                            <h3>Direito Bancário</h3>
-                            <small>Defesa contra abusos bancários</small>
-                        </div>
-                        <div class="accordion-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
+                        <div><h3>Direito Bancário</h3><small>Defesa contra abusos bancários</small></div>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <ul>
-                                <li>Revisão de juros abusivos</li>
-                                <li>Defesa contra busca e apreensão</li>
-                                <li>Renegociação de dívidas</li>
-                                <li>Cobrança indevida</li>
-                                <li>Negativação indevida</li>
-                                <li>Defesa contra instituições financeiras</li>
+                                <li>Juros abusivos</li><li>Busca e apreensão</li><li>Dívidas bancárias</li><li>Cobrança indevida</li>
                             </ul>
                             <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Atuação técnica para proteção do consumidor contra o banco.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOTÃO 5 -->
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div>
-                            <h3>Tribunal do Júri</h3>
-                            <small>Defesa técnica especializada em plenário</small>
-                        </div>
-                        <div class="accordion-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
+                        <div><h3>Tribunal do Júri</h3><small>Defesa técnica especializada em plenário</small></div>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><strong>Defesa Técnica:</strong> Atuação ativa para proteger o acusado e garantir julgamento justo.</p>
-                            <p><strong>Preparação:</strong> Análise completa do processo, provas e testemunhas.</p>
-                            <p><strong>Atuação em Plenário:</strong> Participação na escolha dos jurados e condução da defesa.</p>
-                            <p><strong>Debate Oral:</strong> Sustentação oral técnica e estratégica.</p>
-                            <p><strong>Contraditório:</strong> Debate direto com a acusação para defesa do cliente.</p>
+                            <p><strong>Defesa Técnica:</strong> Atuação ativa para proteger o acusado e garantir julgamento justo em crimes contra a vida.</p>
                         </div>
                     </div>
                 </div>
@@ -863,16 +638,7 @@
         </div>
     </section>
 
-    <!-- CTA Após Seção Accordion -->
-    <section class="cta-section-simple">
-        <div class="container">
-            <h2>Precisa de Advogado Criminalista?</h2>
-            <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="btn btn-gold" style="padding: 20px 40px; font-size: 1.1rem;">
-                Falar com Advogado no WhatsApp
-            </a>
-        </div>
-    </section>
-
+    <!-- Banner Carousel -->
     <section class="banner-slider">
         <div class="container">
             <div class="slider-wrapper" id="sliderWrapper">
@@ -891,62 +657,18 @@
         </div>
     </section>
 
-    <section id="atuacao" style="background: #0f0f0f;">
+    <section id="faq" style="background: #0f0f0f;">
         <div class="container">
-            <div class="section-title">
-                <h2>Resumo de Expertise</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="grid-list">
-                <div class="grid-item"><strong>Direito Bancário</strong><br><small>Defesa do consumidor e contra abusos bancários.</small></div>
-                <div class="grid-item"><strong>Tráfico de Drogas</strong><br><small>Defesa estratégica e nulidades.</small></div>
-                <div class="grid-item"><strong>Tribunal do Júri</strong><br><small>Homicídios e crimes contra a vida.</small></div>
-                <div class="grid-item"><strong>Lei Maria da Penha</strong><br><small>Medidas protetivas e processos.</small></div>
-                <div class="grid-item"><strong>Crimes de Trânsito</strong><br><small>Embriaguez e acidentes graves.</small></div>
-                <div class="grid-item"><strong>Audiência de Custódia</strong><br><small>Plantão 24h para liberdade.</small></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Perguntas Frequentes (FAQ)</h2>
-                <div class="divider"></div>
-            </div>
+            <div class="section-title"><h2>Perguntas Frequentes (FAQ)</h2><div class="divider"></div></div>
             <div class="faq-wrapper">
-                <div class="faq-item">
-                    <div class="faq-question">Preciso de advogado para prisão em flagrante? <span>+</span></div>
-                    <div class="faq-answer">Sim. O advogado garante que seus direitos não sejam violados e prepara a tese para a audiência de custódia, buscando sua liberdade imediata.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Advogado criminalista atende 24 horas? <span>+</span></div>
-                    <div class="faq-answer">Sim. O plantão criminal é 24h. Estamos prontos para agir em Mogi e região a qualquer momento do dia ou da noite.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Quanto custa um advogado criminalista? <span>+</span></div>
-                    <div class="faq-answer">Os honorários seguem a tabela da OAB/SP e variam conforme a complexidade. O valor investido é a garantia de uma defesa técnica para preservar sua liberdade.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">O advogado pode ir à delegacia em qualquer horário? <span>+</span></div>
-                    <div class="faq-answer">Sim, é um direito garantido por lei. O advogado tem acesso ao cliente e aos autos para orientar o depoimento e evitar autoincriminação.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div>
-                    <div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e em toda a Grande São Paulo.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Quando devo procurar um advogado criminal? <span>+</span></div>
-                    <div class="faq-answer">Imediatamente após receber uma intimação ou ter ciência de qualquer investigação policial. A atuação preventiva pode evitar o indiciamento ou prisão.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Posso falar com a polícia sem a presença de um advogado? <span>+</span></div>
-                    <div class="faq-answer">Não é recomendável. Qualquer declaração dada sem orientação jurídica pode ser usada contra você. Exerça seu direito ao silêncio.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">O que acontece após a prisão em flagrante? <span>+</span></div>
-                    <div class="faq-answer">Ocorre a Audiência de Custódia em até 24 horas, onde o juiz decidirá sobre a liberdade ou conversão em prisão preventiva.</div>
-                </div>
+                <div class="faq-item"><div class="faq-question">Preciso de advogado para prisão em flagrante? <span>+</span></div><div class="faq-answer">Sim. O advogado garante que seus direitos não sejam violados e prepara a tese para a audiência de custódia.</div></div>
+                <div class="faq-item"><div class="faq-question">Advogado criminalista atende 24 horas? <span>+</span></div><div class="faq-answer">Sim. O plantão criminal é 24h para prisões e intercorrências policiais.</div></div>
+                <div class="faq-item"><div class="faq-question">Quanto custa um advogado criminalista? <span>+</span></div><div class="faq-answer">Os honorários seguem a tabela da OAB/SP e variam conforme a complexidade.</div></div>
+                <div class="faq-item"><div class="faq-question">O advogado pode ir à delegacia em qualquer horário? <span>+</span></div><div class="faq-answer">Sim, é um direito garantido por lei em qualquer repartição policial.</div></div>
+                <div class="faq-item"><div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div><div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e toda a Grande SP.</div></div>
+                <div class="faq-item"><div class="faq-question">Quando devo procurar um advogado criminal? <span>+</span></div><div class="faq-answer">Imediatamente após receber uma intimação ou ter ciência de qualquer investigação policial.</div></div>
+                <div class="faq-item"><div class="faq-question">Posso falar com a polícia sem a presença de um advogado? <span>+</span></div><div class="faq-answer">Não é recomendável. Você tem o direito constitucional de permanecer em silêncio.</div></div>
+                <div class="faq-item"><div class="faq-question">O que acontece após a prisão em flagrante? <span>+</span></div><div class="faq-answer">Ocorre a Audiência de Custódia em até 24 horas, onde o juiz decide sobre a liberdade provisória.</div></div>
             </div>
         </div>
     </section>
@@ -955,17 +677,23 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-fundo-transparente.png" alt="Dr. Deives Marcel" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
-                    <p style="color: var(--text-gray); font-size: 0.9rem;">Advocacia Criminal Estratégica e Direito Bancário</p>
-                </div>
-                <div class="footer-links">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Cidades</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-gray);">Mogi das Cruzes, Suzano, Itaquá, Poá, São Miguel Paulista e toda Grande SP.</p>
+                    <img src="img/logotipo-fundo-transparente.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
+                    <h3>Marcel & D'ingiullo - Advogados Associados</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
+                        📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
+                        Mogi das Cruzes - SP, 08730-480
+                    </p>
                 </div>
                 <div class="footer-links">
                     <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Contato 24h</h4>
                     <p>📞 (11) 93453-2422</p>
                     <p>📱 WhatsApp Emergencial</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Localização</h4>
+                    <div class="footer-map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
@@ -974,27 +702,32 @@
         </div>
     </footer>
 
-    <!-- Mobile Conversion Bar -->
     <div class="mobile-bar">
         <a href="tel:11934532422" class="bar-call">Ligar Agora</a>
         <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="bar-wa">WhatsApp 24h</a>
     </div>
 
-    <!-- Floating WA (Desktop) -->
-    <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="floating-wa" target="_blank">
-        <svg style="width: 30px; height: 30px; fill: #000;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-    </a>
+    <a href="https://wa.me/5511998868252" class="floating-wa" target="_blank"><svg style="width: 30px; height: 30px; fill: #000;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        // Professional Photo Slider Logic
+        let currentPerson = 0;
+        const persons = document.querySelectorAll('#mobilePersonSlider img');
+        if(persons.length > 0) {
+            setInterval(() => {
+                persons[currentPerson].classList.remove('active');
+                currentPerson = (currentPerson + 1) % persons.length;
+                persons[currentPerson].classList.add('active');
+            }, 3000);
+        }
+
         // Accordion Logic
-        const accordionItems = document.querySelectorAll('.accordion-item');
-        accordionItems.forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            header.addEventListener('click', () => {
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                accordionItems.forEach(other => other.classList.remove('active'));
+                document.querySelectorAll('.accordion-item').forEach(o => o.classList.remove('active'));
                 if (!isActive) item.classList.add('active');
             });
         });
@@ -1034,23 +767,17 @@
 
         function startAutoPlay() {
             if (autoPlayTimer) clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(() => { 
-                if (!isPaused) { 
-                    currentIndex = (currentIndex + 1) % track.children.length; 
-                    updateSlider(); 
-                } 
-            }, 3000);
+            autoPlayTimer = setInterval(() => { if (!isPaused) { currentIndex = (currentIndex + 1) % track.children.length; updateSlider(); } }, 3000);
         }
 
         dots.forEach((dot, index) => dot.addEventListener('click', () => { currentIndex = index; updateSlider(); startAutoPlay(); }));
         
-        const handleDown = (e) => { isPaused = true; startX = e.pageX || e.touches[0].pageX; };
+        const handleDown = (e) => { isPaused = true; startX = e.pageX || (e.touches ? e.touches[0].pageX : 0); };
         const handleUp = (e) => { 
             isPaused = false; 
-            const endX = e.pageX || e.changedTouches[0].pageX;
-            const slidesCount = track.children.length;
-            if (startX - endX > 50) currentIndex = (currentIndex + 1) % slidesCount;
-            else if (endX - startX > 50) currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
+            const endX = e.pageX || (e.changedTouches ? e.changedTouches[0].pageX : 0);
+            if (startX - endX > 50) currentIndex = (currentIndex + 1) % track.children.length;
+            else if (endX - startX > 50) currentIndex = (currentIndex - 1 + track.children.length) % track.children.length;
             updateSlider(); startAutoPlay(); 
         };
 

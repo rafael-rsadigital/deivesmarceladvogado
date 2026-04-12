@@ -171,7 +171,7 @@
             display: block;
         }
 
-        /* Secção Hero com Fundo Dinâmico */
+        /* Secção Hero com Fundos e Fotos Sincronizadas */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -182,7 +182,6 @@
             background-color: #000;
         }
 
-        /* Camadas de Fundo para o Slider */
         .hero-bg-layer {
             position: absolute;
             top: 0;
@@ -201,7 +200,32 @@
             opacity: 1;
         }
 
-        /* Overlay fixo para leitura */
+        /* Camada de Personagens Sincronizada */
+        .hero-person-layer {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 90%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 1s ease-out;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            pointer-events: none;
+        }
+
+        .hero-person-layer.active {
+            opacity: 1;
+        }
+
+        .hero-person-layer img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -215,7 +239,7 @@
         .hero-content {
             max-width: 650px;
             position: relative;
-            z-index: 2;
+            z-index: 10;
         }
 
         .hero h1 {
@@ -239,37 +263,6 @@
             color: var(--text-white);
             margin-bottom: 30px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-        }
-
-        /* Secção Mobile para Fotos dos Profissionais */
-        .mobile-professionals {
-            display: none;
-            background: var(--bg-black);
-            position: relative;
-            height: 60vh;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
-        }
-
-        .hero-person-mobile {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .hero-person-mobile img {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 100%;
-            width: auto;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-        }
-
-        .hero-person-mobile img.active {
-            opacity: 1;
         }
 
         .btn-group {
@@ -379,7 +372,7 @@
             color: var(--text-gray);
         }
 
-        /* Slider de Banners (3:4) */
+        /* Banner Slider (3:4) */
         .banner-slider {
             background: #000;
             padding: 60px 0;
@@ -522,7 +515,7 @@
 
         .floating-wa:hover { transform: scale(1.1); }
 
-        /* Mapa e Correcções do Rodapé */
+        /* Mapa e Rodapé */
         .footer-map-container {
             width: 100%;
             margin-top: 30px;
@@ -537,10 +530,11 @@
             filter: grayscale(1) invert(0.92) contrast(1.1);
         }
 
+        /* Ajuste do E Comercial */
         .ampersand {
             font-family: 'Inter', sans-serif;
+            font-weight: 400;
             color: var(--primary-gold);
-            font-weight: 300;
         }
 
         footer {
@@ -559,26 +553,42 @@
         @media (max-width: 992px) {
             nav.desktop-nav, .header-cta { display: none; }
             .menu-toggle { display: flex; }
-            .hero { background-attachment: scroll; }
+            .hero-person-layer { width: 60%; }
         }
 
         @media (max-width: 768px) {
             .hero { 
-                min-height: 50vh;
+                min-height: 100vh;
                 text-align: center;
-                padding-top: 100px;
+                padding-top: 110px; /* Espaço para o logo */
+                align-items: flex-start; /* Joga o texto para o topo */
+                background-image: none; /* Fundo controlado pelas camadas de slide */
             }
+
+            .hero-overlay {
+                background: radial-gradient(circle at top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%);
+            }
+
             .hero-content { 
                 margin: 0 auto; 
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
+                z-index: 10;
             }
-            .mobile-professionals { display: block; } 
+
+            .hero-person-layer {
+                width: 100%;
+                height: 60%; /* Ocupa a parte inferior */
+                right: 0;
+                justify-content: center;
+                z-index: 5;
+            }
+
             .hero .btn-group { display: none; } 
             .mobile-bar { display: grid; }
             .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
+            .hero p { font-size: 1rem; margin-bottom: 0; }
             .floating-wa { display: none; } 
             .slider-wrapper { 
                 max-width: 95%; 
@@ -594,7 +604,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="logo">
-                    <img src="img/logotipo-fundo-transparente.png" alt="Logotipo Marcel & D'ingiullo" class="logo-img">
+                    <img src="img/logotipo-fundo-transparente.png" alt="Marcel & D'ingiullo" class="logo-img">
                 </a>
                 
                 <nav class="desktop-nav">
@@ -628,11 +638,18 @@
     </div>
 
     <section class="hero" id="heroSlider">
-        <!-- Camadas de Fundo para o Crossfade -->
+        <!-- Camadas de Fundo (Backdrops) -->
         <div class="hero-bg-layer active" style="background-image: url('img/background-direito-criminal.jpg');"></div>
         <div class="hero-bg-layer" style="background-image: url('img/background-direito-bancário.png');"></div>
         
-        <!-- Camada de Overlay fixa -->
+        <!-- Camadas de Personagens (Sincronizadas) -->
+        <div class="hero-person-layer active">
+            <img src="img/Deive-Marcel.png" alt="Dr. Deives Marcel">
+        </div>
+        <div class="hero-person-layer">
+            <img src="img/Adriana-Dingiullo.png" alt="Drª Adriana Dingiullo">
+        </div>
+
         <div class="hero-overlay"></div>
 
         <div class="container">
@@ -648,19 +665,12 @@
         </div>
     </section>
 
-    <section class="mobile-professionals">
-        <div class="hero-person-mobile" id="mobilePersonSlider">
-            <img src="img/Deives-Marcel.webp" alt="Dr. Deives Marcel" class="active">
-            <img src="img/Adriana-Dingiullo.png" alt="Drª Adriana Dingiullo">
-        </div>
-    </section>
-
     <!-- Áreas de Atuação -->
     <section class="areas-accordion-section" id="areas-atuacao">
         <div class="container">
             <div class="section-intro">
-                <h2>Áreas de Atuação do Advogado Criminalista</h2>
-                <p>Defesa técnica especializada em diversas áreas do Direito com atendimento estratégico e personalizado.</p>
+                <h2>Áreas de Atuação Especializada</h2>
+                <p>Defesa técnica em diversas áreas do Direito com atendimento estratégico e personalizado.</p>
             </div>
 
             <div class="accordion-container">
@@ -765,9 +775,6 @@
                 <div class="faq-item"><div class="faq-question">Quanto custa um advogado criminalista? <span>+</span></div><div class="faq-answer">Os honorários seguem a tabela da OAB/SP e variam conforme a complexidade.</div></div>
                 <div class="faq-item"><div class="faq-question">O advogado pode ir à delegacia em qualquer horário? <span>+</span></div><div class="faq-answer">Sim, é um direito garantido por lei em qualquer repartição policial.</div></div>
                 <div class="faq-item"><div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div><div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e toda a Grande SP.</div></div>
-                <div class="faq-item"><div class="faq-question">Quando devo procurar um advogado criminal? <span>+</span></div><div class="faq-answer">Imediatamente após receber uma intimação ou ter ciência de qualquer investigação policial.</div></div>
-                <div class="faq-item"><div class="faq-question">Posso falar com a polícia sem a presença de um advogado? <span>+</span></div><div class="faq-answer">Não é recomendável. Você tem o direito constitucional de permanecer em silêncio.</div></div>
-                <div class="faq-item"><div class="faq-question">O que acontece após a prisão em flagrante? <span>+</span></div><div class="faq-answer">Ocorre a Audiência de Custódia em até 24 horas, onde o juiz decide sobre a liberdade provisória.</div></div>
             </div>
         </div>
     </section>
@@ -785,11 +792,10 @@
                 </div>
                 <div class="footer-links">
                     <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Contacto 24h</h4>
-                    <p>📞 (11) 93453-2422</p>
-                    <p>📱 WhatsApp Emergencial</p>
+                    <p>Deives: (11) 93453-2422</p>
+                    <p>Adriana: (11) 99614-0860</p>
                 </div>
                 <div>
-                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Localização</h4>
                     <div class="footer-map-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
@@ -808,20 +814,12 @@
             <h4 id="modalTitle">Selecione uma especialidade</h4>
         </div>
         <div class="modal-options">
-            <!-- Opção Deives -->
             <a href="#" id="linkDeives" class="modal-option">
-                <div>
-                    <span>Direito Criminal</span>
-                    <small>Dr. Deives Marcel</small>
-                </div>
+                <div><span>Direito Criminal</span><small>Dr. Deives Marcel</small></div>
                 <svg width="20" height="20" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             </a>
-            <!-- Opção Adriana -->
             <a href="#" id="linkAdriana" class="modal-option">
-                <div>
-                    <span>Direito Bancário</span>
-                    <small>Drª Adriana D'ingiullo</small>
-                </div>
+                <div><span>Direito Bancário</span><small>Drª Adriana D'ingiullo</small></div>
                 <svg width="20" height="20" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             </a>
         </div>
@@ -842,18 +840,26 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Lógica do Slider de Fundo do Hero
-        let currentBgIndex = 0;
+        // Lógica de Sincronização de Fundo e Foto (Hero)
+        let currentSlide = 0;
         const bgLayers = document.querySelectorAll('.hero-bg-layer');
-        if(bgLayers.length > 0) {
-            setInterval(() => {
-                bgLayers[currentBgIndex].classList.remove('active');
-                currentBgIndex = (currentBgIndex + 1) % bgLayers.length;
-                bgLayers[currentBgIndex].classList.add('active');
-            }, 3000);
+        const personLayers = document.querySelectorAll('.hero-person-layer');
+
+        function nextHeroSlide() {
+            bgLayers[currentSlide].classList.remove('active');
+            personLayers[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + 1) % bgLayers.length;
+            
+            bgLayers[currentSlide].classList.add('active');
+            personLayers[currentSlide].classList.add('active');
         }
 
-        // Lógica do Modal de Contacto
+        if(bgLayers.length > 0) {
+            setInterval(nextHeroSlide, 3000);
+        }
+
+        // Contact Modal Logic
         function openContactModal(type) {
             const modal = document.getElementById('contactModal');
             const overlay = document.getElementById('contactOverlay');
@@ -870,7 +876,6 @@
                 deives.href = "tel:11934532422";
                 adriana.href = "tel:11996140860";
             }
-
             modal.classList.add('active');
             overlay.classList.add('active');
         }
@@ -882,18 +887,7 @@
 
         document.getElementById('contactOverlay').addEventListener('click', closeContactModal);
 
-        // Lógica do Slider de Fotos dos Profissionais (Mobile)
-        let currentPerson = 0;
-        const persons = document.querySelectorAll('#mobilePersonSlider img');
-        if(persons.length > 0) {
-            setInterval(() => {
-                persons[currentPerson].classList.remove('active');
-                currentPerson = (currentPerson + 1) % persons.length;
-                persons[currentPerson].classList.add('active');
-            }, 3000);
-        }
-
-        // Lógica do Acordeão
+        // Accordion Logic
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
@@ -902,7 +896,7 @@
             });
         });
 
-        // Toggle do Menu
+        // Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -911,17 +905,7 @@
         menuOverlay.addEventListener('click', toggle);
         document.querySelectorAll('.side-menu nav a').forEach(l => l.addEventListener('click', toggle));
 
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentElement;
-                const wasActive = parent.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                if (!wasActive) parent.classList.add('active');
-            });
-        });
-
-        // Banner Slider Principal (3:4)
+        // Banner Slider Logic (3:4)
         const track = document.getElementById('sliderTrack');
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');
@@ -955,6 +939,16 @@
         window.addEventListener('mouseup', handleUp);
         wrapper.addEventListener('touchstart', handleDown, {passive: true});
         wrapper.addEventListener('touchend', handleUp, {passive: true});
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const wasActive = parent.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) parent.classList.add('active');
+            });
+        });
 
         startAutoPlay();
     </script>

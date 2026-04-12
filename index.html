@@ -30,7 +30,7 @@
             --card-black: #161616;
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -171,11 +171,6 @@
             display: block;
         }
 
-        /* Responsive Text Classes */
-        .mobile-short {
-            display: none;
-        }
-
         /* Hero Section */
         .hero {
             position: relative;
@@ -217,26 +212,6 @@
             color: var(--text-white);
             margin-bottom: 30px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-        }
-
-        /* Authority Subheader Strips */
-        .authority-subheader {
-            background: #111;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
-        }
-
-        .authority-subheader h2 {
-            font-size: 1.2rem;
-            color: var(--text-white);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .authority-subheader strong {
-            color: var(--primary-gold);
         }
 
         .btn-group {
@@ -281,10 +256,154 @@
             color: #000;
         }
 
-        /* --- Banner Slider --- */
+        /* --- Seção Áreas de Atuação (Accordion) --- */
+        .areas-accordion-section {
+            padding: 100px 0;
+            background-color: #050505;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-intro h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 15px;
+        }
+
+        .section-intro p {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 1px solid rgba(198, 165, 92, 0.2);
+            border-radius: 8px;
+            background: var(--card-black);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .accordion-item:hover {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(198, 165, 92, 0.1);
+        }
+
+        .accordion-header {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .accordion-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .accordion-header small {
+            display: block;
+            color: var(--text-gray);
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .accordion-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            transition: transform 0.4s ease;
+        }
+
+        .accordion-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .accordion-body {
+            padding: 0 30px 30px;
+            color: var(--text-gray);
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .accordion-body ul li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .accordion-body ul li::before {
+            content: '•';
+            color: var(--primary-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Active State */
+        .accordion-item.active {
+            border-color: var(--primary-gold);
+            background: #1a1a1a;
+        }
+
+        .accordion-item.active .accordion-header h3 {
+            color: var(--text-white);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            padding-top: 10px;
+        }
+
+        /* CTA Após Seção */
+        .cta-section-simple {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #050505, #0a0a0a);
+        }
+
+        .cta-section-simple h2 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        /* --- Banner Slider (3:4) --- */
         .banner-slider {
             background: #000;
-            padding: 40px 0;
+            padding: 60px 0;
             overflow: hidden;
             position: relative;
         }
@@ -494,9 +613,9 @@
 
         @media (max-width: 768px) {
             .hero { 
-                min-height: 80vh;
+                height: 100vh;
                 text-align: center;
-                padding-top: 100px;
+                padding-top: 80px;
                 background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                                   url('img/background.jpg');
             }
@@ -509,13 +628,17 @@
             .hero .btn-group { display: none; } 
             .mobile-bar { display: grid; }
             .hero h1 { font-size: 2rem; }
-            .hero p.desktop-long { display: none; }
-            .hero p.mobile-short { display: block; font-size: 1.1rem; margin-bottom: 20px; }
+            .hero p { display: none; }
             .floating-wa { display: none; } 
             .slider-wrapper { 
                 max-width: 95%; 
                 aspect-ratio: 3/4.2; 
             }
+            /* Mobile Accordion Adjustments */
+            .accordion-header { padding: 20px; }
+            .accordion-header h3 { font-size: 1.2rem; }
+            .accordion-body { padding: 0 20px 20px; }
+            .accordion-body ul { grid-template-columns: 1fr; }
             .authority-subheader { display: none; } 
         }
     </style>
@@ -526,7 +649,7 @@
       {
         "@context": "https://schema.org",
         "@type": ["Attorney", "LegalService"],
-        "name": "Dr. Deives Marcel & Drª Adriana D'ingiullo",
+        "name": "Dr. Deives Marcel - Advocacia Especializada",
         "url": "https://deivesmarceladvogado.vercel.app",
         "telephone": "+55-11-93453-2422",
         "address": {
@@ -585,7 +708,6 @@
                 <h1>Advogado Criminalista em Mogi das Cruzes 24h</h1>
                 
                 <p class="desktop-long">Defesa técnica estratégica em prisões, flagrantes e investigações com atendimento imediato em toda a Grande São Paulo.</p>
-                <p class="mobile-short">Defesa técnica estratégica e imediata 24h.</p>
                 
                 <div class="btn-group">
                     <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="btn btn-gold">
@@ -597,17 +719,159 @@
         </div>
     </section>
 
-    <!-- Tarjas de Autoridade -->
-    <div class="authority-subheader">
+    <!-- Áreas de Atuação (Accordion Premium) -->
+    <section class="areas-accordion-section" id="areas-atuacao">
         <div class="container">
-            <h2><strong>Dr. Deives Marcel Simão de Almeida</strong> - Advogado Criminalista <strong>OAB/SP 193.249</strong></h2>
+            <div class="section-intro">
+                <h2>Áreas de Atuação do Advogado Criminalista</h2>
+                <p>Defesa técnica especializada em diversas áreas do Direito com atendimento estratégico e personalizado.</p>
+            </div>
+
+            <div class="accordion-container">
+                <!-- BOTÃO 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3>Direito Criminal</h3>
+                            <small>Especialista em todas as fases do processo criminal</small>
+                        </div>
+                        <div class="accordion-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Atuação em todas as fases da persecução penal, incluindo:</p>
+                            <ul>
+                                <li>Prisões em flagrante</li>
+                                <li>Audiência de custódia</li>
+                                <li>Investigação policial</li>
+                                <li>Inquérito policial</li>
+                                <li>Defesa pré-processual</li>
+                                <li>Audiências criminais</li>
+                                <li>Recursos criminais</li>
+                                <li>Execução penal</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Defesa técnica com sigilo, estratégia e atuação imediata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3>Direito de Trânsito</h3>
+                            <small>Defesa em infrações e crimes de trânsito</small>
+                        </div>
+                        <div class="accordion-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Acidentes de trânsito</li>
+                                <li>Embriaguez ao volante</li>
+                                <li>CNH suspensa</li>
+                                <li>Defesa em processos administrativos</li>
+                                <li>Defesa judicial</li>
+                                <li>Lei seca</li>
+                                <li>Recusa ao bafômetro</li>
+                                <li>Defesa em multas</li>
+                                <li>Defesa no DETRAN</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Atuação estratégica para preservar direitos e evitar penalidades.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3>Crimes de Trânsito</h3>
+                            <small>Defesa técnica em crimes previstos no Código de Trânsito</small>
+                        </div>
+                        <div class="accordion-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Homicídio culposo (art. 302 do CTB)</li>
+                                <li>Homicídio no trânsito</li>
+                                <li>Lesão corporal</li>
+                                <li>Omissão de socorro</li>
+                                <li>Embriaguez ao volante</li>
+                                <li>Direção perigosa</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Defesa especializada em processos criminais decorrentes de acidentes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3>Direito Bancário</h3>
+                            <small>Defesa contra abusos bancários</small>
+                        </div>
+                        <div class="accordion-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Revisão de juros abusivos</li>
+                                <li>Defesa contra busca e apreensão</li>
+                                <li>Renegociação de dívidas</li>
+                                <li>Cobrança indevida</li>
+                                <li>Negativação indevida</li>
+                                <li>Defesa contra instituições financeiras</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: var(--primary-gold); font-weight: 600;">Atuação técnica para proteção do consumidor contra o banco.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3>Tribunal do Júri</h3>
+                            <small>Defesa técnica especializada em plenário</small>
+                        </div>
+                        <div class="accordion-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Defesa Técnica:</strong> Atuação ativa para proteger o acusado e garantir julgamento justo.</p>
+                            <p><strong>Preparação:</strong> Análise completa do processo, provas e testemunhas.</p>
+                            <p><strong>Atuação em Plenário:</strong> Participação na escolha dos jurados e condução da defesa.</p>
+                            <p><strong>Debate Oral:</strong> Sustentação oral técnica e estratégica.</p>
+                            <p><strong>Contraditório:</strong> Debate direto com a acusação para defesa do cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="authority-subheader" style="background: #161616; border-top: none;">
+    </section>
+
+    <!-- CTA Após Seção Accordion -->
+    <section class="cta-section-simple">
         <div class="container">
-            <h2><strong>Drª Adriana D'ingiullo</strong> - Direito Bancário</h2>
+            <h2>Precisa de Advogado Criminalista?</h2>
+            <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="btn btn-gold" style="padding: 20px 40px; font-size: 1.1rem;">
+                Falar com Advogado no WhatsApp
+            </a>
         </div>
-    </div>
+    </section>
 
     <section class="banner-slider">
         <div class="container">
@@ -627,14 +891,14 @@
         </div>
     </section>
 
-    <section id="atuacao">
+    <section id="atuacao" style="background: #0f0f0f;">
         <div class="container">
             <div class="section-title">
-                <h2>Defesa Especializada</h2>
+                <h2>Resumo de Expertise</h2>
                 <div class="divider"></div>
             </div>
             <div class="grid-list">
-                <div class="grid-item"><strong>Direito Bancário</strong><br><small>Especialista em fraudes e contencioso.</small></div>
+                <div class="grid-item"><strong>Direito Bancário</strong><br><small>Defesa do consumidor e contra abusos bancários.</small></div>
                 <div class="grid-item"><strong>Tráfico de Drogas</strong><br><small>Defesa estratégica e nulidades.</small></div>
                 <div class="grid-item"><strong>Tribunal do Júri</strong><br><small>Homicídios e crimes contra a vida.</small></div>
                 <div class="grid-item"><strong>Lei Maria da Penha</strong><br><small>Medidas protetivas e processos.</small></div>
@@ -644,7 +908,7 @@
         </div>
     </section>
 
-    <section id="faq" style="background: #0f0f0f;">
+    <section id="faq">
         <div class="container">
             <div class="section-title">
                 <h2>Perguntas Frequentes (FAQ)</h2>
@@ -695,11 +959,11 @@
                     <p style="color: var(--text-gray); font-size: 0.9rem;">Advocacia Criminal Estratégica e Direito Bancário</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Cidades</h4>
+                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Cidades</h4>
                     <p style="font-size: 0.85rem; color: var(--text-gray);">Mogi das Cruzes, Suzano, Itaquá, Poá, São Miguel Paulista e toda Grande SP.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Contato 24h</h4>
+                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Contato 24h</h4>
                     <p>📞 (11) 93453-2422</p>
                     <p>📱 WhatsApp Emergencial</p>
                 </div>
@@ -710,19 +974,30 @@
         </div>
     </footer>
 
-    <!-- Barra de Conversão Mobile -->
+    <!-- Mobile Conversion Bar -->
     <div class="mobile-bar">
         <a href="tel:11934532422" class="bar-call">Ligar Agora</a>
         <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="bar-wa">WhatsApp 24h</a>
     </div>
 
-    <!-- Botão Flutuante (Desktop) -->
+    <!-- Floating WA (Desktop) -->
     <a href="https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista" class="floating-wa" target="_blank">
         <svg style="width: 30px; height: 30px; fill: #000;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Accordion Logic
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                accordionItems.forEach(other => other.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
 
         // Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -743,9 +1018,8 @@
             });
         });
 
-        // Banner Slider Logic
+        // Banner Slider Logic (3:4)
         const track = document.getElementById('sliderTrack');
-        const slides = Array.from(track.children);
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');
         let currentIndex = 0;
@@ -760,7 +1034,12 @@
 
         function startAutoPlay() {
             if (autoPlayTimer) clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(() => { if (!isPaused) { currentIndex = (currentIndex + 1) % slides.length; updateSlider(); } }, 3000);
+            autoPlayTimer = setInterval(() => { 
+                if (!isPaused) { 
+                    currentIndex = (currentIndex + 1) % track.children.length; 
+                    updateSlider(); 
+                } 
+            }, 3000);
         }
 
         dots.forEach((dot, index) => dot.addEventListener('click', () => { currentIndex = index; updateSlider(); startAutoPlay(); }));
@@ -769,8 +1048,9 @@
         const handleUp = (e) => { 
             isPaused = false; 
             const endX = e.pageX || e.changedTouches[0].pageX;
-            if (startX - endX > 50) currentIndex = (currentIndex + 1) % slides.length;
-            else if (endX - startX > 50) currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            const slidesCount = track.children.length;
+            if (startX - endX > 50) currentIndex = (currentIndex + 1) % slidesCount;
+            else if (endX - startX > 50) currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
             updateSlider(); startAutoPlay(); 
         };
 

@@ -9,14 +9,14 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://deivesmarceladvogado.vercel.app">
     
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph / Redes Sociais -->
     <meta property="og:title" content="Advogado Criminalista em Mogi das Cruzes 24h - Dr. Deives Marcel">
     <meta property="og:description" content="Defesa criminal especializada em prisões, flagrantes e investigações. Atendimento imediato em toda a região.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deivesmarceladvogado.vercel.app">
     <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000">
 
-    <!-- Fonts -->
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -63,7 +63,7 @@
             padding: 0 20px;
         }
 
-        /* Header & Nav Transparente */
+        /* Cabeçalho & Navegação Transparente */
         header {
             padding: 20px 0;
             position: absolute;
@@ -105,7 +105,7 @@
             color: var(--primary-gold);
         }
 
-        /* Menu Hamburguer */
+        /* Menu de Hambúrguer */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -121,7 +121,7 @@
             transition: var(--transition);
         }
 
-        /* Lateral Menu */
+        /* Menu Lateral */
         .side-menu {
             position: fixed;
             top: 0;
@@ -171,18 +171,45 @@
             display: block;
         }
 
-        /* Hero Section */
+        /* Secção Hero com Fundo Dinâmico */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 100px 0 60px;
-            background-image: linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.2) 100%), 
-                              url('img/background.jpg');
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* Camadas de Fundo para o Slider */
+        .hero-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-bg-layer.active {
+            opacity: 1;
+        }
+
+        /* Overlay fixo para leitura */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
         }
 
         .hero-content {
@@ -214,7 +241,7 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
         }
 
-        /* Mobile Section for Professional Photos Below Hero Text */
+        /* Secção Mobile para Fotos dos Profissionais */
         .mobile-professionals {
             display: none;
             background: var(--bg-black);
@@ -282,7 +309,7 @@
             color: var(--primary-gold);
         }
 
-        /* Accordion Area */
+        /* Áreas de Acordeão */
         .areas-accordion-section {
             padding: 100px 0;
             background-color: #050505;
@@ -352,7 +379,7 @@
             color: var(--text-gray);
         }
 
-        /* Banner Slider (3:4) */
+        /* Slider de Banners (3:4) */
         .banner-slider {
             background: #000;
             padding: 60px 0;
@@ -398,7 +425,7 @@
         .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); }
         .faq-item.active .faq-answer { padding: 25px; max-height: 600px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
 
-        /* Contact Modal (Subir Suspenso) */
+        /* Modal de Contacto */
         .contact-modal {
             position: fixed;
             bottom: -100%;
@@ -459,7 +486,7 @@
             font-size: 0.8rem;
         }
 
-        /* Mobile Action Bar */
+        /* Barra de Acções Mobile */
         .mobile-bar {
             position: fixed;
             bottom: 0;
@@ -495,7 +522,7 @@
 
         .floating-wa:hover { transform: scale(1.1); }
 
-        /* Footer Maps & Text Fixes */
+        /* Mapa e Correcções do Rodapé */
         .footer-map-container {
             width: 100%;
             margin-top: 30px;
@@ -528,7 +555,7 @@
             gap: 40px;
         }
 
-        /* Responsive Settings */
+        /* Configurações Responsivas */
         @media (max-width: 992px) {
             nav.desktop-nav, .header-cta { display: none; }
             .menu-toggle { display: flex; }
@@ -540,8 +567,6 @@
                 min-height: 50vh;
                 text-align: center;
                 padding-top: 100px;
-                background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                                  url('img/background.jpg');
             }
             .hero-content { 
                 margin: 0 auto; 
@@ -602,7 +627,14 @@
         </nav>
     </div>
 
-    <section class="hero">
+    <section class="hero" id="heroSlider">
+        <!-- Camadas de Fundo para o Crossfade -->
+        <div class="hero-bg-layer active" style="background-image: url('img/background-direito-criminal.jpg');"></div>
+        <div class="hero-bg-layer" style="background-image: url('img/background-direito-bancário.png');"></div>
+        
+        <!-- Camada de Overlay fixa -->
+        <div class="hero-overlay"></div>
+
         <div class="container">
             <div class="hero-content">
                 <span class="local-seo">Mogi das Cruzes • Suzano • São Paulo</span>
@@ -705,7 +737,7 @@
         </div>
     </section>
 
-    <!-- Banner Carousel -->
+    <!-- Carrossel de Banners -->
     <section class="banner-slider">
         <div class="container">
             <div class="slider-wrapper" id="sliderWrapper">
@@ -752,7 +784,7 @@
                     </p>
                 </div>
                 <div class="footer-links">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Contato 24h</h4>
+                    <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Contacto 24h</h4>
                     <p>📞 (11) 93453-2422</p>
                     <p>📱 WhatsApp Emergencial</p>
                 </div>
@@ -764,12 +796,12 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
-                &copy; <span id="year"></span> Dr. Deives Marcel Simão de Almeida & Drª Adriana D'ingiullo.
+                &copy; <span id="year"></span> Dr. Deives Marcel Simão de Almeida &amp; Drª Adriana D'ingiullo.
             </div>
         </div>
     </footer>
 
-    <!-- Suspended Contact Menu (Modal) -->
+    <!-- Menu de Contacto Suspenso (Modal) -->
     <div class="menu-overlay" id="contactOverlay"></div>
     <div class="contact-modal" id="contactModal">
         <div class="modal-header">
@@ -796,21 +828,32 @@
         <button onclick="closeContactModal()" style="width: 100%; background: transparent; border: none; color: var(--text-gray); margin-top: 20px; cursor: pointer; text-decoration: underline;">Voltar</button>
     </div>
 
-    <!-- Mobile Action Bar -->
+    <!-- Barra de Acções Mobile -->
     <div class="mobile-bar">
         <a onclick="openContactModal('tel')" class="bar-call">Ligar Agora</a>
         <a onclick="openContactModal('wa')" class="bar-wa">WhatsApp 24h</a>
     </div>
 
-    <!-- Floating WA (Desktop) -->
+    <!-- Botão Flutuante (Desktop) -->
     <div class="floating-wa" onclick="openContactModal('wa')">
-        <svg style="width: 30px; height: 30px; fill: #000;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        <svg style="width: 30px; height: 30px; fill: #000;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </div>
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Contact Modal Logic
+        // Lógica do Slider de Fundo do Hero
+        let currentBgIndex = 0;
+        const bgLayers = document.querySelectorAll('.hero-bg-layer');
+        if(bgLayers.length > 0) {
+            setInterval(() => {
+                bgLayers[currentBgIndex].classList.remove('active');
+                currentBgIndex = (currentBgIndex + 1) % bgLayers.length;
+                bgLayers[currentBgIndex].classList.add('active');
+            }, 3000);
+        }
+
+        // Lógica do Modal de Contacto
         function openContactModal(type) {
             const modal = document.getElementById('contactModal');
             const overlay = document.getElementById('contactOverlay');
@@ -839,7 +882,7 @@
 
         document.getElementById('contactOverlay').addEventListener('click', closeContactModal);
 
-        // Professional Photo Slider Logic
+        // Lógica do Slider de Fotos dos Profissionais (Mobile)
         let currentPerson = 0;
         const persons = document.querySelectorAll('#mobilePersonSlider img');
         if(persons.length > 0) {
@@ -850,7 +893,7 @@
             }, 3000);
         }
 
-        // Accordion Logic
+        // Lógica do Acordeão
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
@@ -859,7 +902,7 @@
             });
         });
 
-        // Menu Toggle
+        // Toggle do Menu
         const menuToggle = document.getElementById('menuToggle');
         const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -878,7 +921,7 @@
             });
         });
 
-        // Banner Slider Logic (3:4)
+        // Banner Slider Principal (3:4)
         const track = document.getElementById('sliderTrack');
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');

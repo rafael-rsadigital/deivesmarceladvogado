@@ -199,7 +199,7 @@
             align-items: center;
             padding: 120px 0 60px;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
+            background-image: url('img/background-advogado-criminalista-web.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -347,7 +347,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 60px 0; 
+            padding: 40px 0; 
             overflow: hidden; 
             position: relative; 
         }
@@ -753,25 +753,6 @@
         </div>
     </footer>
 
-    <!-- Menu de Contacto Suspenso -->
-    <div class="menu-overlay" id="contactOverlay"></div>
-    <div class="contact-modal" id="contactModal">
-        <div class="modal-header">
-            <h4 id="modalTitle">Selecione uma especialidade</h4>
-        </div>
-        <div class="modal-options">
-            <a href="#" id="linkDeives" class="modal-option">
-                <div><span>Direito Criminal</span><small>Dr. Deives Marcel</small></div>
-                <svg width="20" height="20" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </a>
-            <a href="#" id="linkAdriana" class="modal-option">
-                <div><span>Direito Bancário</span><small>Drª Adriana D'ingiullo</small></div>
-                <svg width="20" height="20" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </a>
-        </div>
-        <button onclick="closeContactModal()" style="width: 100%; background: transparent; border: none; color: var(--text-gray); margin-top: 20px; cursor: pointer; text-decoration: underline;">Voltar</button>
-    </div>
-
     <!-- Mobile Action Bar -->
     <div class="mobile-bar">
         <a onclick="openContactModal('tel')" class="bar-call">Ligar Agora</a>
@@ -812,32 +793,14 @@
             setInterval(nextHeroSlide, 3000);
         }
 
-        // Contact Modal Logic
+        // Contact Logic - Redirecionamento Direto
         function openContactModal(type) {
-            const modal = document.getElementById('contactModal');
-            const overlay = document.getElementById('contactOverlay');
-            const deives = document.getElementById('linkDeives');
-            const adriana = document.getElementById('linkAdriana');
-            const title = document.getElementById('modalTitle');
-
             if (type === 'wa') {
-                title.innerText = "Chamar no WhatsApp";
-                deives.href = "https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista";
-                adriana.href = "https://wa.me/5511996140860?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20a%20Dra.%20Adriana%20D'ingiullo%20-%20Direito%20Bancário";
+                window.open("https://wa.me/5511998868252?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel%20-%20Advogado%20Criminalista", "_blank");
             } else {
-                title.innerText = "Ligar Agora";
-                deives.href = "tel:11934532422";
-                adriana.href = "tel:11996140860";
+                window.location.href = "tel:11934532422";
             }
-            modal.classList.add('active');
-            overlay.classList.add('active');
         }
-
-        function closeContactModal() {
-            document.getElementById('contactModal').classList.remove('active');
-            document.getElementById('contactOverlay').classList.remove('active');
-        }
-        document.getElementById('contactOverlay').addEventListener('click', closeContactModal);
 
         // Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -857,7 +820,7 @@
             });
         });
 
-        // Banner Slider Logic (Touch Enabled)
+        // Banner Slider Logic (Touch Robust)
         const track = document.getElementById('sliderTrack');
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');
@@ -877,7 +840,12 @@
 
         function handleUp(e) {
             isPaused = false;
-            const endX = e.type.includes('touch') ? e.changedTouches[0].pageX : e.pageX;
+            let endX;
+            if (e.type.includes('touch')) {
+                endX = e.changedTouches[0].pageX;
+            } else {
+                endX = e.pageX;
+            }
             const diff = startX - endX;
 
             if (Math.abs(diff) > 50) {

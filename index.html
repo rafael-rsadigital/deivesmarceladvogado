@@ -63,15 +63,36 @@
             padding: 0 20px;
         }
 
-        /* Cabeçalho & Navegação Transparente */
+        /* Efeito de Revelação (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cabeçalho Fixo e Transparente */
         header {
             padding: 20px 0;
-            position: absolute;
+            position: fixed; /* Tornar fixo como solicitado */
             width: 100%;
             top: 0;
             left: 0;
             background: transparent;
-            z-index: 1000;
+            z-index: 2500;
+            transition: background 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        /* Estilo do Cabeçalho ao Rolar */
+        header.scrolled {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 12px 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
         }
 
         .nav-wrapper {
@@ -84,6 +105,11 @@
             max-height: 65px;
             width: auto;
             display: block;
+            transition: max-height 0.3s ease;
+        }
+
+        header.scrolled .logo-img {
+            max-height: 45px;
         }
 
         nav.desktop-nav {
@@ -111,7 +137,7 @@
             flex-direction: column;
             gap: 6px;
             cursor: pointer;
-            z-index: 2100;
+            z-index: 3000;
         }
 
         .menu-toggle span {
@@ -129,10 +155,11 @@
             width: 280px;
             height: 100%;
             background: var(--bg-black);
-            z-index: 2000;
+            z-index: 2900;
             padding: 100px 30px;
             box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             transition: right 0.4s ease;
+            border-left: 1px solid rgba(198, 165, 92, 0.2);
         }
 
         .side-menu.active {
@@ -162,7 +189,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.7);
-            z-index: 1900;
+            z-index: 2800;
             display: none;
             backdrop-filter: blur(4px);
         }
@@ -171,13 +198,13 @@
             display: block;
         }
 
-        /* Secção Hero com Fundos e Fotos Sincronizadas */
+        /* Secção Hero */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 100px 0 60px;
+            padding: 120px 0 60px;
             overflow: hidden;
             background-color: #000;
         }
@@ -200,7 +227,6 @@
             opacity: 1;
         }
 
-        /* Camada de Personagens Sincronizada */
         .hero-person-layer {
             position: absolute;
             bottom: 0;
@@ -302,6 +328,42 @@
             color: var(--primary-gold);
         }
 
+        .btn-outline:hover {
+            background-color: var(--primary-gold);
+            color: #000;
+        }
+
+        /* Secção Mobile para Fotos dos Profissionais */
+        .mobile-professionals {
+            display: none;
+            background: var(--bg-black);
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
+        }
+
+        .hero-person-mobile {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .hero-person-mobile img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: auto;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .hero-person-mobile img.active {
+            opacity: 1;
+        }
+
         /* Áreas de Acordeão */
         .areas-accordion-section {
             padding: 100px 0;
@@ -372,7 +434,7 @@
             color: var(--text-gray);
         }
 
-        /* Banner Slider (3:4) */
+        /* Slider de Banners (3:4) */
         .banner-slider {
             background: #000;
             padding: 60px 0;
@@ -449,8 +511,7 @@
 
         .modal-options {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            flex-direction: column; gap: 15px;
         }
 
         .modal-option {
@@ -530,7 +591,6 @@
             filter: grayscale(1) invert(0.92) contrast(1.1);
         }
 
-        /* Ajuste do E Comercial */
         .ampersand {
             font-family: 'Inter', sans-serif;
             font-weight: 400;
@@ -558,12 +618,14 @@
 
         @media (max-width: 768px) {
             .hero { 
-                min-height: 100vh;
+                min-height: 50vh;
                 text-align: center;
-                padding-top: 110px; /* Espaço para o logo */
-                align-items: flex-start; /* Joga o texto para o topo */
-                background-image: none; /* Fundo controlado pelas camadas de slide */
+                padding-top: 110px;
+                align-items: flex-start;
+                background-image: none;
             }
+
+            header.scrolled .logo-img { max-height: 35px; }
 
             .hero-overlay {
                 background: radial-gradient(circle at top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%);
@@ -579,7 +641,7 @@
 
             .hero-person-layer {
                 width: 100%;
-                height: 60%; /* Ocupa a parte inferior */
+                height: 60%;
                 right: 0;
                 justify-content: center;
                 z-index: 5;
@@ -595,16 +657,17 @@
                 aspect-ratio: 3/4.2; 
             }
             .accordion-header h3 { font-size: 1.2rem; }
+            .mobile-professionals { display: block; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header id="mainHeader">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="logo">
-                    <img src="img/logotipo-letra-branca.png" alt="Marcel & D'ingiullo" class="logo-img">
+                    <img src="img/logotipo-fundo-transparente.png" alt="Marcel & D'ingiullo" class="logo-img">
                 </a>
                 
                 <nav class="desktop-nav">
@@ -665,8 +728,16 @@
         </div>
     </section>
 
+    <!-- Secção de fotos mobile -->
+    <section class="mobile-professionals reveal">
+        <div class="hero-person-mobile" id="mobilePersonSlider">
+            <img src="img/Deive-Marcel.png" alt="Dr. Deives Marcel" class="active">
+            <img src="img/Adriana-Dingiullo.png" alt="Drª Adriana Dingiullo">
+        </div>
+    </section>
+
     <!-- Áreas de Atuação -->
-    <section class="areas-accordion-section" id="areas-atuacao">
+    <section class="areas-accordion-section reveal" id="areas-atuacao">
         <div class="container">
             <div class="section-intro">
                 <h2>Áreas de Atuação Especializada</h2>
@@ -748,7 +819,7 @@
     </section>
 
     <!-- Carrossel de Banners -->
-    <section class="banner-slider">
+    <section class="banner-slider reveal">
         <div class="container">
             <div class="slider-wrapper" id="sliderWrapper">
                 <div class="slider-track" id="sliderTrack">
@@ -766,7 +837,7 @@
         </div>
     </section>
 
-    <section id="faq" style="background: #0f0f0f;">
+    <section id="faq" class="reveal" style="background: #0f0f0f;">
         <div class="container">
             <div class="section-title"><h2>Perguntas Frequentes (FAQ)</h2><div class="divider"></div></div>
             <div class="faq-wrapper">
@@ -779,11 +850,11 @@
         </div>
     </section>
 
-    <footer id="contato">
+    <footer id="contato" class="reveal">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
+                    <img src="img/logotipo-fundo-transparente.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
                     <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo - Advogados Associados</h3>
                     <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
@@ -807,7 +878,7 @@
         </div>
     </footer>
 
-    <!-- Menu de Contacto Suspenso (Modal) -->
+    <!-- Menu de Contacto Suspenso -->
     <div class="menu-overlay" id="contactOverlay"></div>
     <div class="contact-modal" id="contactModal">
         <div class="modal-header">
@@ -826,13 +897,13 @@
         <button onclick="closeContactModal()" style="width: 100%; background: transparent; border: none; color: var(--text-gray); margin-top: 20px; cursor: pointer; text-decoration: underline;">Voltar</button>
     </div>
 
-    <!-- Barra de Acções Mobile -->
+    <!-- Mobile Action Bar -->
     <div class="mobile-bar">
         <a onclick="openContactModal('tel')" class="bar-call">Ligar Agora</a>
         <a onclick="openContactModal('wa')" class="bar-wa">WhatsApp 24h</a>
     </div>
 
-    <!-- Botão Flutuante (Desktop) -->
+    <!-- Botão Flutuante -->
     <div class="floating-wa" onclick="openContactModal('wa')">
         <svg style="width: 30px; height: 30px; fill: #000;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </div>
@@ -840,26 +911,49 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Lógica de Sincronização de Fundo e Foto (Hero)
+        // Cabeçalho Fixo ao Rolar
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Efeito Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Slider de Fundo e Personagem (Hero)
         let currentSlide = 0;
         const bgLayers = document.querySelectorAll('.hero-bg-layer');
         const personLayers = document.querySelectorAll('.hero-person-layer');
+        const mobilePersons = document.querySelectorAll('#mobilePersonSlider img');
 
         function nextHeroSlide() {
             bgLayers[currentSlide].classList.remove('active');
             personLayers[currentSlide].classList.remove('active');
+            if(mobilePersons.length) mobilePersons[currentSlide].classList.remove('active');
             
             currentSlide = (currentSlide + 1) % bgLayers.length;
             
             bgLayers[currentSlide].classList.add('active');
             personLayers[currentSlide].classList.add('active');
+            if(mobilePersons.length) mobilePersons[currentSlide].classList.add('active');
         }
 
-        if(bgLayers.length > 0) {
-            setInterval(nextHeroSlide, 3000);
-        }
+        setInterval(nextHeroSlide, 3000);
 
-        // Contact Modal Logic
+        // Modal de Contacto
         function openContactModal(type) {
             const modal = document.getElementById('contactModal');
             const overlay = document.getElementById('contactOverlay');
@@ -887,7 +981,7 @@
 
         document.getElementById('contactOverlay').addEventListener('click', closeContactModal);
 
-        // Accordion Logic
+        // Acordeão de Áreas
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
@@ -896,35 +990,31 @@
             });
         });
 
-        // Menu Toggle
+        // Menu hambúrguer
         const menuToggle = document.getElementById('menuToggle');
         const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
-        const toggle = () => { sideMenu.classList.toggle('active'); menuOverlay.classList.toggle('active'); };
-        menuToggle.addEventListener('click', toggle);
-        menuOverlay.addEventListener('click', toggle);
-        document.querySelectorAll('.side-menu nav a').forEach(l => l.addEventListener('click', toggle));
+        const toggleMenu = () => { sideMenu.classList.toggle('active'); menuOverlay.classList.toggle('active'); };
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+        document.querySelectorAll('.side-menu nav a').forEach(l => l.addEventListener('click', toggleMenu));
 
-        // Banner Slider Logic (3:4)
+        // Carrossel de Banners
         const track = document.getElementById('sliderTrack');
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');
         let currentIndex = 0;
         let isPaused = false;
         let startX = 0;
-        let autoPlayTimer;
 
         function updateSlider() {
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
             dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
         }
 
-        function startAutoPlay() {
-            if (autoPlayTimer) clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(() => { if (!isPaused) { currentIndex = (currentIndex + 1) % track.children.length; updateSlider(); } }, 3000);
-        }
+        setInterval(() => { if (!isPaused) { currentIndex = (currentIndex + 1) % track.children.length; updateSlider(); } }, 3000);
 
-        dots.forEach((dot, index) => dot.addEventListener('click', () => { currentIndex = index; updateSlider(); startAutoPlay(); }));
+        dots.forEach((dot, index) => dot.addEventListener('click', () => { currentIndex = index; updateSlider(); }));
         
         const handleDown = (e) => { isPaused = true; startX = e.pageX || (e.touches ? e.touches[0].pageX : 0); };
         const handleUp = (e) => { 
@@ -932,7 +1022,7 @@
             const endX = e.pageX || (e.changedTouches ? e.changedTouches[0].pageX : 0);
             if (startX - endX > 50) currentIndex = (currentIndex + 1) % track.children.length;
             else if (endX - startX > 50) currentIndex = (currentIndex - 1 + track.children.length) % track.children.length;
-            updateSlider(); startAutoPlay(); 
+            updateSlider(); 
         };
 
         wrapper.addEventListener('mousedown', handleDown);
@@ -949,8 +1039,6 @@
                 if (!wasActive) parent.classList.add('active');
             });
         });
-
-        startAutoPlay();
     </script>
 </body>
 </html>

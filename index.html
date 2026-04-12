@@ -119,7 +119,8 @@
         nav.desktop-nav a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 0.85rem;
+            /* Fonte reduzida para combinar com o Hero */
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 600;
@@ -196,24 +197,11 @@
             align-items: center;
             padding: 120px 0 60px;
             overflow: hidden;
-            background-color: #000;
-        }
-
-        .hero-bg-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 0;
+            background-attachment: fixed;
         }
-
-        .hero-bg-layer.active { opacity: 1; }
 
         .hero-overlay {
             position: absolute;
@@ -221,12 +209,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.2) 100%);
+            /* Overlay escurecido conforme solicitado (0.85) */
+            background: rgba(0,0,0,0.85);
             z-index: 1;
         }
 
         .hero-content {
-            max-width: 650px;
+            max-width: 800px;
             position: relative;
             z-index: 10;
         }
@@ -238,29 +227,24 @@
         }
 
         .hero-sub {
-            font-size: 1.1rem;
-            color: var(--primary-gold);
+            /* Fonte reduzida para 0.75rem conforme pedido */
+            font-size: 0.75rem;
+            color: var(--text-white);
             font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .hero .local-seo {
-            color: var(--primary-gold);
+            /* Cor dourado escuro preservada e tamanho igualado */
+            color: var(--dark-gold);
             font-weight: 600;
             margin-bottom: 15px;
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-white);
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
         }
 
         .btn-group {
@@ -283,7 +267,7 @@
             transition: var(--transition);
             cursor: pointer;
             gap: 10px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border: none;
         }
 
@@ -292,20 +276,36 @@
         .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
         .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
 
-        /* Mobile Photos Section Dedicated */
+        /* Mobile Photos Section */
         .mobile-professionals {
             display: none;
             background: var(--bg-black);
             position: relative;
-            height: 65vh;
+            height: 70vh;
             overflow: hidden;
             border-bottom: 1px solid rgba(198, 165, 92, 0.2);
         }
+
+        .mobile-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 0;
+        }
+
+        .mobile-bg-layer.active { opacity: 1; }
 
         .hero-person-mobile {
             width: 100%;
             height: 100%;
             position: relative;
+            z-index: 2;
         }
 
         .hero-person-mobile img {
@@ -313,7 +313,7 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            height: 100%;
+            height: 90%;
             width: auto;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
@@ -336,8 +336,16 @@
         .accordion-body { padding: 0 30px 30px; color: var(--text-gray); }
 
         /* Banner Slider */
-        .banner-slider { background: #000; padding: 60px 0; overflow: hidden; position: relative; }
-        .slider-wrapper { position: relative; max-width: 500px; margin: 0 auto; border: 1px solid rgba(198, 165, 92, 0.4); border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: grab; background: #0d0d0d; }
+        .banner-slider { 
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .slider-wrapper { position: relative; max-width: 500px; margin: 0 auto; border: 1px solid rgba(198, 165, 92, 0.4); border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: grab; background: #0d0d0d; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; }
         .slider-item { min-width: 100%; height: 100%; }
         .slider-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -351,6 +359,10 @@
         .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--card-black); font-weight: 600; font-family: 'Playfair Display', serif; color: var(--primary-gold); }
         .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); }
         .faq-item.active .faq-answer { padding: 25px; max-height: 600px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
+        
+        #faq .section-title {
+            margin-bottom: 70px;
+        }
 
         /* Modals */
         .contact-modal { position: fixed; bottom: -100%; left: 0; width: 100%; background: var(--card-black); z-index: 4000; border-top: 2px solid var(--primary-gold); border-radius: 20px 20px 0 0; padding: 30px 20px; transition: bottom 0.4s ease; box-shadow: 0 -10px 30px rgba(0,0,0,0.8); }
@@ -363,13 +375,21 @@
         .modal-option small { display: block; color: var(--text-gray); font-weight: 400; font-size: 0.8rem; }
 
         /* Footer */
+        .footer-links-group a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-links-group a:hover {
+            color: var(--primary-gold);
+        }
         .ampersand { 
             font-family: 'Inter', sans-serif; 
             font-weight: 400;
-            color: inherit; /* Seguirá a cor do elemento pai */
+            color: inherit; 
         }
         .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.2); }
-        .footer-map-container iframe { width: 100%; height: 250px; filter: grayscale(1) invert(0.92) contrast(1.1); }
+        .footer-map-container iframe { width: 100%; height: 250px; }
         footer { background: #050505; padding: 80px 0 120px; border-top: 1px solid rgba(198, 165, 92, 0.2); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
 
@@ -388,17 +408,17 @@
         }
 
         @media (max-width: 768px) {
-            .hero { min-height: 50vh; text-align: center; padding-top: 110px; align-items: flex-start; }
-            .hero-overlay { background: radial-gradient(circle at top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 100%); }
-            .hero h1 { font-size: 1.8rem; }
-            .hero-sub { font-size: 0.9rem; margin-bottom: 15px; }
-            .hero p { font-size: 1rem; }
-            .hero .btn-group { display: none !important; } /* Garantindo remoção no mobile */
+            .hero { min-height: 45vh; text-align: center; padding-top: 100px; align-items: center; background-attachment: scroll; }
+            .hero-overlay { background: rgba(0,0,0,0.85); }
+            .hero h1 { font-size: 1.6rem; margin-bottom: 5px; }
+            .hero .local-seo { font-size: 0.7rem; margin-bottom: 8px; }
+            .hero-sub { font-size: 0.7rem; margin-bottom: 10px; letter-spacing: 1.2px; }
+            .hero .btn-group { display: none !important; }
             .mobile-professionals { display: block; }
             .mobile-bar { display: grid; }
             .floating-wa { display: none; }
             .slider-wrapper { max-width: 95%; aspect-ratio: 3/4.2; }
-            .accordion-header h3 { font-size: 1.2rem; }
+            .accordion-header h3 { font-size: 1.1rem; }
         }
     </style>
 
@@ -473,7 +493,7 @@
           {
             "@type": "Question",
             "name": "O que acontece após a prisão em flagrante?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ocorre a Audiência de Custódia em até 24 horas, onde o juiz decidirá sobre a liberdade provisória ou conversão em prisão preventiva." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Ocorre a Audiência de Custódia em até 24 horas, onde o juiz decidirá sobre a liberdade ou conversão em prisão preventiva." }
           }
         ]
       }
@@ -490,7 +510,7 @@
                 </a>
                 
                 <nav class="desktop-nav">
-                    <a href="/">Advogado Criminalista</a>
+                    <a href="/advogado-criminalista">Advogado Criminalista</a>
                     <a href="/direito-bancario">Direito Bancário</a>
                     <a href="/direito-transito">Direito de Trânsito</a>
                     <a href="/livros">Livros</a>
@@ -511,7 +531,7 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="side-menu" id="sideMenu">
         <nav>
-            <a href="/">Advogado Criminalista</a>
+            <a href="/advogado-criminalista">Advogado Criminalista</a>
             <a href="/direito-bancario">Direito Bancário</a>
             <a href="/direito-transito">Direito de Trânsito</a>
             <a href="/livros">Livros</a>
@@ -519,19 +539,13 @@
         </nav>
     </div>
 
-    <section class="hero" id="heroSlider">
-        <!-- Fundos Crossfade -->
-        <div class="hero-bg-layer active" style="background-image: url('img/background-direito-criminal.jpg');"></div>
-        <div class="hero-bg-layer" style="background-image: url('img/background-direito-bancario.png');"></div>
-        
+    <section class="hero">
         <div class="hero-overlay"></div>
-
         <div class="container">
             <div class="hero-content">
                 <span class="local-seo">Mogi das Cruzes • Suzano • São Paulo</span>
                 <h1>Advogado Criminalista em Mogi das Cruzes 24h</h1>
-                <p class="hero-sub">Marcel & D'ingiullo Advogados Associados • Atendimento 24h</p>
-                <p class="desktop-long">Defesa técnica estratégica em prisões, flagrantes e investigações com atendimento imediato em toda a Grande São Paulo.</p>
+                <p class="hero-sub">Direito Criminal • Direito de Trânsito • Direito Bancário</p>
                 <div class="btn-group">
                     <a href="javascript:void(0)" onclick="openContactModal('wa')" class="btn btn-gold">WhatsApp Agora</a>
                     <a href="javascript:void(0)" onclick="openContactModal('tel')" class="btn btn-outline">Ligar Urgente</a>
@@ -540,8 +554,11 @@
         </div>
     </section>
 
-    <!-- Secção de fotos mobile (Sincronizada com o fundo) -->
+    <!-- Secção de fotos mobile com fundos sincronizados -->
     <section class="mobile-professionals reveal">
+        <div class="mobile-bg-layer active" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/background-direito-criminal.jpg');"></div>
+        <div class="mobile-bg-layer" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/background-direito-bancario.png');"></div>
+
         <div class="hero-person-mobile" id="mobilePersonSlider">
             <img src="img/Deives-Marcel.png" alt="Dr. Deives Marcel" class="active">
             <img src="img/Adriana-Dingiullo.png" alt="Drª Adriana Dingiullo">
@@ -675,14 +692,14 @@
                         Mogi das Cruzes - SP, 08730-480
                     </p>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links footer-links-group">
                     <h4 style="color: var(--primary-gold); margin-bottom: 15px;">Contacto 24h</h4>
-                    <p>Deives: (11) 93453-2422</p>
-                    <p>Adriana: (11) 99614-0860</p>
+                    <p>Deives: <a href="tel:11934532422">(11) 93453-2422</a></p>
+                    <p>Adriana: <a href="tel:11996140860">(11) 99614-0860</a></p>
                 </div>
                 <div>
                     <div class="footer-map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" style="border:0; width: 100%; height: 250px;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -740,19 +757,21 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // Hero Sync Slider (BG + Photos Mobile)
+        // Sincronização Mobile: Fotos + Fundos
         let currentSlide = 0;
-        const bgLayers = document.querySelectorAll('.hero-bg-layer');
+        const mobileBgLayers = document.querySelectorAll('.mobile-bg-layer');
         const mobilePersons = document.querySelectorAll('#mobilePersonSlider img');
 
         function nextHeroSlide() {
-            bgLayers[currentSlide].classList.remove('active');
-            if(mobilePersons.length) mobilePersons[currentSlide].classList.remove('active');
-            
-            currentSlide = (currentSlide + 1) % bgLayers.length;
-            
-            bgLayers[currentSlide].classList.add('active');
-            if(mobilePersons.length) mobilePersons[currentSlide].classList.add('active');
+            if (window.innerWidth <= 768) {
+                if(mobileBgLayers.length) mobileBgLayers[currentSlide].classList.remove('active');
+                if(mobilePersons.length) mobilePersons[currentSlide].classList.remove('active');
+                
+                currentSlide = (currentSlide + 1) % mobileBgLayers.length;
+                
+                if(mobileBgLayers.length) mobileBgLayers[currentSlide].classList.add('active');
+                if(mobilePersons.length) mobilePersons[currentSlide].classList.add('active');
+            }
         }
         setInterval(nextHeroSlide, 3000);
 
@@ -809,7 +828,7 @@
         let startX = 0;
 
         function updateSlider() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
             dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
         }
 
@@ -826,10 +845,12 @@
         };
 
         const wrapper = document.getElementById('sliderWrapper');
-        wrapper.addEventListener('mousedown', handleDown);
-        window.addEventListener('mouseup', handleUp);
-        wrapper.addEventListener('touchstart', handleDown, {passive: true});
-        wrapper.addEventListener('touchend', handleUp, {passive: true});
+        if (wrapper) {
+            wrapper.addEventListener('mousedown', handleDown);
+            window.addEventListener('mouseup', handleUp);
+            wrapper.addEventListener('touchstart', handleDown, {passive: true});
+            wrapper.addEventListener('touchend', handleUp, {passive: true});
+        }
 
         // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(item => {

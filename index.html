@@ -32,6 +32,7 @@
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --section-bg-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1920');
         }
 
         * {
@@ -64,18 +65,18 @@
             padding: 0 20px;
         }
 
-        /* Scroll Reveal */
+        /* Efeito Scroll Reveal */
         .reveal {
             opacity: 0;
-            filter: blur(10px);
-            transform: translateY(30px) scale(0.99);
-            transition: opacity 1s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+            filter: blur(8px);
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 0.8s ease, filter 0.8s ease;
         }
 
         .reveal.active {
             opacity: 1;
             filter: blur(0);
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         /* Header */
@@ -91,9 +92,9 @@
         }
 
         header.scrolled {
-            background: rgba(10, 10, 10, 0.96);
+            background: rgba(10, 10, 10, 0.95);
             padding: 12px 0;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(198, 165, 92, 0.2);
         }
 
@@ -104,14 +105,14 @@
         }
 
         .logo-img {
-            max-height: 60px;
+            max-height: 65px;
             width: auto;
             display: block;
             transition: max-height 0.3s ease;
         }
 
         header.scrolled .logo-img {
-            max-height: 40px;
+            max-height: 45px;
         }
 
         nav.desktop-nav {
@@ -122,7 +123,7 @@
         nav.desktop-nav a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 600;
@@ -142,13 +143,12 @@
         }
 
         .menu-toggle span {
-            width: 28px;
+            width: 30px;
             height: 2px;
             background-color: var(--primary-gold);
             transition: var(--transition);
         }
 
-        /* Side Menu */
         .side-menu {
             position: fixed;
             top: 0;
@@ -165,12 +165,12 @@
 
         .side-menu.active { right: 0; }
 
-        .side-menu nav { display: flex; flex-direction: column; gap: 20px; }
+        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
 
         .side-menu nav a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             text-transform: uppercase;
             border-bottom: 1px solid rgba(198, 165, 92, 0.1);
@@ -191,40 +191,18 @@
 
         .menu-overlay.active { display: block; }
 
-        /* Hero Section */
+        /* Section Hero */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 100px 0 60px;
+            padding: 120px 0 60px;
             overflow: hidden;
-            background-color: #000;
-        }
-
-        /* Contentor Hero com Alinhamento à Esquerda e Margem Mínima */
-        .hero .container {
-            max-width: 100%;
-            margin: 0;
-            padding-left: 4%; /* Quase sem margem solicitado */
-            width: auto;
-        }
-
-        .hero-bg-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
             background-size: cover;
             background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 0;
-        }
-
-        .hero-bg-layer.active {
-            opacity: 1;
+            background-attachment: fixed;
         }
 
         .hero-overlay {
@@ -233,25 +211,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             z-index: 1;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 800px;
             position: relative;
             z-index: 10;
-            text-align: left;
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 4.5vw, 3.6rem);
-            margin-bottom: 8px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 5px;
             line-height: 1.1;
         }
 
         .hero-sub {
-            font-size: 0.68rem;
+            font-size: 0.75rem;
             color: var(--text-white);
             font-weight: 600;
             margin-bottom: 25px;
@@ -262,9 +239,9 @@
         .hero .local-seo {
             color: var(--dark-gold);
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: block;
-            font-size: 0.68rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -280,7 +257,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 28px;
+            padding: 15px 30px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
@@ -289,7 +266,7 @@
             transition: var(--transition);
             cursor: pointer;
             gap: 10px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             border: none;
         }
 
@@ -298,24 +275,13 @@
         .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
         .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
 
-        /* Mobile Professionals */
+        /* Mobile Photos Section */
         .mobile-professionals {
             display: none;
             background: var(--bg-black);
             position: relative;
-            height: 65vh;
+            height: 70vh;
             overflow: hidden;
-        }
-
-        .mobile-professionals::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            background: linear-gradient(to bottom, var(--bg-black), transparent);
-            z-index: 5;
         }
 
         .hero-person-mobile {
@@ -338,43 +304,22 @@
 
         .hero-person-mobile img.active { opacity: 1; }
 
-        /* Divisor de Forma */
-        .shape-divider {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-            z-index: 10;
-        }
-
-        .shape-divider svg {
-            position: relative;
-            display: block;
-            width: calc(150% + 1.3px);
-            height: 60px;
-        }
-
-        .shape-divider .shape-fill {
-            fill: var(--dark-brown);
-        }
-
-        /* Áreas de Atuação - Otimizado em 3 Colunas Desktop */
+        /* Áreas de Atuação - 3 Colunas Web */
         .areas-accordion-section { 
             padding: 80px 0; 
-            background-color: var(--dark-brown); 
             position: relative; 
+            background-image: linear-gradient(rgba(26, 18, 11, 0.95), rgba(26, 18, 11, 0.95)), var(--section-bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .section-intro { text-align: center; margin-bottom: 50px; }
-        .section-intro h2 { font-size: 2rem; margin-bottom: 10px; }
         
         .accordion-container { 
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 0 auto;
         }
 
@@ -385,16 +330,8 @@
             background: var(--card-black); 
             overflow: hidden; 
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-self: start;
+            height: fit-content;
         }
-
-        @media (min-width: 1024px) {
-            .accordion-item:nth-child(4) { grid-column: 1 / span 1.5; margin-left: 50%; }
-            .accordion-item:nth-child(5) { grid-column: 2 / span 1.5; margin-left: 25%; }
-        }
-
         .accordion-item:hover { border-color: var(--primary-gold); }
         .accordion-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .accordion-header h3 { font-size: 1.1rem; }
@@ -403,96 +340,119 @@
         .accordion-item.active .accordion-content { max-height: 500px; }
         .accordion-item.active .accordion-icon { transform: rotate(180deg); }
         .accordion-body { padding: 0 20px 20px; color: var(--text-gray); font-size: 0.9rem; }
-        .accordion-body ul { list-style: none; margin-top: 10px; }
-        .accordion-body li::before { content: "• "; color: var(--primary-gold); }
 
-        /* Banner Slider Compacto */
+        /* Banner Slider */
         .banner-slider { 
-            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             padding: 60px 0; 
-        }
-        .slider-wrapper { 
-            position: relative; 
-            max-width: 380px; 
-            margin: 0 auto; 
-            border: 1px solid rgba(198, 165, 92, 0.4); 
-            border-radius: 12px; 
             overflow: hidden; 
-            aspect-ratio: 3/4; 
-            cursor: grab; 
-            background: #0d0d0d; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            position: relative; 
         }
+        .slider-wrapper { position: relative; max-width: 420px; margin: 0 auto; border: 1px solid rgba(198, 165, 92, 0.4); border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: grab; background: #0d0d0d; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; }
         .slider-item { min-width: 100%; height: 100%; }
         .slider-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
-        .dot { width: 10px; height: 10px; background: #222; border-radius: 50%; cursor: pointer; border: 1px solid var(--primary-gold); transition: 0.3s; }
+        .slider-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+        .dot { width: 12px; height: 12px; background: #222; border-radius: 50%; cursor: pointer; border: 1px solid var(--primary-gold); }
         .dot.active { background: var(--primary-gold); transform: scale(1.3); }
 
-        /* FAQ - 2 Colunas Desktop */
+        /* FAQ - 2 Colunas Web */
         #faq {
-            background-color: var(--dark-brown);
+            background-image: linear-gradient(rgba(26, 18, 11, 0.95), rgba(26, 18, 11, 0.95)), var(--section-bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             padding: 80px 0;
+        }
+
+        .section-title {
+            width: 100%;
+            text-align: center !important;
+            margin-bottom: 50px;
         }
 
         .faq-wrapper { 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px 25px;
+            gap: 15px 30px;
             max-width: 1100px; 
             margin: 0 auto; 
         }
         .faq-item { 
+            margin-bottom: 0; 
             border: 1px solid rgba(198, 165, 92, 0.15); 
             border-radius: 4px; 
             background: var(--card-black); 
-            align-self: start;
         }
         .faq-question { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-family: 'Playfair Display', serif; color: var(--primary-gold); font-size: 1rem; }
         .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); font-size: 0.9rem; }
         .faq-item.active .faq-answer { padding-bottom: 18px; max-height: 300px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
 
         /* Footer */
-        footer { background: #050505; padding: 60px 0 100px; border-top: 1px solid rgba(198, 165, 92, 0.2); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        footer { 
+            background: #050505; 
+            padding: 80px 0 60px; 
+            border-top: 1px solid rgba(198, 165, 92, 0.2); 
+            position: relative;
+            z-index: 10;
+        }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .footer-links-group ul { list-style: none; }
-        .footer-links-group li { margin-bottom: 8px; }
-        .footer-links-group a { color: var(--text-gray); text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+        .footer-links-group ul li { margin-bottom: 12px; }
+        .footer-links-group a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
         .footer-links-group a:hover { color: var(--primary-gold); }
+
+        .ampersand { font-family: 'Inter', sans-serif; font-weight: 400; color: inherit; }
         .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.2); }
-        .footer-map-container iframe { width: 100%; height: 220px; border: 0; }
+        .footer-map-container iframe { width: 100%; height: 250px; border: 0; display: block; }
 
         /* Contact Bars */
         .mobile-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: none; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--primary-gold); z-index: 3000; }
         .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
         .bar-wa { background: #25d366; color: #000 !important; }
         .bar-call { background: var(--bg-black); color: var(--primary-gold) !important; }
-        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 1000; transition: var(--transition); cursor: pointer; }
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 1000; transition: var(--transition); cursor: pointer; }
         .floating-wa:hover { transform: scale(1.1); }
 
-        /* Responsividade */
+        /* Reponsividade */
         @media (max-width: 1024px) {
             .accordion-container { grid-template-columns: repeat(2, 1fr); }
-            .accordion-item:nth-child(4), .accordion-item:nth-child(5) { grid-column: auto; margin-left: 0; }
+            .faq-wrapper { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 992px) {
+            nav.desktop-nav, .header-cta { display: none; }
+            .menu-toggle { display: flex; }
         }
 
         @media (max-width: 768px) {
-            .hero-content { text-align: center; margin: 0 auto; }
-            .hero .container { padding-left: 20px; margin: 0 auto; text-align: center; }
-            .btn-group { justify-content: center; }
-            .hero { min-height: 50vh; align-items: center; padding-top: 100px; }
+            .hero { min-height: 45vh; text-align: center; padding-top: 100px; align-items: center; background-attachment: scroll; }
+            .hero-overlay { background: rgba(0,0,0,0.85); }
+            .hero h1 { font-size: 1.6rem; margin-bottom: 5px; }
+            .hero .local-seo { font-size: 0.7rem; margin-bottom: 8px; }
+            .hero-sub { font-size: 0.7rem; margin-bottom: 10px; letter-spacing: 1.2px; }
+            .hero .btn-group { display: none !important; }
             .accordion-container { grid-template-columns: 1fr; }
-            .faq-wrapper { grid-template-columns: 1fr; }
             .mobile-professionals { display: block; }
             .mobile-bar { display: grid; }
             .floating-wa { display: none; }
-            .hero-sub { font-size: 0.65rem; }
-            .hero h1 { font-size: 1.8rem; }
+            .slider-wrapper { max-width: 95%; aspect-ratio: 3/4.2; }
+            .accordion-header h3 { font-size: 1.1rem; }
         }
     </style>
 
@@ -511,6 +471,8 @@
         "@context": "https://schema.org",
         "@type": ["Attorney", "LegalService"],
         "name": "Marcel & D'ingiullo - Advogados Associados",
+        "legalName": "Marcel & D'ingiullo - Advogados Associados",
+        "url": "https://deivesmarceladvogado.vercel.app",
         "telephone": "+55-11-93453-2422",
         "address": {
           "@type": "PostalAddress",
@@ -520,6 +482,52 @@
           "postalCode": "08730-480",
           "addressCountry": "BR"
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Preciso de advogado para prisão em flagrante?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. A presença de um advogado criminalista na delegacia é fundamental para garantir seus direitos, evitar abusos e buscar a liberdade imediata na audiência de custódia." }
+          },
+          {
+            "@type": "Question",
+            "name": "Advogado criminalista atende 24 horas?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, o Dr. Deives Marcel oferece atendimento emergencial 24 horas para casos de prisões, flagrantes e acompanhamento em delegacias em Mogi das Cruzes e região." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto custa um advogado criminalista?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Os valores seguem a tabela ética da OAB/SP. O investimento garante uma defesa técnica especializada para preservar sua liberdade." }
+          },
+          {
+            "@type": "Question",
+            "name": "O advogado pode ir à delegacia em qualquer horário?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, o advogado tem o direito e o dever de assistir seu cliente em qualquer repartição policial, a qualquer hora do dia ou da noite." }
+          },
+          {
+            "@type": "Question",
+            "name": "Atendimento em Mogi das Cruzes e região?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e em toda a Grande São Paulo." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando devo procurar um advogado criminal?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Imediatamente após receber uma intimação ou ter ciência de qualquer investigação policial. A atuação preventiva pode evitar o indiciamento ou prisão." }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso falar com a polícia sem a presença de um advogado?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Não é recomendável. Qualquer declaração dada sem orientação jurídica pode ser usada contra você. Exerça seu direito constitucional de permanecer em silêncio." }
+          },
+          {
+            "@type": "Question",
+            "name": "O que acontece após a prisão em flagrante?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ocorre a Audiência de Custódia em até 24 horas, onde o juiz analisará a legalidade da prisão e a possibilidade de responder em liberdade." }
+          }
+        ]
       }
     ]
     </script>
@@ -542,7 +550,7 @@
                 </nav>
 
                 <div class="header-cta">
-                    <a href="javascript:void(0)" onclick="openContactModal('wa')" class="btn btn-gold" style="padding: 8px 18px; font-size: 0.75rem;">WhatsApp 24h</a>
+                    <a href="javascript:void(0)" onclick="openContactModal('wa')" class="btn btn-gold" style="padding: 10px 20px; font-size: 0.8rem;">WhatsApp 24h</a>
                 </div>
 
                 <div class="menu-toggle" id="menuToggle">
@@ -564,10 +572,6 @@
     </div>
 
     <section class="hero">
-        <!-- Fundos Dinâmicos Web Sincronizados -->
-        <div class="hero-bg-layer active" style="background-image: url('img/background-advogado-criminalista-web.jpg');"></div>
-        <div class="hero-bg-layer" style="background-image: url('img/background-direito-bancario-web.jpg');"></div>
-        
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
@@ -582,16 +586,11 @@
         </div>
     </section>
 
-    <!-- Secção mobile -->
+    <!-- Secção de fotos mobile -->
     <section class="mobile-professionals reveal">
         <div class="hero-person-mobile" id="mobilePersonSlider">
             <img src="img/Deives-Marcel.png" alt="Dr. Deives Marcel" class="active">
             <img src="img/Adriana-Dingiullo.png" alt="Drª Adriana Dingiullo">
-        </div>
-        <div class="shape-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
         </div>
     </section>
 
@@ -600,7 +599,7 @@
         <div class="container">
             <div class="section-intro">
                 <h2>Áreas de Atuação Especializada</h2>
-                <p>Atendimento estratégico e personalizado em diversas frentes do Direito.</p>
+                <p>Defesa técnica estratégica com atendimento personalizado em diversas frentes do Direito.</p>
             </div>
 
             <div class="accordion-container">
@@ -611,9 +610,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <ul>
-                                <li>Prisões e Flagrantes</li><li>Audiência de Custódia</li><li>Inquéritos e Investigação</li><li>Defesa em Todas as Fases</li>
-                            </ul>
+                            <p>Atuação completa: prisões, audiência de custódia, inquéritos e defesa técnica especializada.</p>
                         </div>
                     </div>
                 </div>
@@ -625,9 +622,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <ul>
-                                <li>CNH Suspensa ou Cassada</li><li>Multas e Recusos</li><li>Processos Administrativos</li><li>Lei Seca</li>
-                            </ul>
+                            <p>Defesa em infrações, recursos de suspensão de CNH e processos administrativos no DETRAN.</p>
                         </div>
                     </div>
                 </div>
@@ -639,9 +634,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <ul>
-                                <li>Homicídio Culposo</li><li>Lesão Corporal</li><li>Direção Perigosa</li><li>Omissão de Socorro</li>
-                            </ul>
+                            <p>Especialista em homicídio culposo, embriaguez ao volante e lesão corporal em acidentes.</p>
                         </div>
                     </div>
                 </div>
@@ -653,9 +646,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <ul>
-                                <li>Juros Abusivos</li><li>Busca e Apreensão</li><li>Renegociação de Dívidas</li><li>Fraudes Bancárias</li>
-                            </ul>
+                            <p>Proteção do consumidor contra juros abusivos, busca e apreensão e fraudes bancárias.</p>
                         </div>
                     </div>
                 </div>
@@ -667,7 +658,19 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p>Defesa técnica especializada em plenário em crimes contra a vida.</p>
+                            <p>Defesa técnica em plenário em crimes contra a vida com sustentação oral estratégica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Violência Doméstica</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Defesa e acompanhamento em casos da Lei Maria da Penha e medidas protetivas de urgência.</p>
                         </div>
                     </div>
                 </div>
@@ -675,7 +678,7 @@
         </div>
     </section>
 
-    <!-- Banner Carousel Compacto Web -->
+    <!-- Banner Carousel Principal -->
     <section class="banner-slider reveal">
         <div class="container">
             <div class="slider-wrapper" id="sliderWrapper">
@@ -685,7 +688,7 @@
                     <div class="slider-item"><img src="img/deives-marcel-advogado-foto.jpg" alt="Dr. Deives"></div>
                     <div class="slider-item"><img src="img/direito-bancario-e-direito-de-transito.jpg" alt="Bancário"></div>
                     <div class="slider-item"><img src="img/livro-crimes-de-transito.jpg" alt="Livro"></div>
-                    <div class="slider-item"><img src="img/Adriana-Dingiullo.png" alt="Dra. Adriana"></div>
+                    <div class="slider-item"><img src="img/Adriana-Dingiullo.png" alt="Drª Adriana"></div>
                 </div>
             </div>
             <div class="slider-dots" id="sliderDots">
@@ -700,13 +703,13 @@
             <div class="section-title"><h2>Perguntas Frequentes (FAQ)</h2><div class="divider"></div></div>
             <div class="faq-wrapper">
                 <div class="faq-item"><div class="faq-question">Prisão em flagrante? <span>+</span></div><div class="faq-answer">Fundamental garantir direitos e buscar liberdade imediata na audiência de custódia.</div></div>
-                <div class="faq-item"><div class="faq-question">Atendimento 24h? <span>+</span></div><div class="faq-answer">Sim, mantemos plantão criminal permanente para emergências em toda a região.</div></div>
-                <div class="faq-item"><div class="faq-question">Quanto custa a defesa? <span>+</span></div><div class="faq-answer">Honorários conforme tabela OAB/SP, variando pela complexidade e urgência.</div></div>
-                <div class="faq-item"><div class="faq-question">Delegacia à noite? <span>+</span></div><div class="faq-answer">O advogado tem direito legal de acesso integral ao cliente a qualquer hora.</div></div>
-                <div class="faq-item"><div class="faq-question">Onde atuam? <span>+</span></div><div class="faq-answer">Mogi das Cruzes, Suzano, Poá, Itaquá, São Paulo e toda Grande SP.</div></div>
-                <div class="faq-item"><div class="faq-question">Quando contratar? <span>+</span></div><div class="faq-answer">Imediatamente após receber intimação ou ciência de qualquer investigação.</div></div>
-                <div class="faq-item"><div class="faq-question">Falar com a polícia? <span>+</span></div><div class="faq-answer">Apenas acompanhado por advogado. Exerça seu direito constitucional ao silêncio.</div></div>
-                <div class="faq-item"><div class="faq-question">Audiência de Custódia? <span>+</span></div><div class="faq-answer">Sessão em até 24h onde o juiz decide sobre a liberdade provisória.</div></div>
+                <div class="faq-item"><div class="faq-question">Atendimento 24h? <span>+</span></div><div class="faq-answer">Sim. Mantemos plantão criminal permanente para emergências em toda a região.</div></div>
+                <div class="faq-item"><div class="faq-question">Quanto custa a defesa? <span>+</span></div><div class="faq-answer">Honorários conforme tabela OAB/SP, variando pela complexidade de cada caso.</div></div>
+                <div class="faq-item"><div class="faq-question">Delegacia à noite? <span>+</span></div><div class="faq-answer">O advogado tem direito constitucional de acesso integral ao cliente a qualquer hora.</div></div>
+                <div class="faq-item"><div class="faq-question">Onde atuam? <span>+</span></div><div class="faq-answer">Mogi das Cruzes, Suzano, Poá, Itaquá, São Paulo e toda a Grande SP.</div></div>
+                <div class="faq-item"><div class="faq-question">Quando contratar? <span>+</span></div><div class="faq-answer">Imediatamente após receber intimação ou ter ciência de qualquer investigação policial.</div></div>
+                <div class="faq-item"><div class="faq-question">Falar com a polícia? <span>+</span></div><div class="faq-answer">Apenas assistido por advogado. Exerça seu direito ao silêncio.</div></div>
+                <div class="faq-item"><div class="faq-question">Audiência de Custódia? <span>+</span></div><div class="faq-answer">Ato judicial em até 24h para decidir sobre a manutenção ou não da prisão.</div></div>
             </div>
         </div>
     </section>
@@ -715,15 +718,15 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 40px; margin-bottom: 20px;">
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
                     <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
-                    <p style="color: var(--text-gray); font-size: 0.8rem; margin-top: 10px;">
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
                         Mogi das Cruzes - SP, 08730-480
                     </p>
                 </div>
-                <div class="footer-links-group">
-                    <h4>Navegação</h4>
+                <div class="footer-links footer-links-group">
+                    <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="/advogado-criminalista">Advogado Criminalista</a></li>
                         <li><a href="/direito-bancario">Direito Bancário</a></li>
@@ -731,27 +734,31 @@
                         <li><a href="/livros">Livros</a></li>
                     </ul>
                 </div>
-                <div class="footer-links-group">
+                <div class="footer-links footer-links-group">
                     <h4>Contacto 24h</h4>
                     <p>Deives: <a href="tel:11934532422">(11) 93453-2422</a></p>
                     <p>Adriana: <a href="tel:11996140860">(11) 99614-0860</a></p>
                 </div>
             </div>
             
-            <div class="footer-map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+            <div style="margin-top: 40px;">
+                <div class="footer-map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+                </div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px; color: #444; font-size: 0.75rem;">
-                &copy; <span id="year"></span> Marcel &amp; D'ingiullo - Advogados Associados
+            <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
+                &copy; <span id="year"></span> Marcel <span class="ampersand">&amp;</span> D'ingiullo - Advogados Associados
             </div>
         </div>
     </footer>
 
-    <!-- Modal Contacto -->
+    <!-- Menu de Contacto Suspenso -->
     <div class="menu-overlay" id="contactOverlay"></div>
     <div class="contact-modal" id="contactModal">
-        <div class="modal-header"><h4>Selecione a Especialidade</h4></div>
+        <div class="modal-header">
+            <h4 id="modalTitle">Selecione uma especialidade</h4>
+        </div>
         <div class="modal-options">
             <a href="#" id="linkDeives" class="modal-option">
                 <div><span>Direito Criminal</span><small>Dr. Deives Marcel</small></div>
@@ -762,10 +769,10 @@
                 <svg width="20" height="20" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             </a>
         </div>
-        <button onclick="closeContactModal()" style="width: 100%; background: transparent; border: none; color: var(--text-gray); margin-top: 15px; cursor: pointer; text-decoration: underline; font-size: 0.8rem;">Voltar</button>
+        <button onclick="closeContactModal()" style="width: 100%; background: transparent; border: none; color: var(--text-gray); margin-top: 20px; cursor: pointer; text-decoration: underline;">Voltar</button>
     </div>
 
-    <!-- Mobile Conversion -->
+    <!-- Mobile Action Bar -->
     <div class="mobile-bar">
         <a onclick="openContactModal('tel')" class="bar-call">Ligar Agora</a>
         <a onclick="openContactModal('wa')" class="bar-wa">WhatsApp 24h</a>
@@ -774,43 +781,44 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // Header
+        // Cabeçalho Fixo
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Scroll Reveal
+        // Efeito Scroll Reveal
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // Hero Web BG Sync
+        // Sincronização Mobile
         let currentSlide = 0;
-        const bgLayers = document.querySelectorAll('.hero-bg-layer');
         const mobilePersons = document.querySelectorAll('#mobilePersonSlider img');
 
         function nextHeroSlide() {
-            if(bgLayers.length) bgLayers[currentSlide].classList.remove('active');
-            if(mobilePersons.length) mobilePersons[currentSlide].classList.remove('active');
-            
-            currentSlide = (currentSlide + 1) % bgLayers.length;
-            
-            if(bgLayers.length) bgLayers[currentSlide].classList.add('active');
-            if(mobilePersons.length) mobilePersons[currentSlide].classList.add('active');
+            if (window.innerWidth <= 768) {
+                if(mobilePersons.length) mobilePersons[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % mobilePersons.length;
+                if(mobilePersons.length) mobilePersons[currentSlide].classList.add('active');
+            }
         }
-        setInterval(nextHeroSlide, 3000);
+        
+        if (mobilePersons.length > 0) {
+            setInterval(nextHeroSlide, 3000);
+        }
 
-        // Modals
+        // Contact Modal Logic
         function openContactModal(type) {
             const modal = document.getElementById('contactModal');
             const overlay = document.getElementById('contactOverlay');
             const deives = document.getElementById('linkDeives');
             const adriana = document.getElementById('linkAdriana');
-            const title = modal.querySelector('h4');
+            const title = document.getElementById('modalTitle');
 
             if (type === 'wa') {
                 title.innerText = "Chamar no WhatsApp";
@@ -840,7 +848,7 @@
         menuOverlay.addEventListener('click', toggleMenu);
         document.querySelectorAll('.side-menu nav a').forEach(l => l.addEventListener('click', toggleMenu));
 
-        // Accordion
+        // Accordion Logic
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
@@ -849,39 +857,46 @@
             });
         });
 
-        // Banner Slider Swipe
+        // Banner Slider Logic (Touch Enabled)
         const track = document.getElementById('sliderTrack');
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');
-        let bannerIdx = 0;
+        let currentIndex = 0;
         let isPaused = false;
         let startX = 0;
 
         function updateSlider() {
-            if (track) track.style.transform = `translateX(-${bannerIdx * 100}%)`;
-            dots.forEach((dot, index) => dot.classList.toggle('active', index === bannerIdx));
+            if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
         }
 
-        function handleDown(e) { isPaused = true; startX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX; }
+        function handleDown(e) {
+            isPaused = true;
+            startX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
+        }
+
         function handleUp(e) {
             isPaused = false;
             const endX = e.type.includes('touch') ? e.changedTouches[0].pageX : e.pageX;
             const diff = startX - endX;
+
             if (Math.abs(diff) > 50) {
-                if (diff > 0) bannerIdx = (bannerIdx + 1) % dots.length;
-                else bannerIdx = (bannerIdx - 1 + dots.length) % dots.length;
+                if (diff > 0) currentIndex = (currentIndex + 1) % dots.length;
+                else currentIndex = (currentIndex - 1 + dots.length) % dots.length;
                 updateSlider();
             }
         }
 
-        setInterval(() => { if (!isPaused) { bannerIdx = (bannerIdx + 1) % dots.length; updateSlider(); } }, 3000);
-        dots.forEach((dot, index) => dot.addEventListener('click', () => { bannerIdx = index; updateSlider(); }));
+        setInterval(() => { if (!isPaused) { currentIndex = (currentIndex + 1) % dots.length; updateSlider(); } }, 3000);
+        
+        dots.forEach((dot, index) => dot.addEventListener('click', () => { currentIndex = index; updateSlider(); }));
+
         wrapper.addEventListener('mousedown', handleDown);
         wrapper.addEventListener('mouseup', handleUp);
         wrapper.addEventListener('touchstart', handleDown, {passive: true});
         wrapper.addEventListener('touchend', handleUp, {passive: true});
 
-        // FAQ
+        // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
                 const parent = item.parentElement;

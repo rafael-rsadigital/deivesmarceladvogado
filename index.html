@@ -215,7 +215,6 @@
 
         .hero-bg-layer.active { opacity: 1; }
 
-        /* Camada de Personagens Removida do Desktop para não atrapalhar */
         .hero-person-layer {
             display: none;
         }
@@ -382,6 +381,7 @@
             .hero-overlay { background: radial-gradient(circle at top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 100%); }
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1rem; }
+            .hero .btn-group { display: none !important; } /* Removido da versão mobile */
             .mobile-professionals { display: block; }
             .mobile-bar { display: grid; }
             .floating-wa { display: none; }
@@ -396,7 +396,7 @@
       {
         "@context": "https://schema.org",
         "@type": ["Attorney", "LegalService"],
-        "name": "Dr. Deives Marcel & Drª Adriana D'ingiullo",
+        "name": "Marcel & D'ingiullo - Advogados Associados",
         "legalName": "Marcel & D'ingiullo - Advogados Associados",
         "url": "https://deivesmarceladvogado.vercel.app",
         "telephone": "+55-11-93453-2422",
@@ -464,7 +464,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="logo">
-                    <img src="img/logotipo-fundo-transparente.png" alt="Marcel & D'ingiullo" class="logo-img">
+                    <img src="img/logotipo-letra-branca.png" alt="Marcel & D'ingiullo" class="logo-img">
                 </a>
                 
                 <nav class="desktop-nav">
@@ -634,7 +634,7 @@
                 <div class="faq-item"><div class="faq-question">Advogado criminalista atende 24 horas? <span>+</span></div><div class="faq-answer">Sim. O plantão criminal é 24h para prisões e intercorrências policiais em Mogi e toda região.</div></div>
                 <div class="faq-item"><div class="faq-question">Quanto custa um advogado criminalista? <span>+</span></div><div class="faq-answer">Os honorários seguem a tabela ética da OAB/SP e variam conforme a complexidade de cada caso.</div></div>
                 <div class="faq-item"><div class="faq-question">O advogado pode ir à delegacia em qualquer horário? <span>+</span></div><div class="faq-answer">Sim, é um direito constitucional garantido por lei. O advogado tem livre acesso ao cliente em qualquer repartição policial.</div></div>
-                <div class="faq-item"><div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div><div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e toda a Grande SP.</div></div>
+                <div class="faq-item"><div class="faq-question">Atendimento em Mogi das Cruzes e região? <span>+</span></div><div class="faq-answer">Atuamos intensamente em Mogi das Cruzes, Suzano, Itaquaquecetuba, Poá, Ferraz, São Miguel Paulista e em toda a Grande SP.</div></div>
                 <div class="faq-item"><div class="faq-question">Quando devo procurar um advogado criminal? <span>+</span></div><div class="faq-answer">Imediatamente após receber uma intimação ou ter ciência de qualquer investigação. A defesa preventiva é sempre o melhor caminho.</div></div>
                 <div class="faq-item"><div class="faq-question">Posso falar com a polícia sem a presença de um advogado? <span>+</span></div><div class="faq-answer">Não é recomendável. Você tem o direito de permanecer em silêncio. Falar sem orientação pode prejudicar gravemente a sua defesa futura.</div></div>
                 <div class="faq-item"><div class="faq-question">O que acontece após a prisão em flagrante? <span>+</span></div><div class="faq-answer">Ocorre a Audiência de Custódia em até 24 horas, onde o juiz analisará a legalidade da prisão e a possibilidade de responder em liberdade.</div></div>
@@ -646,8 +646,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-fundo-transparente.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
-                    <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo - Advogados Associados</h3>
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
                     <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
                         Mogi das Cruzes - SP, 08730-480
@@ -665,7 +664,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
-                &copy; <span id="year"></span> Dr. Deives Marcel Simão de Almeida &amp; Drª Adriana D'ingiullo.
+                &copy; <span id="year"></span> Marcel <span class="ampersand">&amp;</span> D'ingiullo - Advogados Associados
             </div>
         </div>
     </footer>

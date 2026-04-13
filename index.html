@@ -16,10 +16,10 @@
     <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000">
 
-    <!-- Fontes Quattrocento (Serif e Sans) -->
+    <!-- Fontes Jurídicas Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Quattrocento+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <style>
@@ -32,8 +32,8 @@
             --text-gray: #b0b0b0;
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             --header-height: 80px;
-            --font-header: 'Quattrocento', serif;
-            --font-body: 'Quattrocento Sans', sans-serif;
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Montserrat', sans-serif;
         }
 
         * {
@@ -49,14 +49,14 @@
         body {
             background-color: var(--bg-black);
             color: var(--text-white);
-            font-family: var(--font-body);
-            line-height: 1.7;
+            font-family: var(--font-sans);
+            line-height: 1.6;
             overflow-x: hidden;
-            padding-bottom: 0; /* Ajustado para mobile bar fixo */
+            padding-bottom: 70px;
         }
 
         h1, h2, h3, h4 {
-            font-family: var(--font-header);
+            font-family: var(--font-serif);
             color: var(--primary-gold);
             font-weight: 700;
         }
@@ -67,19 +67,20 @@
             padding: 0 20px;
         }
 
-        /* Scroll Reveal */
         .reveal {
             opacity: 0;
+            filter: blur(8px);
             transform: translateY(20px);
-            transition: opacity 1s ease, transform 0.8s ease;
+            transition: opacity 1s ease, transform 0.8s ease, filter 0.8s ease;
         }
 
         .reveal.active {
             opacity: 1;
+            filter: blur(0);
             transform: translateY(0);
         }
 
-        /* Header - Barra Preta */
+        /* Header */
         header {
             padding: 0;
             height: var(--header-height);
@@ -102,24 +103,24 @@
         }
 
         .logo-img {
-            max-height: 50px;
+            max-height: 55px;
             width: auto;
+            display: block;
         }
 
         nav.desktop-nav {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav.desktop-nav a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
-            font-family: var(--font-header);
             transition: var(--transition);
         }
 
@@ -127,16 +128,15 @@
             color: var(--primary-gold);
         }
 
-        .insta-link {
+        .insta-icon {
             display: flex;
             align-items: center;
-            color: var(--text-white);
             transition: var(--transition);
         }
 
-        .insta-link:hover {
-            color: var(--primary-gold);
+        .insta-icon:hover {
             transform: scale(1.1);
+            color: var(--primary-gold);
         }
 
         .menu-toggle {
@@ -172,8 +172,8 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            /* Ajustado para 45% para empurrar a testa da advogada mais para baixo */
-            background-position: center 45%; 
+            /* Posicionamento ajustado para não cortar a testa da advogada */
+            background-position: center 30%;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             z-index: 0;
@@ -187,7 +187,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.82);
+            background: rgba(0,0,0,0.85);
             z-index: 1;
         }
 
@@ -201,25 +201,26 @@
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             text-align: left;
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 4.2rem);
-            margin-bottom: 20px;
-            line-height: 1.2;
-            font-weight: 700;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
         }
 
         .hero-sub {
-            font-size: 1rem;
+            font-size: 0.8rem;
             color: var(--text-white);
-            margin-bottom: 35px;
+            font-weight: 600;
+            margin-bottom: 30px;
             letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 1.8;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         .hero .local-seo {
@@ -227,64 +228,66 @@
             font-weight: 700;
             margin-bottom: 15px;
             display: block;
-            font-size: 1rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            font-family: var(--font-header);
+            letter-spacing: 3px;
         }
 
+        /* Botão */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 35px;
-            border-radius: 2px;
+            padding: 14px 30px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 700;
-            font-family: var(--font-header);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             transition: var(--transition);
             cursor: pointer;
             gap: 10px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             border: none;
         }
 
         .btn-gold { background-color: var(--primary-gold); color: #000; }
-        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(198, 165, 92, 0.2); }
         .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
         .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
 
-        /* Side Menu Mobile - Reconstruído para Estabilidade */
+        /* Side Menu - Correção de Visibilidade */
         .side-menu {
             position: fixed;
             top: 0;
             right: -100%;
             width: 85%;
             max-width: 320px;
-            height: 100vh;
+            height: 100%;
             background: #000;
-            z-index: 5000;
+            z-index: 4500;
             padding: 100px 30px;
-            box-shadow: -15px 0 50px rgba(0,0,0,0.9);
+            box-shadow: -10px 0 50px rgba(0,0,0,0.9);
             transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             border-left: 1px solid rgba(198, 165, 92, 0.3);
             display: flex;
             flex-direction: column;
         }
 
-        .side-menu.active { right: 0; }
-        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
+        .side-menu.active { 
+            right: 0; 
+        }
+
+        .side-menu nav { display: flex; flex-direction: column; gap: 20px; }
         .side-menu nav a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 1.2rem;
-            font-family: var(--font-header);
+            font-size: 1.1rem;
             font-weight: 700;
+            font-family: var(--font-serif);
             text-transform: uppercase;
             border-bottom: 1px solid rgba(198, 165, 92, 0.1);
-            padding-bottom: 15px;
+            padding-bottom: 12px;
         }
 
         .menu-overlay {
@@ -292,9 +295,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             background: rgba(0,0,0,0.85);
-            z-index: 4500;
+            z-index: 4000;
             display: none;
             backdrop-filter: blur(8px);
         }
@@ -307,7 +310,6 @@
             position: relative;
             height: 65vh;
             overflow: hidden;
-            border-top: 1px solid rgba(198, 165, 92, 0.1);
         }
 
         .hero-person-mobile {
@@ -330,11 +332,11 @@
 
         .hero-person-mobile img.active { opacity: 1; }
 
-        /* Áreas de Atuação - Fundo Preto solicitado */
+        /* Áreas de Atuação */
         .areas-accordion-section { 
             padding: 80px 0; 
             position: relative; 
-            background-image: linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1920');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)), var(--section-bg-image);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -352,23 +354,25 @@
 
         .accordion-item { 
             border: 1px solid rgba(198, 165, 92, 0.2); 
-            background: rgba(22, 22, 22, 0.9); 
+            border-radius: 4px; 
+            background: rgba(22, 22, 22, 0.8); 
             overflow: hidden; 
             transition: var(--transition);
             height: fit-content;
+            backdrop-filter: blur(10px);
         }
         .accordion-item:hover { border-color: var(--primary-gold); transform: translateY(-5px); }
         .accordion-header { padding: 22px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .accordion-header h3 { font-size: 1rem; letter-spacing: 1px; font-weight: 700; }
-        .accordion-icon { width: 20px; height: 20px; color: var(--primary-gold); transition: transform 0.4s ease; }
+        .accordion-header h3 { font-size: 1.15rem; letter-spacing: 0.5px; }
+        .accordion-icon { width: 25px; height: 25px; color: var(--primary-gold); transition: transform 0.4s ease; }
         .accordion-content { max-height: 0; overflow: hidden; transition: var(--transition); }
         .accordion-item.active .accordion-content { max-height: 500px; }
         .accordion-item.active .accordion-icon { transform: rotate(180deg); }
-        .accordion-body { padding: 0 22px 22px; color: var(--text-gray); font-size: 0.95rem; line-height: 1.8; }
+        .accordion-body { padding: 0 22px 22px; color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
 
-        /* FAQ - Fundo Preto solicitado */
+        /* FAQ */
         #faq {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1920');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)), var(--section-bg-image);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -391,10 +395,11 @@
         }
         .faq-item { 
             border: 1px solid rgba(198, 165, 92, 0.15); 
+            border-radius: 4px; 
             background: var(--card-black); 
         }
-        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-family: var(--font-header); color: var(--primary-gold); font-size: 1rem; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); font-size: 0.95rem; line-height: 1.8; }
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-family: var(--font-serif); color: var(--primary-gold); font-size: 1.05rem; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
         .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 300px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
 
         /* Footer */
@@ -412,29 +417,29 @@
             align-items: start;
         }
         
-        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 1.1rem; font-family: var(--font-header); }
+        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--font-serif); }
         .footer-links-group ul { list-style: none; }
         .footer-links-group ul li { margin-bottom: 12px; }
         .footer-links-group a {
             color: var(--text-gray);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .footer-links-group a:hover { color: var(--primary-gold); transform: translateX(5px); }
 
-        .footer-map-container { width: 100%; margin-top: 30px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.2); }
+        .footer-map-container { width: 100%; margin-top: 30px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.1); }
         .footer-map-container iframe { width: 100%; height: 250px; border: 0; display: block; }
 
         .mobile-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: none; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--primary-gold); z-index: 5000; }
-        .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 700; font-family: var(--font-header); display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-size: 0.9rem; }
+        .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-size: 0.9rem; }
         .bar-wa { background: #25d366; color: #000 !important; }
         .bar-call { background: #111; color: var(--primary-gold) !important; }
 
-        .ampersand { color: var(--primary-gold); font-weight: 400; font-style: italic; }
+        .ampersand { font-family: var(--font-serif); color: var(--primary-gold); font-style: italic; }
 
         /* Reponsividade */
         @media (max-width: 1024px) {
@@ -454,7 +459,7 @@
             .hero { 
                 min-height: 55vh; 
                 text-align: center; 
-                padding-top: 50px; 
+                padding-top: 40px; 
                 align-items: center; 
                 background-image: none !important;
                 background-color: #000;
@@ -464,10 +469,10 @@
             .hero .container { padding: 0 30px; text-align: center; }
             .hero-content { margin: 0 auto; text-align: center; }
             
-            /* Melhoria na distribuição de texto Mobile solicitada */
-            .hero h1 { font-size: 2.1rem; margin-bottom: 40px; line-height: 1.5; font-weight: 700; }
-            .hero .local-seo { font-size: 0.9rem; margin-bottom: 35px; letter-spacing: 5px; }
-            .hero-sub { font-size: 0.95rem; margin-bottom: 50px; letter-spacing: 2px; line-height: 2; }
+            /* Melhoria na distribuição de texto Mobile */
+            .hero h1 { font-size: 1.9rem; margin-bottom: 35px; line-height: 1.5; font-family: var(--font-serif); }
+            .hero .local-seo { font-size: 0.8rem; margin-bottom: 30px; letter-spacing: 4px; }
+            .hero-sub { font-size: 0.85rem; margin-bottom: 45px; letter-spacing: 2px; line-height: 1.8; }
             
             .hero .btn-group { display: none !important; }
             
@@ -478,6 +483,36 @@
             .accordion-header h3 { font-size: 1.1rem; }
         }
     </style>
+
+    <!-- Schema Logic -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Marcel & D'ingiullo - Advogados Associados",
+        "url": "https://deivesmarceladvogado.vercel.app",
+        "logo": "https://deivesmarceladvogado.vercel.app/img/logotipo-letra-branca.png",
+        "sameAs": ["https://www.instagram.com/deivesmarcelcriminalista/"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": ["Attorney", "LegalService"],
+        "name": "Marcel & D'ingiullo - Advogados Associados",
+        "legalName": "Marcel & D'ingiullo - Advogados Associados",
+        "url": "https://deivesmarceladvogado.vercel.app",
+        "telephone": "+55-11-93453-2422",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Gaspar Conqueiro, 118 - Vila Vitoria",
+          "addressLocality": "Mogi das Cruzes",
+          "addressRegion": "SP",
+          "postalCode": "08730-480",
+          "addressCountry": "BR"
+        }
+      }
+    ]
+    </script>
 </head>
 <body>
 
@@ -494,9 +529,9 @@
                     <a href="/direito-transito">Direito de Trânsito</a>
                     <a href="/livros">Livros</a>
                     <a href="#contato">Contato</a>
-                    <!-- Ícone Instagram Menu Superior -->
-                    <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" class="insta-link" title="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <!-- Instagram Link -->
+                    <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" class="insta-icon" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
                 </nav>
 
@@ -520,8 +555,8 @@
             <a href="/direito-transito">Direito de Trânsito</a>
             <a href="/livros">Livros</a>
             <a href="#contato">Contato</a>
-            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="border:none; margin-top:15px; display: flex; gap: 10px; align-items: center;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="border:none; margin-top:10px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 Instagram
             </a>
         </nav>
@@ -624,7 +659,7 @@
         </div>
     </section>
 
-    <!-- Banner Carousel Principal -->
+    <!-- Banner Carousel -->
     <section class="banner-slider reveal">
         <div class="container">
             <div class="slider-wrapper" id="sliderWrapper">
@@ -664,15 +699,15 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 25px;">
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
                     <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
-                    <p style="color: var(--text-gray); font-size: 0.95rem; margin-top: 10px; font-family: var(--font-body);">
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
                         Mogi das Cruzes - SP, 08730-480
                     </p>
                 </div>
                 <div class="footer-links footer-links-group">
-                    <h4>Navegação</h4>
+                    <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="/advogado-criminalista">Advogado Criminalista</a></li>
                         <li><a href="/direito-bancario">Direito Bancário</a></li>
@@ -680,7 +715,7 @@
                         <li><a href="/livros">Livros</a></li>
                         <li>
                             <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                                 Instagram
                             </a>
                         </li>
@@ -696,7 +731,7 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
             </div>
             <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
-                &copy; <span id="year"></span> Marcel &amp; D'ingiullo - Advogados Associados
+                &copy; <span id="year"></span> Marcel <span class="ampersand">&amp;</span> D'ingiullo - Advogados Associados
             </div>
         </div>
     </footer>
@@ -715,20 +750,21 @@
         const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        // Função de Menu Mobile Estabilizada
+        // Lógica de Scroll do Header
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Função para abrir/fechar menu mobile - Corrigido
         const toggleMenu = () => {
             sideMenu.classList.toggle('active');
             menuOverlay.classList.toggle('active');
-            if (sideMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
         };
 
         menuToggle.addEventListener('click', toggleMenu);
         menuOverlay.addEventListener('click', toggleMenu);
 
+        // Fechar menu ao clicar em links
         document.querySelectorAll('.side-menu nav a').forEach(link => {
             link.addEventListener('click', toggleMenu);
         });
@@ -737,7 +773,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
         // Sincronização Mobile fotos
@@ -752,7 +788,7 @@
         }
         setInterval(nextMobileSlide, 3000);
 
-        // Slider de Fundo Web (Alternância 3s)
+        // Slider de Fundo Web
         let currentWebSlide = 0;
         function nextWebSlide() {
             if (window.innerWidth > 768) {

@@ -16,10 +16,10 @@
     <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000">
 
-    <!-- Fontes Jurídicas Premium -->
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <style>
@@ -31,9 +31,8 @@
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --section-bg-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1920');
             --header-height: 80px;
-            --font-serif: 'Lora', serif;
-            --font-sans: 'Montserrat', sans-serif;
         }
 
         * {
@@ -49,16 +48,15 @@
         body {
             background-color: var(--bg-black);
             color: var(--text-white);
-            font-family: var(--font-sans);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             padding-bottom: 70px;
         }
 
         h1, h2, h3, h4 {
-            font-family: var(--font-serif);
+            font-family: 'Playfair Display', serif;
             color: var(--primary-gold);
-            font-weight: 700;
         }
 
         .container {
@@ -67,6 +65,7 @@
             padding: 0 20px;
         }
 
+        /* Efeito Scroll Reveal */
         .reveal {
             opacity: 0;
             filter: blur(8px);
@@ -80,7 +79,7 @@
             transform: translateY(0);
         }
 
-        /* Header */
+        /* Header - Barra Preta Sólida conforme pedido */
         header {
             padding: 0;
             height: var(--header-height);
@@ -88,11 +87,12 @@
             width: 100%;
             top: 0;
             left: 0;
-            background: #000;
+            background: #000; /* Barra preta solicitada */
             z-index: 3500;
             display: flex;
             align-items: center;
             border-bottom: 1px solid rgba(198, 165, 92, 0.2);
+            transition: var(--transition);
         }
 
         .nav-wrapper {
@@ -103,39 +103,27 @@
         }
 
         .logo-img {
-            max-height: 55px;
+            max-height: 50px;
             width: auto;
             display: block;
         }
 
         nav.desktop-nav {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         nav.desktop-nav a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-weight: 700;
+            font-weight: 600;
             transition: var(--transition);
         }
 
         nav.desktop-nav a:hover {
-            color: var(--primary-gold);
-        }
-
-        .insta-icon {
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .insta-icon:hover {
-            transform: scale(1.1);
             color: var(--primary-gold);
         }
 
@@ -152,12 +140,13 @@
             width: 30px;
             height: 2px;
             background-color: var(--primary-gold);
+            transition: var(--transition);
         }
 
-        /* Hero Section */
+        /* Hero Section - Imagem inicia abaixo da barra */
         .hero {
             position: relative;
-            margin-top: var(--header-height);
+            margin-top: var(--header-height); /* Inicia abaixo da barra */
             min-height: calc(100vh - var(--header-height));
             display: flex;
             align-items: center;
@@ -172,8 +161,7 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            /* Posicionamento ajustado para não cortar a testa da advogada */
-            background-position: center 30%;
+            background-position: center;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             z-index: 0;
@@ -187,7 +175,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.8);
             z-index: 1;
         }
 
@@ -206,31 +194,29 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(2.2rem, 5vw, 4rem);
             margin-bottom: 15px;
             line-height: 1.3;
-            letter-spacing: -0.5px;
         }
 
         .hero-sub {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-white);
             font-weight: 600;
             margin-bottom: 30px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             line-height: 1.8;
-            opacity: 0.9;
         }
 
         .hero .local-seo {
             color: var(--dark-gold);
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 15px;
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         /* Botão */
@@ -238,56 +224,51 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 30px;
+            padding: 12px 25px;
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             transition: var(--transition);
             cursor: pointer;
             gap: 10px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             border: none;
+            white-space: nowrap;
         }
 
         .btn-gold { background-color: var(--primary-gold); color: #000; }
-        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(198, 165, 92, 0.2); }
+        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-2px); }
         .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
         .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
 
-        /* Side Menu - Correção de Visibilidade */
+        /* Side Menu */
         .side-menu {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 85%;
+            width: 80%;
             max-width: 320px;
             height: 100%;
             background: #000;
             z-index: 4500;
             padding: 100px 30px;
-            box-shadow: -10px 0 50px rgba(0,0,0,0.9);
-            transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 1px solid rgba(198, 165, 92, 0.3);
-            display: flex;
-            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+            transition: right 0.4s ease;
+            border-left: 1px solid rgba(198, 165, 92, 0.2);
         }
 
-        .side-menu.active { 
-            right: 0; 
-        }
-
-        .side-menu nav { display: flex; flex-direction: column; gap: 20px; }
+        .side-menu.active { right: 0; }
+        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
         .side-menu nav a {
             color: var(--text-white);
             text-decoration: none;
             font-size: 1.1rem;
-            font-weight: 700;
-            font-family: var(--font-serif);
+            font-weight: 600;
             text-transform: uppercase;
             border-bottom: 1px solid rgba(198, 165, 92, 0.1);
-            padding-bottom: 12px;
+            padding-bottom: 10px;
         }
 
         .menu-overlay {
@@ -296,10 +277,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.8);
             z-index: 4000;
             display: none;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
         }
         .menu-overlay.active { display: block; }
 
@@ -308,7 +289,7 @@
             display: none;
             background: var(--bg-black);
             position: relative;
-            height: 65vh;
+            height: 70vh;
             overflow: hidden;
         }
 
@@ -332,15 +313,15 @@
 
         .hero-person-mobile img.active { opacity: 1; }
 
-        /* Áreas de Atuação */
+        /* Áreas de Atuação - Fundo Preto solicitado */
         .areas-accordion-section { 
             padding: 80px 0; 
             position: relative; 
-            background-image: linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)), var(--section-bg-image);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.96)), var(--section-bg-image);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #000;
+            background-color: #000; /* Fundo preto solicitado */
         }
         .section-intro { text-align: center; margin-bottom: 50px; }
         
@@ -354,30 +335,47 @@
 
         .accordion-item { 
             border: 1px solid rgba(198, 165, 92, 0.2); 
-            border-radius: 4px; 
-            background: rgba(22, 22, 22, 0.8); 
+            border-radius: 8px; 
+            background: var(--card-black); 
             overflow: hidden; 
             transition: var(--transition);
             height: fit-content;
-            backdrop-filter: blur(10px);
         }
-        .accordion-item:hover { border-color: var(--primary-gold); transform: translateY(-5px); }
-        .accordion-header { padding: 22px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .accordion-header h3 { font-size: 1.15rem; letter-spacing: 0.5px; }
+        .accordion-item:hover { border-color: var(--primary-gold); }
+        .accordion-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .accordion-header h3 { font-size: 1.1rem; }
         .accordion-icon { width: 25px; height: 25px; color: var(--primary-gold); transition: transform 0.4s ease; }
         .accordion-content { max-height: 0; overflow: hidden; transition: var(--transition); }
         .accordion-item.active .accordion-content { max-height: 500px; }
         .accordion-item.active .accordion-icon { transform: rotate(180deg); }
-        .accordion-body { padding: 0 22px 22px; color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
+        .accordion-body { padding: 0 20px 20px; color: var(--text-gray); font-size: 0.9rem; }
 
-        /* FAQ */
+        /* Banner Slider */
+        .banner-slider { 
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 40px 0; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .slider-wrapper { position: relative; max-width: 420px; margin: 0 auto; border: 1px solid rgba(198, 165, 92, 0.4); border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: grab; background: #0d0d0d; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; }
+        .slider-item { min-width: 100%; height: 100%; }
+        .slider-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slider-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+        .dot { width: 12px; height: 12px; background: #222; border-radius: 50%; cursor: pointer; border: 1px solid var(--primary-gold); }
+        .dot.active { background: var(--primary-gold); transform: scale(1.3); }
+
+        /* FAQ - Fundo Preto solicitado */
         #faq {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97)), var(--section-bg-image);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.96)), var(--section-bg-image);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             padding: 80px 0;
-            background-color: #000;
+            background-color: #000; /* Fundo preto solicitado */
         }
 
         .section-title {
@@ -389,7 +387,7 @@
         .faq-wrapper { 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px 30px;
+            gap: 15px 30px;
             max-width: 1100px; 
             margin: 0 auto; 
         }
@@ -398,9 +396,9 @@
             border-radius: 4px; 
             background: var(--card-black); 
         }
-        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-family: var(--font-serif); color: var(--primary-gold); font-size: 1.05rem; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
-        .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 300px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
+        .faq-question { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-family: 'Playfair Display', serif; color: var(--primary-gold); font-size: 1rem; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text-gray); font-size: 0.9rem; }
+        .faq-item.active .faq-answer { padding-bottom: 18px; max-height: 300px; border-top: 1px solid rgba(198, 165, 92, 0.1); }
 
         /* Footer */
         footer { 
@@ -417,29 +415,25 @@
             align-items: start;
         }
         
-        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--font-serif); }
+        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .footer-links-group ul { list-style: none; }
         .footer-links-group ul li { margin-bottom: 12px; }
         .footer-links-group a {
             color: var(--text-gray);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
-        .footer-links-group a:hover { color: var(--primary-gold); transform: translateX(5px); }
+        .footer-links-group a:hover { color: var(--primary-gold); }
 
-        .footer-map-container { width: 100%; margin-top: 30px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.1); }
+        .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.2); }
         .footer-map-container iframe { width: 100%; height: 250px; border: 0; display: block; }
 
-        .mobile-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: none; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--primary-gold); z-index: 5000; }
-        .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-size: 0.9rem; }
+        /* Mobile Action Bar */
+        .mobile-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: none; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--primary-gold); z-index: 3000; }
+        .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
         .bar-wa { background: #25d366; color: #000 !important; }
-        .bar-call { background: #111; color: var(--primary-gold) !important; }
-
-        .ampersand { font-family: var(--font-serif); color: var(--primary-gold); font-style: italic; }
+        .bar-call { background: var(--bg-black); color: var(--primary-gold) !important; }
 
         /* Reponsividade */
         @media (max-width: 1024px) {
@@ -459,20 +453,20 @@
             .hero { 
                 min-height: 55vh; 
                 text-align: center; 
-                padding-top: 40px; 
+                padding-top: 50px; 
                 align-items: center; 
                 background-image: none !important;
                 background-color: #000;
             }
             .hero-bg-layer { display: none; }
             .hero-overlay { background: none; }
-            .hero .container { padding: 0 30px; text-align: center; }
+            .hero .container { padding-left: 20px; padding-right: 20px; text-align: center; } /* Centralização solicitada */
             .hero-content { margin: 0 auto; text-align: center; }
             
-            /* Melhoria na distribuição de texto Mobile */
-            .hero h1 { font-size: 1.9rem; margin-bottom: 35px; line-height: 1.5; font-family: var(--font-serif); }
-            .hero .local-seo { font-size: 0.8rem; margin-bottom: 30px; letter-spacing: 4px; }
-            .hero-sub { font-size: 0.85rem; margin-bottom: 45px; letter-spacing: 2px; line-height: 1.8; }
+            /* Espaçamento maior entre textos mobile solicitado */
+            .hero h1 { font-size: 1.8rem; margin-bottom: 30px; line-height: 1.5; }
+            .hero .local-seo { font-size: 0.75rem; margin-bottom: 25px; letter-spacing: 3px; }
+            .hero-sub { font-size: 0.8rem; margin-bottom: 40px; letter-spacing: 2px; line-height: 1.7; }
             
             .hero .btn-group { display: none !important; }
             
@@ -529,10 +523,6 @@
                     <a href="/direito-transito">Direito de Trânsito</a>
                     <a href="/livros">Livros</a>
                     <a href="#contato">Contato</a>
-                    <!-- Instagram Link -->
-                    <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" class="insta-icon" title="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
                 </nav>
 
                 <div class="header-cta">
@@ -546,7 +536,6 @@
         </div>
     </header>
 
-    <!-- Menu Lateral Mobile Corrigido -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="side-menu" id="sideMenu">
         <nav>
@@ -555,10 +544,6 @@
             <a href="/direito-transito">Direito de Trânsito</a>
             <a href="/livros">Livros</a>
             <a href="#contato">Contato</a>
-            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="border:none; margin-top:10px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                Instagram
-            </a>
         </nav>
     </div>
 
@@ -713,12 +698,6 @@
                         <li><a href="/direito-bancario">Direito Bancário</a></li>
                         <li><a href="/direito-transito">Direito de Trânsito</a></li>
                         <li><a href="/livros">Livros</a></li>
-                        <li>
-                            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                Instagram
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <div class="footer-links footer-links-group">
@@ -731,12 +710,11 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
             </div>
             <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
-                &copy; <span id="year"></span> Marcel <span class="ampersand">&amp;</span> D'ingiullo - Advogados Associados
+                &copy; <span id="year"></span> Marcel &amp; D'ingiullo - Advogados Associados
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Action Bar -->
     <div class="mobile-bar">
         <a onclick="openContactModal('tel')" class="bar-call">Ligar Agora</a>
         <a onclick="openContactModal('wa')" class="bar-wa">WhatsApp 24h</a>
@@ -818,7 +796,7 @@
             });
         });
 
-        // Banner Slider Logic (Touch Robust)
+        // Banner Slider Logic
         const track = document.getElementById('sliderTrack');
         const dots = Array.from(document.getElementById('sliderDots').children);
         const wrapper = document.getElementById('sliderWrapper');

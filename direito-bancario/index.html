@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advogado Direito Bancário em Mogi das Cruzes | Marcel & D'ingiullo</title>
+    <meta name="description" content="Advogado especialista em Direito Bancário em Mogi das Cruzes. Defesa contra juros abusivos, revisão de contratos, busca e apreensão de veículos e fraudes bancárias. Consulta imediata.">
+    <meta name="keywords" content="advogado direito bancário mogi das cruzes, juros abusivos mogi das cruzes, revisão de contrato bancário mogi, busca e apreensão veículo mogi das cruzes, advogado banco mogi, fraude bancária mogi das cruzes, superendividamento alto tietê">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://deivesmarceladvogado.vercel.app/direito-bancario">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Advogado Direito Bancário em Mogi das Cruzes | Marcel & D'ingiullo">
+    <meta property="og:description" content="Defesa especializada contra juros abusivos, revisão contratual e busca e apreensão em Mogi das Cruzes e região.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/direito-bancario">
+    <meta property="og:image" content="img/direito-bancario-e-direito-de-transito.jpg">
+
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://deivesmarceladvogado.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Direito Bancário", "item": "https://deivesmarceladvogado.vercel.app/direito-bancario" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": ["Attorney", "LegalService"],
+        "name": "Marcel & D'ingiullo - Advogados Associados",
+        "description": "Escritório especializado em Direito Bancário em Mogi das Cruzes",
+        "url": "https://deivesmarceladvogado.vercel.app/direito-bancario",
+        "telephone": "+55-11-99614-0860",
+        "knowsAbout": "Banking Law",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Gaspar Conqueiro, 118 - Vila Vitoria",
+          "addressLocality": "Mogi das Cruzes",
+          "addressRegion": "SP",
+          "postalCode": "08730-480",
+          "addressCountry": "BR"
+        }
+      }
+    ]
+    </script>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gold: #C6A55C;
+            --dark-gold: #a68a4b;
+            --bg-black: #0a0a0a;
+            --card-black: #161616;
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --header-height: 90px;
+            --section-bg-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1920');
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 0;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary-gold); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            filter: blur(8px);
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 0.8s ease, filter 0.8s ease;
+        }
+        .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+        /* ─── HEADER ─── */
+        header {
+            padding: 0;
+            height: var(--header-height);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: transparent;
+            z-index: 3500;
+            display: flex;
+            align-items: center;
+            border-bottom: none;
+            transition: var(--transition);
+        }
+        header.scrolled {
+            background: rgba(0,0,0,0.95);
+            height: 70px;
+            border-bottom: 1px solid rgba(198,165,92,0.2);
+            backdrop-filter: blur(10px);
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo-img { max-height: 75px; width: auto; display: block; transition: max-height 0.3s ease; }
+        header.scrolled .logo-img { max-height: 50px; }
+
+        nav.desktop-nav { display: flex; gap: 20px; align-items: center; }
+        nav.desktop-nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        nav.desktop-nav a:hover { color: var(--primary-gold); }
+
+        .insta-btn { display: flex; align-items: center; color: #fff; transition: var(--transition); }
+        .insta-btn:hover { color: var(--primary-gold); transform: scale(1.1); }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 4000;
+            padding: 10px;
+        }
+        .menu-toggle span { width: 30px; height: 2px; background-color: var(--primary-gold); transition: var(--transition); }
+
+        /* ─── HERO ─── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .hero-bg-layer {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 0;
+        }
+        .hero-bg-layer.active { opacity: 1; }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.80); z-index: 1;
+        }
+        .hero .container { max-width: 100%; margin: 0; padding-left: 4%; width: 100%; position: relative; z-index: 10; }
+        .hero-content { max-width: 800px; text-align: left; }
+        .mobile-hero-logo { display: none; max-height: 120px; width: auto; margin: 0 auto 30px; }
+
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 15px; line-height: 1.3; }
+        .hero-sub {
+            font-size: 0.75rem; color: var(--text-white); font-weight: 600;
+            margin-bottom: 30px; letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.8;
+        }
+        .hero .local-seo {
+            color: var(--dark-gold); font-weight: 600; margin-bottom: 15px;
+            display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
+        }
+        .hero .badge-urgencia {
+            display: inline-block;
+            background: rgba(198,165,92,0.12);
+            border: 1px solid rgba(198,165,92,0.4);
+            color: var(--primary-gold);
+            padding: 8px 16px; border-radius: 40px;
+            font-size: 0.85rem; font-weight: 600;
+            margin-top: 25px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* ─── BOTÕES ─── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 25px; border-radius: 4px; text-decoration: none !important;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            transition: var(--transition); cursor: pointer; gap: 10px;
+            font-size: 0.8rem; border: none; white-space: nowrap;
+        }
+        .btn-gold { background-color: var(--primary-gold); color: #000; }
+        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
+        .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        /* ─── SIDE MENU ─── */
+        .side-menu {
+            position: fixed; top: 0; right: -100%;
+            width: 80%; max-width: 320px; height: 100%;
+            background: #000; z-index: 4500; padding: 100px 30px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8); transition: right 0.4s ease;
+            border-left: 1px solid rgba(198,165,92,0.2);
+        }
+        .side-menu.active { right: 0; }
+        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
+        .side-menu nav a {
+            color: var(--text-white); text-decoration: none; font-size: 1.1rem;
+            font-weight: 600; text-transform: uppercase;
+            border-bottom: 1px solid rgba(198,165,92,0.1); padding-bottom: 10px;
+        }
+
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 4000; display: none; backdrop-filter: blur(5px);
+        }
+        .menu-overlay.active { display: block; }
+
+        /* ─── BREADCRUMB ─── */
+        .breadcrumb-bar {
+            background: #111;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(198,165,92,0.1);
+        }
+        .breadcrumb-bar nav { font-size: 0.8rem; color: var(--text-gray); }
+        .breadcrumb-bar a { color: var(--primary-gold); text-decoration: none; }
+        .breadcrumb-bar a:hover { text-decoration: underline; }
+        .breadcrumb-bar span { margin: 0 8px; color: #444; }
+
+        /* ─── INTRO COPY ─── */
+        .intro-copy-section { background: #000; padding: 80px 0; }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
+        .intro-left h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; }
+        .intro-left .lead-tag {
+            display: inline-block;
+            background: rgba(198,165,92,0.1);
+            color: var(--primary-gold);
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            padding: 5px 12px; border-radius: 3px; margin-bottom: 20px;
+            font-family: 'Inter', sans-serif; font-weight: 600;
+        }
+        .intro-right { border-left: 3px solid var(--primary-gold); padding-left: 30px; }
+        .intro-right p { color: var(--text-gray); margin-bottom: 20px; font-size: 1.05rem; }
+        .intro-right p:last-child { margin-bottom: 0; }
+
+        /* ─── CARDS DE SITUAÇÃO ─── */
+        .situacao-cards-section { background: #0d0d0d; padding: 80px 0; }
+        .situacao-intro { text-align: center; margin-bottom: 50px; }
+        .situacao-intro h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .situacao-intro p { color: var(--text-gray); max-width: 600px; margin: 0 auto; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .situacao-card {
+            background: var(--card-black);
+            border: 1px solid rgba(198,165,92,0.2);
+            padding: 40px 30px; border-radius: 8px;
+            transition: var(--transition); text-align: center;
+        }
+        .situacao-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; display: inline-block; }
+        .situacao-card h3 { font-size: 1.2rem; margin-bottom: 12px; color: var(--primary-gold); }
+        .situacao-card p { color: var(--text-gray); font-size: 0.92rem; line-height: 1.65; }
+
+        /* ─── ACCORDION ─── */
+        .areas-accordion-section {
+            padding: 80px 0; position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.96), rgba(0,0,0,0.96)), var(--section-bg-image);
+            background-size: cover; background-position: center;
+            background-attachment: fixed; background-color: #000;
+        }
+        .section-intro { text-align: center; margin-bottom: 50px; }
+        .section-intro p { color: var(--text-gray); max-width: 600px; margin: 10px auto 0; }
+
+        .accordion-container {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px; max-width: 1150px; margin: 0 auto;
+        }
+        .accordion-item {
+            border: 1px solid rgba(198,165,92,0.2); border-radius: 8px;
+            background: var(--card-black); overflow: hidden;
+            transition: var(--transition); height: fit-content;
+        }
+        .accordion-item:hover { border-color: var(--primary-gold); }
+        .accordion-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .accordion-header h3 { font-size: 1.05rem; }
+        .accordion-icon { width: 25px; height: 25px; color: var(--primary-gold); transition: transform 0.4s ease; flex-shrink: 0; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: var(--transition); }
+        .accordion-item.active .accordion-content { max-height: 500px; }
+        .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+        .accordion-body { padding: 0 20px 20px; color: var(--text-gray); font-size: 0.9rem; }
+
+        /* ─── CTA PARALLAX ─── */
+        .cta-parallax-section {
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('img/direito-bancario-e-direito-de-transito.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            padding: 100px 0; text-align: center;
+        }
+        .cta-content { max-width: 800px; margin: 0 auto; }
+        .cta-content h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 20px; }
+        .cta-content p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 35px; }
+        .cta-content .btn { font-size: 1rem; padding: 16px 40px; }
+        .cta-content .cta-region {
+            display: block; margin-top: 20px; font-size: 0.85rem;
+            color: var(--primary-gold); letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        /* ─── FAQ ─── */
+        #faq {
+            background-image: linear-gradient(rgba(0,0,0,0.96), rgba(0,0,0,0.96)), var(--section-bg-image);
+            background-size: cover; background-position: center;
+            background-attachment: fixed; padding: 80px 0; background-color: #000;
+        }
+        .section-title { width: 100%; text-align: center !important; margin-bottom: 50px; }
+
+        .faq-wrapper {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px; max-width: 1100px; margin: 0 auto;
+        }
+        .faq-item { border: 1px solid rgba(198,165,92,0.15); border-radius: 4px; background: var(--card-black); }
+        .faq-question {
+            padding: 18px 20px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+            font-weight: 600; font-family: 'Playfair Display', serif;
+            color: var(--primary-gold); font-size: 1rem;
+        }
+        .faq-answer {
+            padding: 0 20px; max-height: 0; overflow: hidden;
+            transition: all 0.4s ease; color: var(--text-gray); font-size: 0.9rem;
+        }
+        .faq-item.active .faq-answer { padding-bottom: 18px; max-height: 300px; border-top: 1px solid rgba(198,165,92,0.1); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #050505; padding: 80px 0 60px;
+            border-top: 1px solid rgba(198,165,92,0.2);
+            position: relative; z-index: 10;
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: start; }
+        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links-group ul { list-style: none; }
+        .footer-links-group ul li { margin-bottom: 12px; }
+        .footer-links-group a { color: var(--text-gray); text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
+        .footer-links-group a:hover { color: var(--primary-gold); }
+        .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198,165,92,0.2); }
+        .footer-map-container iframe { width: 100%; height: 250px; border: 0; display: block; }
+
+        /* ─── CONTACT MODAL ─── */
+        .contact-modal {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #111; z-index: 6000; padding: 30px 20px;
+            border-top: 3px solid var(--primary-gold); border-radius: 20px 20px 0 0;
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), visibility 0.5s;
+            transform: translateY(100%); visibility: hidden;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+        }
+        .contact-modal.active { transform: translateY(0); visibility: visible; }
+        .modal-options { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; }
+        .modal-option {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #222; padding: 15px 20px; border-radius: 8px;
+            text-decoration: none; color: #fff;
+            border: 1px solid rgba(198,165,92,0.1); transition: var(--transition);
+        }
+        .modal-option:hover { border-color: var(--primary-gold); background: #1a1a1a; }
+        .modal-option h5 { font-weight: 600; color: var(--primary-gold); font-size: 1rem; font-family: 'Playfair Display', serif; }
+        .modal-option p { color: var(--text-gray); font-size: 0.8rem; margin-top: 2px; }
+        #contactOverlay { z-index: 5500; }
+
+        /* ─── MOBILE BAR ─── */
+        .mobile-bar {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #000; display: none; grid-template-columns: 1fr 1fr;
+            border-top: 2px solid var(--primary-gold); z-index: 3000;
+        }
+        .mobile-bar a {
+            padding: 18px; text-align: center; text-decoration: none;
+            color: #fff; font-weight: 600; display: flex;
+            align-items: center; justify-content: center; gap: 10px; cursor: pointer;
+        }
+        .bar-wa { background: #25d366; color: #000 !important; }
+        .bar-call { background: var(--bg-black); color: var(--primary-gold) !important; }
+
+        .ampersand { font-family: 'Inter', sans-serif; font-weight: 400; color: inherit; }
+
+        /* ─── RESPONSIVIDADE ─── */
+        @media (max-width: 1024px) {
+            .accordion-container { grid-template-columns: repeat(2, 1fr); }
+            .faq-wrapper { grid-template-columns: 1fr; }
+            .intro-grid { grid-template-columns: 1fr; gap: 30px; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 992px) {
+            nav.desktop-nav, .header-cta { display: none; }
+            .menu-toggle { display: flex; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-bottom: 60px; }
+
+            header { opacity: 0; pointer-events: none; transform: translateY(-100%); }
+            header.scrolled {
+                opacity: 1; pointer-events: auto; transform: translateY(0);
+                background: #000; height: 70px;
+            }
+
+            .hero {
+                min-height: 60vh; text-align: center; padding-top: 40px;
+                align-items: center; background-image: none !important; background-color: #000;
+            }
+            .hero-bg-layer { display: none; }
+            .hero-overlay { background: none; }
+            .hero .container { padding: 0 25px; text-align: center; }
+            .hero-content { margin: 0 auto; text-align: center; }
+            .mobile-hero-logo { display: block; }
+
+            .hero h1 { font-size: 1.8rem; margin-bottom: 30px; line-height: 1.5; }
+            .hero .local-seo { font-size: 0.75rem; margin-bottom: 25px; letter-spacing: 3px; }
+            .hero-sub { font-size: 0.8rem; margin-bottom: 40px; letter-spacing: 2px; line-height: 1.7; }
+            .hero .btn-group { display: none !important; }
+
+            .accordion-container { grid-template-columns: 1fr; }
+            .mobile-bar { display: grid; }
+            .accordion-header h3 { font-size: 1rem; }
+
+            .cta-parallax-section { background-attachment: scroll; }
+            .areas-accordion-section { background-attachment: scroll; }
+            #faq { background-attachment: scroll; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HEADER ─── -->
+    <header id="mainHeader">
+        <div class="container" style="max-width: 100%; width: 100%;">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <img src="img/logotipo-letra-branca.png" alt="Marcel & D'ingiullo Advogados Associados" class="logo-img">
+                </a>
+                <nav class="desktop-nav">
+                    <a href="/advogado-criminalista">Advogado Criminalista</a>
+                    <a href="/direito-bancario">Direito Bancário</a>
+                    <a href="/direito-transito">Direito de Trânsito</a>
+                    <a href="/livros">Livros</a>
+                    <a href="#contato">Contato</a>
+                    <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" class="insta-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </nav>
+                <div class="header-cta">
+                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold" style="font-size: 0.7rem; padding: 10px 18px;">WhatsApp 24h</a>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <nav>
+            <a href="/advogado-criminalista">Advogado Criminalista</a>
+            <a href="/direito-bancario">Direito Bancário</a>
+            <a href="/direito-transito">Direito de Trânsito</a>
+            <a href="/livros">Livros</a>
+            <a href="#contato">Contato</a>
+            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="border:none; margin-top:10px; display:flex; align-items:center; gap:10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+            </a>
+        </nav>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <div class="hero-bg-layer active" style="background-image: url('img/direito-bancario-e-direito-de-transito.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="mobile-hero-logo">
+                <span class="local-seo">Mogi das Cruzes • Suzano • Alto Tietê</span>
+                <h1>Advogado de Direito Bancário em Mogi das Cruzes</h1>
+                <p class="hero-sub">Defesa do consumidor contra juros abusivos • Revisão contratual • Busca e apreensão de veículos • Fraudes bancárias</p>
+                <div class="btn-group">
+                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">WhatsApp Agora</a>
+                    <a href="javascript:void(0)" onclick="openContactOptions('tel')" class="btn btn-outline">Ligar Agora</a>
+                </div>
+                <div class="badge-urgencia">💼 Consulta Imediata — Fale com a Dra. Adriana</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BREADCRUMB ─── -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <a href="/">Início</a>
+                <span>›</span>
+                <span>Direito Bancário</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ─── INTRO COPY ─── -->
+    <section class="intro-copy-section reveal">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-left">
+                    <span class="lead-tag">Especialista em Direito Bancário</span>
+                    <h2>Defesa Bancária Especializada em Mogi das Cruzes</h2>
+                </div>
+                <div class="intro-right">
+                    <p>O relacionamento com instituições financeiras pode se transformar em uma armadilha silenciosa. Contratos com <strong style="color:var(--primary-gold);">juros abusivos</strong>, cobranças irregulares de tarifas, renegociações ilegais e práticas desleais de crédito são problemas que afetam milhares de consumidores na região de Mogi das Cruzes — e a grande maioria não sabe que tem direito à revisão judicial dessas condições.</p>
+                    <p>A <strong style="color:var(--primary-gold);">Dra. Adriana D'ingiullo</strong>, especialista em Direito Bancário do escritório Marcel & D'ingiullo, atua com precisão técnica na análise contratual e na defesa ativa de clientes contra excessos praticados por bancos, financeiras e cooperativas de crédito. Da <strong style="color:var(--primary-gold);">revisão de contratos de financiamento</strong> até o bloqueio de <strong style="color:var(--primary-gold);">busca e apreensão de veículos</strong>, cada caso é tratado com estratégia individual e foco no melhor resultado possível.</p>
+                    <p>Atuamos também no combate ao <strong style="color:var(--primary-gold);">superendividamento</strong>, na defesa de consumidores vítimas de <strong style="color:var(--primary-gold);">fraudes bancárias e golpes do PIX</strong>, e em ações revisionais de contratos de crédito consignado e empréstimos pessoais. Não enfrente sozinho a estrutura jurídica de uma grande instituição financeira — conte com especialistas que conhecem a fundo a legislação do Código de Defesa do Consumidor e da Lei do Superendividamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CARDS DE SITUAÇÃO ─── -->
+    <section class="situacao-cards-section reveal">
+        <div class="container">
+            <div class="situacao-intro">
+                <h2>Quando Você Precisa de um Advogado Bancário</h2>
+                <p>Reconheça as situações em que a intervenção jurídica pode mudar completamente o desfecho.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="situacao-card">
+                    <span class="card-icon">🚗</span>
+                    <h3>Busca e Apreensão de Veículo</h3>
+                    <p>Se o banco obteve um mandado para retomar seu carro ou moto, é possível contestar judicialmente a ação, suspender a liminar e renegociar as condições do contrato em condições mais justas — inclusive revertendo a busca já em andamento.</p>
+                </div>
+                <div class="situacao-card">
+                    <span class="card-icon">📊</span>
+                    <h3>Juros Abusivos em Contratos</h3>
+                    <p>Taxas acima da média do mercado, capitalização irregular de juros, cobranças de seguros não contratados e tarifas indevidas podem ser contestadas judicialmente, resultando em revisão dos valores e devolução do que foi cobrado a mais.</p>
+                </div>
+                <div class="situacao-card">
+                    <span class="card-icon">🔓</span>
+                    <h3>Fraudes Bancárias e Golpes</h3>
+                    <p>Vítima de golpe do PIX, empréstimo contratado em seu nome por terceiros ou clonagem de cartão? O banco tem responsabilidade objetiva por falhas de segurança. Atuamos para responsabilizá-lo e recuperar os valores perdidos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ACCORDION ─── -->
+    <section class="areas-accordion-section reveal">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Atuação Bancária Detalhada</h2>
+                <p>Nossa expertise cobre todas as frentes do Direito Bancário e do Consumidor.</p>
+            </div>
+            <div class="accordion-container">
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>1. Revisão de Contratos Bancários</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Análise técnica de contratos de financiamento, crédito pessoal, consignado e cartão de crédito para identificar cláusulas abusivas, juros acima do permitido e cobranças irregulares que autorizam ação judicial de revisão e devolução.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>2. Defesa em Busca e Apreensão</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Atuação ágil para suspender liminares de busca e apreensão de veículos financiados, contestando vícios contratuais, mora injusta e procedimentos irregulares adotados pela financeira, garantindo ao devedor o direito de purgação da mora.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>3. Superendividamento</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Aplicação da Lei 14.181/2021 (Lei do Superendividamento) para garantir ao consumidor o direito à renegociação de todas as dívidas em audiência de conciliação com os credores, preservando o mínimo existencial e a dignidade do devedor de boa-fé.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>4. Fraudes e Golpes Digitais</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Defesa de consumidores lesados por golpes do PIX, phishing, clonagem de cartão, transferências não autorizadas e empréstimos fraudulentos. Responsabilização civil do banco por falha no dever de segurança e recuperação judicial dos valores.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>5. Negativação Indevida</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Exclusão judicial de registros indevidos em SPC, Serasa e SCPC, com pedido de indenização por danos morais. Atuamos também na exclusão preventiva de dados e no cancelamento de cobranças de dívidas já extintas ou prescritas.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>6. Crédito Consignado Abusivo</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Revisão de empréstimos consignados contratados com taxas irregulares, portabilidade forçada ou por indução de erro — especialmente em casos envolvendo idosos e aposentados. Ação de cancelamento, revisão e indenização por dano moral.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CTA PARALLAX ─── -->
+    <section class="cta-parallax-section reveal">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Banco Cobrando Absurdos em Mogi das Cruzes?</h2>
+                <p>Não aceite passivamente contratos abusivos ou ações de busca e apreensão. Você tem direitos — e nós sabemos como defendê-los.</p>
+                <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">Falar com a Dra. Adriana Agora →</a>
+                <span class="cta-region">Atendemos Mogi das Cruzes, Suzano, Poá, Itaquaquecetuba e toda a Grande SP</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section id="faq" class="reveal">
+        <div class="container">
+            <div class="section-title"><h2>Perguntas Frequentes — Direito Bancário</h2></div>
+            <div class="faq-wrapper">
+
+                <div class="faq-item">
+                    <div class="faq-question">1. Como saber se meu contrato tem juros abusivos? <span>+</span></div>
+                    <div class="faq-answer">Comparamos a taxa do seu contrato com as taxas médias divulgadas pelo Banco Central para a mesma modalidade de crédito. Se a taxa contratada superar significativamente a média de mercado, há fundamento para revisão judicial.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">2. Recebi uma busca e apreensão — o que fazer agora? <span>+</span></div>
+                    <div class="faq-answer">Não entregue o veículo sem antes consultar um advogado. É possível depositar o valor das parcelas em atraso em juízo (purgação da mora) ou contestar vícios no contrato e no procedimento, suspendendo a liminar da financeira.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">3. Caí em um golpe do PIX — o banco tem responsabilidade? <span>+</span></div>
+                    <div class="faq-answer">Sim. O banco responde objetivamente por falhas em seus sistemas de segurança. Mesmo em casos de engenharia social, a jurisprudência tem reconhecido a responsabilidade da instituição financeira pela ausência de mecanismos antifraude adequados.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">4. Posso cancelar um empréstimo consignado que não pedi? <span>+</span></div>
+                    <div class="faq-answer">Sim. Empréstimos contratados sem o conhecimento ou por vício de consentimento (especialmente envolvendo idosos e aposentados) podem ser anulados judicialmente, com devolução dos valores descontados e indenização por dano moral.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">5. O que é a Lei do Superendividamento? <span>+</span></div>
+                    <div class="faq-answer">A Lei 14.181/2021 criou um procedimento judicial de renegociação global de dívidas para consumidores de boa-fé que não conseguem mais cumprir suas obrigações sem comprometer o mínimo necessário para subsistência própria e familiar.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">6. Quanto tempo leva uma ação de revisão contratual? <span>+</span></div>
+                    <div class="faq-answer">O prazo varia conforme a comarca e complexidade do caso, mas em média ações de revisão bancária levam de 1 a 3 anos. É possível, no entanto, obter tutelas de urgência em dias para suspender cobranças ou negativações indevidas.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">7. Posso ser negativado durante a ação judicial? <span>+</span></div>
+                    <div class="faq-answer">Em muitos casos é possível obter uma liminar proibindo a negativação do nome do consumidor durante a tramitação da ação, especialmente quando há fundada discussão sobre a validade da dívida ou dos valores cobrados.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">8. Atende clientes em Mogi das Cruzes presencialmente? <span>+</span></div>
+                    <div class="faq-answer">Sim. Nosso escritório está localizado na Vila Vitória em Mogi das Cruzes. Também realizamos consultas online para clientes de Suzano, Poá, Itaquaquecetuba e demais municípios da região do Alto Tietê.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer id="contato" class="reveal">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 25px;">
+                    <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
+                    <p style="color:var(--text-gray); font-size:0.95rem; margin-top:10px;">
+                        📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
+                        Mogi das Cruzes - SP, 08730-480
+                    </p>
+                </div>
+                <div class="footer-links footer-links-group">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="/advogado-criminalista">Advogado Criminalista</a></li>
+                        <li><a href="/direito-bancario">Direito Bancário</a></li>
+                        <li><a href="/direito-transito">Direito de Trânsito</a></li>
+                        <li><a href="/livros">Livros</a></li>
+                        <li>
+                            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="display:flex; align-items:center; gap:8px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-group">
+                    <h4>Contacto 24h</h4>
+                    <p>Deives: <a href="tel:11934532422" style="color:var(--text-gray);">(11) 93453-2422</a></p>
+                    <p style="margin-top:10px;">Adriana: <a href="tel:11996140860" style="color:var(--text-gray);">(11) 99614-0860</a></p>
+                </div>
+            </div>
+            <div class="footer-map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+            </div>
+            <div style="text-align:center; margin-top:50px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.05); color:#444; font-size:0.8rem;">
+                &copy; <span id="year"></span> Marcel &amp; D'ingiullo - Advogados Associados
+            </div>
+            <div style="text-align:center; margin-top:15px; color:#444; font-size:0.75rem; font-family:'Inter', sans-serif;">
+                Desenvolvido por <a href="https://wa.me/5512988052097?text=Ol%C3%A1%21+Vim+atrav%C3%A9s+do+site+do+Dr.+Deives+Marcel+e+gostaria+de+saber+mais+sobre+a+gest%C3%A3o+do+Google+Meu+Neg%C3%B3cio." target="_blank" style="color:var(--primary-gold); text-decoration:none; font-weight:600;">RSA Digital | Expert em Google Meu Negócio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ─── CONTACT MODAL ─── -->
+    <div class="menu-overlay" id="contactOverlay"></div>
+    <div class="contact-modal" id="contactOptionsModal">
+        <div style="text-align:center; margin-bottom:20px;">
+            <h4 id="contactModalTitle" style="font-size:1.2rem; font-family:'Playfair Display', serif; color:var(--primary-gold);">Escolha o Especialista</h4>
+        </div>
+        <div class="modal-options">
+            <a href="#" id="modalDeives" class="modal-option">
+                <div>
+                    <h5>Dr. Deives Marcel</h5>
+                    <p>Direito Criminal / Trânsito</p>
+                </div>
+                <svg width="24" height="24" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </a>
+            <a href="#" id="modalAdriana" class="modal-option">
+                <div>
+                    <h5>Dra. Adriana D'ingiullo</h5>
+                    <p>Direito Bancário / Civil</p>
+                </div>
+                <svg width="24" height="24" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </a>
+        </div>
+        <button onclick="closeContactOptions()" style="width:100%; background:transparent; border:none; color:#777; text-decoration:underline; margin-top:10px; cursor:pointer; font-size:0.9rem;">Voltar</button>
+    </div>
+
+    <!-- ─── MOBILE BAR ─── -->
+    <div class="mobile-bar">
+        <a onclick="openContactOptions('tel')" class="bar-call">Ligar Agora</a>
+        <a onclick="openContactOptions('wa')" class="bar-wa">WhatsApp 24h</a>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const header = document.getElementById('mainHeader');
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const contactOverlay = document.getElementById('contactOverlay');
+        const contactModal = document.getElementById('contactOptionsModal');
+
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Menu mobile
+        const toggleMenu = () => {
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        };
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+        document.querySelectorAll('.side-menu nav a').forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Contact modal
+        function openContactOptions(type) {
+            const deivesBtn = document.getElementById('modalDeives');
+            const adrianaBtn = document.getElementById('modalAdriana');
+            const title = document.getElementById('contactModalTitle');
+
+            if (type === 'wa') {
+                title.innerText = "Chamar no WhatsApp";
+                deivesBtn.href = "https://wa.me/5511998868252?text=Olá,%20vim%20pela%20página%20de%20Direito%20Bancário%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel";
+                adrianaBtn.href = "https://wa.me/5511996140860?text=Olá,%20vim%20pela%20página%20de%20Direito%20Bancário%20e%20gostaria%20de%20falar%20com%20a%20Dra.%20Adriana%20D'ingiullo";
+            } else {
+                title.innerText = "Ligar Agora";
+                deivesBtn.href = "tel:11934532422";
+                adrianaBtn.href = "tel:11996140860";
+            }
+
+            contactOverlay.classList.add('active');
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactOptions() {
+            contactOverlay.classList.remove('active');
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        contactOverlay.addEventListener('click', closeContactOptions);
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Accordion
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.querySelector('.accordion-header').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.accordion-item').forEach(o => o.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const wasActive = parent.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) parent.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deivesmarceladvogado.vercel.app/sitemap.xml

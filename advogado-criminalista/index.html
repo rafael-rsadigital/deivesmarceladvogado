@@ -104,7 +104,7 @@
 
         .nav-wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-between: space-between;
             align-items: center;
             width: 100%;
         }
@@ -325,35 +325,6 @@
             backdrop-filter: blur(5px);
         }
         .menu-overlay.active { display: block; }
-
-        /* Breadcrumb */
-        .breadcrumb-section {
-            background-color: #111;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            z-index: 10;
-        }
-        .breadcrumb-nav {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-        .breadcrumb-nav a {
-            color: var(--primary-gold);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .breadcrumb-nav a:hover {
-            color: var(--dark-gold);
-        }
-        .breadcrumb-nav .separator {
-            margin: 0 8px;
-            color: #444;
-        }
-        .breadcrumb-nav .current {
-            color: var(--text-white);
-            font-weight: 600;
-        }
 
         /* Intro Copy */
         .intro-copy-section {
@@ -654,6 +625,8 @@
                 opacity: 1; 
                 pointer-events: auto;
                 transform: translateY(0);
+                background: #000; /* Força fundo preto sólido mobile corrigido */
+                height: 70px;
             }
 
             .hero { 
@@ -752,17 +725,6 @@
                 </div>
                 <div class="badge-urgencia">🔴 Plantão Ativo 24h — Ligue Agora</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Seção 2: BREADCRUMB -->
-    <section class="breadcrumb-section">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="/">Início</a>
-                <span class="separator">></span>
-                <span class="current">Advogado Criminalista</span>
-            </nav>
         </div>
     </section>
 

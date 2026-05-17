@@ -359,7 +359,7 @@
         .modal-option:hover { border-color: var(--primary-gold); background: #1a1a1a; }
         .modal-option h5 { font-weight: 600; color: var(--primary-gold); font-size: 1rem; font-family: 'Playfair Display', serif; }
         .modal-option p { color: var(--text-gray); font-size: 0.8rem; margin-top: 2px; }
-        #contactOverlay { z-index: 5500; }
+        #Contatoverlay { z-index: 5500; }
 
         /* ─── MOBILE BAR ─── */
         .mobile-bar {
@@ -443,7 +443,7 @@
                     </a>
                 </nav>
                 <div class="header-cta">
-                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold" style="font-size: 0.7rem; padding: 10px 18px;">WhatsApp 24h</a>
+                    <a href="javascript:void(0)" onclick="openContatoptions('wa')" class="btn btn-gold" style="font-size: 0.7rem; padding: 10px 18px;">WhatsApp 24h</a>
                 </div>
                 <div class="menu-toggle" id="menuToggle">
                     <span></span><span></span><span></span>
@@ -480,8 +480,8 @@
                 <h1>Advogado de Trânsito em Mogi das Cruzes</h1>
                 <p class="hero-sub">Crimes de Trânsito • Suspensão de CNH • Recursos de Multa • Homicídio Culposo • Embriaguez ao Volante</p>
                 <div class="btn-group">
-                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">WhatsApp Agora</a>
-                    <a href="javascript:void(0)" onclick="openContactOptions('tel')" class="btn btn-outline">Ligar Agora</a>
+                    <a href="javascript:void(0)" onclick="openContatoptions('wa')" class="btn btn-gold">WhatsApp Agora</a>
+                    <a href="javascript:void(0)" onclick="openContatoptions('tel')" class="btn btn-outline">Ligar Agora</a>
                 </div>
                 <div class="badge-urgencia">🚦 Atendimento Imediato — Fale com o Dr. Deives</div>
             </div>
@@ -611,7 +611,7 @@
             <div class="cta-content">
                 <h2>CNH Suspensa ou Envolvido em Crime de Trânsito em Mogi das Cruzes?</h2>
                 <p>O prazo para recurso é curto e cada dia sem defesa técnica pode comprometer irreversivelmente seu caso. Fale agora com quem entende do assunto.</p>
-                <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">Falar com o Dr. Deives Agora →</a>
+                <a href="javascript:void(0)" onclick="openContatoptions('wa')" class="btn btn-gold">Falar com o Dr. Deives Agora →</a>
                 <span class="cta-region">Atendemos Mogi das Cruzes, Suzano, Poá, Itaquaquecetuba e toda a Grande SP</span>
             </div>
         </div>
@@ -695,7 +695,7 @@
                     </ul>
                 </div>
                 <div class="footer-links footer-links-group">
-                    <h4>Contacto 24h</h4>
+                    <h4>Contato 24h</h4>
                     <p>Deives: <a href="tel:11998868252" style="color:var(--text-gray);">(11) 99886-8252</a></p>
                     <p style="margin-top:10px;">Adriana: <a href="tel:11996140860" style="color:var(--text-gray);">(11) 99614-0860</a></p>
                 </div>
@@ -713,8 +713,8 @@
     </footer>
 
     <!-- ─── CONTACT MODAL ─── -->
-    <div class="menu-overlay" id="contactOverlay"></div>
-    <div class="contact-modal" id="contactOptionsModal">
+    <div class="menu-overlay" id="Contatoverlay"></div>
+    <div class="contact-modal" id="ContatoptionsModal">
         <div style="text-align:center; margin-bottom:20px;">
             <h4 id="contactModalTitle" style="font-size:1.2rem; font-family:'Playfair Display', serif; color:var(--primary-gold);">Escolha o Especialista</h4>
         </div>
@@ -734,13 +734,13 @@
                 <svg width="24" height="24" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             </a>
         </div>
-        <button onclick="closeContactOptions()" style="width:100%; background:transparent; border:none; color:#777; text-decoration:underline; margin-top:10px; cursor:pointer; font-size:0.9rem;">Voltar</button>
+        <button onclick="closeContatoptions()" style="width:100%; background:transparent; border:none; color:#777; text-decoration:underline; margin-top:10px; cursor:pointer; font-size:0.9rem;">Voltar</button>
     </div>
 
     <!-- ─── MOBILE BAR ─── -->
     <div class="mobile-bar">
-        <a onclick="openContactOptions('tel')" class="bar-call">Ligar Agora</a>
-        <a onclick="openContactOptions('wa')" class="bar-wa">WhatsApp 24h</a>
+        <a onclick="openContatoptions('tel')" class="bar-call">Ligar Agora</a>
+        <a onclick="openContatoptions('wa')" class="bar-wa">WhatsApp 24h</a>
     </div>
 
     <script>
@@ -750,8 +750,8 @@
         const menuToggle = document.getElementById('menuToggle');
         const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
-        const contactOverlay = document.getElementById('contactOverlay');
-        const contactModal = document.getElementById('contactOptionsModal');
+        const Contatoverlay = document.getElementById('Contatoverlay');
+        const contactModal = document.getElementById('ContatoptionsModal');
 
         // Header scroll
         window.addEventListener('scroll', () => {
@@ -768,7 +768,7 @@
         document.querySelectorAll('.side-menu nav a').forEach(link => link.addEventListener('click', toggleMenu));
 
         // Contact modal
-        function openContactOptions(type) {
+        function openContatoptions(type) {
             const deivesBtn = document.getElementById('modalDeives');
             const adrianaBtn = document.getElementById('modalAdriana');
             const title = document.getElementById('contactModalTitle');
@@ -783,17 +783,17 @@
                 adrianaBtn.href = "tel:11996140860";
             }
 
-            contactOverlay.classList.add('active');
+            Contatoverlay.classList.add('active');
             contactModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeContactOptions() {
-            contactOverlay.classList.remove('active');
+        function closeContatoptions() {
+            Contatoverlay.classList.remove('active');
             contactModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-        contactOverlay.addEventListener('click', closeContactOptions);
+        Contatoverlay.addEventListener('click', closeContatoptions);
 
         // Scroll reveal
         const revealObserver = new IntersectionObserver((entries) => {

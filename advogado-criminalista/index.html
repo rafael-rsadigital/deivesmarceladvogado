@@ -11,7 +11,7 @@
     
     <!-- Open Graph / Redes Sociais -->
     <meta property="og:title" content="Advogado Criminalista em Mogi das Cruzes | Marcel & D'ingiullo">
-    <meta property="og:description" content="Defesa criminal especializada em Mogi das Cruzes e Alto Tietê com atendimento de urgência 24 horas.">
+    <meta property="og:description" content="Defesa criminal especializada em Mogi das Cruzes and Alto Tietê com atendimento de urgência 24 horas.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/advogado-criminalista">
     <meta property="og:image" content="img/background-advogado-criminalista-hero.jpg">
@@ -51,7 +51,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            padding-bottom: 0; /* Removido padding fixo do desktop */
+            padding-bottom: 0;
         }
 
         h1, h2, h3, h4 {
@@ -79,7 +79,7 @@
             transform: translateY(0);
         }
 
-        /* Header - Transparente na Web inicialmente */
+        /* Header - Barra Preta Sólida */
         header {
             padding: 0;
             height: var(--header-height);
@@ -110,7 +110,7 @@
         }
 
         .logo-img {
-            max-height: 75px; /* Sincronizado com a home */
+            max-height: 75px;
             width: auto;
             display: block;
             transition: max-height 0.3s ease;
@@ -290,7 +290,8 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 280px;
+            width: 80%;
+            max-width: 320px;
             height: 100%;
             background: #000;
             z-index: 4500;
@@ -732,8 +733,10 @@
         </nav>
     </div>
 
-    <!-- Seção 1: HERO -->
     <section class="hero">
+        <!-- Fundo Fixo Único da Home (Sem Intercalar) -->
+        <div class="hero-bg-layer active" style="background-image: url('img/background-advogado-criminalista-hero.jpg');"></div>
+        
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
@@ -948,7 +951,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 25px;">
                     <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
                     <p style="color: var(--text-gray); font-size: 0.95rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
@@ -1080,7 +1083,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // Accordion
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
@@ -1089,7 +1091,6 @@
             });
         });
 
-        // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
                 const parent = item.parentElement;

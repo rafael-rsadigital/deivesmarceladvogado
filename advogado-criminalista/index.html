@@ -31,7 +31,7 @@
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --header-height: 90px;
+            --header-height: 120px; /* Ajustado para caber o logo 50% maior sem cortar */
         }
 
         * {
@@ -78,7 +78,7 @@
             transform: translateY(0);
         }
 
-        /* Header - Transparente Inicialmente na Web */
+        /* Header - Barra Preta Sólida conforme pedido */
         header {
             padding: 0;
             height: var(--header-height);
@@ -86,17 +86,17 @@
             width: 100%;
             top: 0;
             left: 0;
-            background: transparent;
+            background: #000; /* Barra preta solicitada */
             z-index: 3500;
             display: flex;
             align-items: center;
-            border-bottom: none;
-            transition: var(--transition);
+            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
+            transition: height 0.3s ease, background 0.3s ease;
         }
 
         header.scrolled {
             background: rgba(10, 10, 10, 0.95);
-            height: 80px;
+            height: 85px; /* Altura compactada ao rolar */
             border-bottom: 1px solid rgba(198, 165, 92, 0.2);
             backdrop-filter: blur(10px);
         }
@@ -109,7 +109,7 @@
         }
 
         .logo-img {
-            max-height: 112px; /* Logo Ampliado */
+            max-height: 112px; /* Logo Ampliado preservado */
             width: auto;
             display: block;
             transition: max-height 0.3s ease;
@@ -122,6 +122,7 @@
         nav.desktop-nav {
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         nav.desktop-nav a {
@@ -236,6 +237,45 @@
             margin-top: 25px;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Correções Gerais de CSS nos Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+            border-radius: 4px;
+            text-decoration: none !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+            gap: 10px;
+            font-size: 0.8rem;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-gold { 
+            background-color: var(--primary-gold) !important; 
+            color: #000 !important; 
+        }
+        .btn-gold:hover { 
+            background-color: var(--dark-gold) !important; 
+            color: #000 !important;
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 15px rgba(198, 165, 92, 0.4);
+        }
+        .btn-outline { 
+            border: 2px solid var(--primary-gold) !important; 
+            color: var(--primary-gold) !important; 
+            background: transparent !important; 
+        }
+        .btn-outline:hover { 
+            background-color: var(--primary-gold) !important; 
+            color: #000 !important; 
         }
 
         /* Breadcrumb */
@@ -530,9 +570,6 @@
         }
         .menu-overlay.active { display: block; }
 
-        /* Side Menu & Action Bar Mobile */
-        .side-menu.active { right: 0; }
-
         /* Reponsividade */
         @media (max-width: 1024px) {
             .intro-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -582,7 +619,7 @@
             .hero .btn-group { display: none !important; }
             
             .accordion-container { grid-template-columns: 1fr; }
-            .mobile-professionals { display: block; }
+            .mobile-professionals { display: none; } /* Removido conforme solicitado para simplificar */
             .mobile-bar { display: grid; }
             .slider-wrapper { max-width: 95%; aspect-ratio: 3/4.2; }
             .accordion-header h3 { font-size: 1.1rem; }
@@ -798,7 +835,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            Atuação altamente especializada em crimes dolosos contra a vida (homicídios tentados ou consumados), desde a primeira fase até a sustentação oral plenária perante o Conselho de Sentença.
+                            Atuação altamente especializada em crimes dolosos contra a vida (homicídios tentados ou consumados), desde a primeira fase até a sustentação oral preliminar perante o Conselho de Sentença.
                         </div>
                     </div>
                 </div>
@@ -827,14 +864,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Secção mobile fotos -->
-    <section class="mobile-professionals reveal">
-        <div class="hero-person-mobile" id="mobilePersonSlider">
-            <img src="img/deives-marcel-advogado-foto.jpg" alt="Dr. Deives Marcel" class="active">
-            <img src="img/Adriana-Dingiullo.jpg" alt="Drª Adriana Dingiullo">
         </div>
     </section>
 
@@ -896,9 +925,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 25px;">
                     <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
-                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
+                    <p style="color: var(--text-gray); font-size: 0.95rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
                         Mogi das Cruzes - SP, 08730-480
                     </p>

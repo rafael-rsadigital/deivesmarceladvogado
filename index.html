@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advogado Criminalista em Mogi das Cruzes | Marcel & D'ingiullo</title>
-    <meta name="description" content="Advogado criminalista em Mogi das Cruzes com plantão de urgência 24h. Defesa técnica em prisões em flagrante, audiência de custódia e inquéritos. Ligue já.">
-    <meta name="keywords" content="advogado criminalista mogi das cruzes, defesa criminal mogi, preso em flagrante mogi, advogado criminal 24h mogi das cruzes, advogado criminal suzano, defesa penal alto tietê">
+    <title>Advogado Criminalista em Mogi das Cruzes 24h | Marcel & D'ingiullo Advogados Associados</title>
+    <meta name="description" content="Advogado criminalista em Mogi das Cruzes 24h. Marcel & D'ingiullo Advogados Associados. Defesa em prisões, flagrantes, investigações e crimes de trânsito. Atendimento imediato em Mogi, Suzano e região.">
+    <meta name="keywords" content="advogado criminalista mogi das cruzes, advogado criminal mogi das cruzes, advogado criminal 24 horas mogi, advogado prisão flagrante mogi, advogado criminal urgente mogi das cruzes, advogado criminal são miguel paulista, advogado criminal suzano, advogado criminal itaquaquecetuba">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://deivesmarceladvogado.vercel.app/advogado-criminalista">
+    <link rel="canonical" href="https://deivesmarceladvogado.vercel.app/">
     
     <!-- Open Graph / Redes Sociais -->
-    <meta property="og:title" content="Advogado Criminalista em Mogi das Cruzes | Marcel & D'ingiullo">
-    <meta property="og:description" content="Defesa criminal especializada em Mogi das Cruzes e Alto Tietê com atendimento de urgência 24 horas.">
+    <meta property="og:title" content="Advogado Criminalista em Mogi das Cruzes 24h - Marcel & D'ingiullo">
+    <meta property="og:description" content="Defesa criminal especializada em prisões, flagrantes e investigações. Atendimento imediato em toda a região.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/advogado-criminalista">
-    <meta property="og:image" content="img/background-advogado-criminalista-hero.jpg">
+    <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <style>
@@ -31,7 +31,7 @@
             --text-white: #ffffff;
             --text-gray: #b0b0b0;
             --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --header-height: 120px; /* Ajustado para caber o logo 50% maior sem cortar */
+            --header-height: 90px;
         }
 
         * {
@@ -50,7 +50,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            padding-bottom: 0; /* Removido espaçamento no desktop */
+            padding-bottom: 0;
         }
 
         h1, h2, h3, h4 {
@@ -64,7 +64,7 @@
             padding: 0 20px;
         }
 
-        /* Efeito Scroll Reveal */
+        /* Scroll Reveal */
         .reveal {
             opacity: 0;
             filter: blur(8px);
@@ -78,7 +78,7 @@
             transform: translateY(0);
         }
 
-        /* Header - Barra Preta Sólida */
+        /* Header - Transparente na Web inicialmente */
         header {
             padding: 0;
             height: var(--header-height);
@@ -86,17 +86,17 @@
             width: 100%;
             top: 0;
             left: 0;
-            background: #000;
+            background: transparent; /* Transparente conforme pedido */
             z-index: 3500;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid rgba(198, 165, 92, 0.2);
-            transition: height 0.3s ease, background 0.3s ease;
+            border-bottom: none;
+            transition: var(--transition);
         }
 
         header.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            height: 85px; /* Altura compactada ao rolar */
+            background: rgba(0, 0, 0, 0.95);
+            height: 70px;
             border-bottom: 1px solid rgba(198, 165, 92, 0.2);
             backdrop-filter: blur(10px);
         }
@@ -109,19 +109,19 @@
         }
 
         .logo-img {
-            max-height: 112px; /* Logo Ampliado preservado */
+            max-height: 75px; /* Aumentado 50% solicitado */
             width: auto;
             display: block;
             transition: max-height 0.3s ease;
         }
 
         header.scrolled .logo-img {
-            max-height: 75px;
+            max-height: 50px;
         }
 
         nav.desktop-nav {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -138,6 +138,14 @@
         nav.desktop-nav a:hover {
             color: var(--primary-gold);
         }
+
+        .insta-btn {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            transition: var(--transition);
+        }
+        .insta-btn:hover { color: var(--primary-gold); transform: scale(1.1); }
 
         .menu-toggle {
             display: none;
@@ -158,16 +166,27 @@
         /* Hero Section */
         .hero {
             position: relative;
-            margin-top: var(--header-height);
-            min-height: calc(100vh - var(--header-height));
+            min-height: 100vh;
             display: flex;
             align-items: center;
             overflow: hidden;
-            background-image: url('img/background-advogado-criminalista-hero.jpg');
+            background-color: #000;
+        }
+
+        .hero-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 0;
         }
+
+        .hero-bg-layer.active { opacity: 1; }
 
         .hero-overlay {
             position: absolute;
@@ -175,7 +194,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.78);
+            background: rgba(0,0,0,0.75);
             z-index: 1;
         }
 
@@ -189,65 +208,53 @@
         }
 
         .hero-content {
-            max-width: 750px;
+            max-width: 800px;
             text-align: left;
         }
 
+        /* Logotipo Centralizado Mobile no Hero */
         .mobile-hero-logo {
             display: none;
-            max-height: 180px;
+            max-height: 120px;
             width: auto;
             margin: 0 auto 30px;
         }
 
         .hero h1 {
             font-size: clamp(2.2rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
         .hero-sub {
-            font-size: 1rem;
+            font-size: 0.75rem;
             color: var(--text-white);
-            font-weight: 400;
+            font-weight: 600;
             margin-bottom: 30px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             line-height: 1.8;
-            color: var(--text-gray);
         }
 
         .hero .local-seo {
-            color: var(--primary-gold);
+            color: var(--dark-gold);
             font-weight: 600;
             margin-bottom: 15px;
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
-        .hero .badge-urgencia {
-            display: inline-block;
-            background: rgba(255, 0, 0, 0.15);
-            border: 1px solid rgba(255, 0, 0, 0.4);
-            color: #ff4d4d;
-            padding: 8px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Correções Gerais de CSS nos Botões */
+        /* Botão */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 30px;
+            padding: 12px 25px;
             border-radius: 4px;
-            text-decoration: none !important;
-            font-weight: 700;
+            text-decoration: none;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: var(--transition);
@@ -258,141 +265,100 @@
             white-space: nowrap;
         }
 
-        .btn-gold { 
-            background-color: var(--primary-gold) !important; 
-            color: #000 !important; 
-        }
-        .btn-gold:hover { 
-            background-color: var(--dark-gold) !important; 
-            color: #000 !important;
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 15px rgba(198, 165, 92, 0.4);
-        }
-        .btn-outline { 
-            border: 2px solid var(--primary-gold) !important; 
-            color: var(--primary-gold) !important; 
-            background: transparent !important; 
-        }
-        .btn-outline:hover { 
-            background-color: var(--primary-gold) !important; 
-            color: #000 !important; 
-        }
+        .btn-gold { background-color: var(--primary-gold); color: #000; }
+        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
+        .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
 
-        /* Breadcrumb */
-        .breadcrumb-section {
-            background-color: #111;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            z-index: 10;
-        }
-        .breadcrumb-nav {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-        .breadcrumb-nav a {
-            color: var(--primary-gold);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .breadcrumb-nav a:hover {
-            color: var(--dark-gold);
-        }
-        .breadcrumb-nav .separator {
-            margin: 0 8px;
-            color: #444;
-        }
-        .breadcrumb-nav .current {
-            color: var(--text-white);
-            font-weight: 600;
-        }
-
-        /* Intro Copy */
-        .intro-copy-section {
+        /* Side Menu Mobile */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
             background: #000;
-            padding: 80px 0;
-        }
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .intro-left h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            line-height: 1.2;
-        }
-        .intro-right {
-            border-left: 3px solid var(--primary-gold);
-            padding-left: 30px;
-        }
-        .intro-right p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-        .intro-right p:last-child {
-            margin-bottom: 0;
+            z-index: 4500;
+            padding: 100px 30px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+            transition: right 0.4s ease;
+            border-left: 1px solid rgba(198, 165, 92, 0.2);
         }
 
-        /* Cards de Urgência */
-        .urgencia-cards-section {
-            background: #0d0d0d;
-            padding: 80px 0;
-        }
-        .urgencia-intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .urgencia-intro h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-        .urgencia-card {
-            background: var(--card-black);
-            border: 1px solid rgba(198, 165, 92, 0.2);
-            padding: 40px 30px;
-            border-radius: 8px;
-            transition: var(--transition);
-            text-align: center;
-        }
-        .urgencia-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-4px);
-        }
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        .urgencia-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--primary-gold);
-        }
-        .urgencia-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .side-menu.active { right: 0; }
+        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
+        .side-menu nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(198, 165, 92, 0.1);
+            padding-bottom: 10px;
         }
 
-        /* Accordion Atuação */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 4000;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+        .menu-overlay.active { display: block; }
+
+        /* Mobile Professionals */
+        .mobile-professionals {
+            display: none;
+            background: var(--bg-black);
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .hero-person-mobile {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-person-mobile img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 90%;
+            width: auto;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .hero-person-mobile img.active { opacity: 1; }
+
+        /* Áreas de Atuação */
         .areas-accordion-section { 
             padding: 80px 0; 
+            position: relative; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.96)), var(--section-bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             background-color: #000;
         }
+        .section-intro { text-align: center; margin-bottom: 50px; }
+        
         .accordion-container { 
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Otimizado em 3 colunas */
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             max-width: 1150px;
             margin: 0 auto;
         }
+
         .accordion-item { 
             border: 1px solid rgba(198, 165, 92, 0.2); 
             border-radius: 8px; 
@@ -410,54 +376,37 @@
         .accordion-item.active .accordion-icon { transform: rotate(180deg); }
         .accordion-body { padding: 0 20px 20px; color: var(--text-gray); font-size: 0.9rem; }
 
-        /* Bloco CTA Central */
-        .cta-parallax-section {
-            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('img/background-advogado-criminalista-hero.jpg');
+        /* Banner Slider */
+        .banner-slider { 
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 100px 0;
-            text-align: center;
+            padding: 40px 0; 
+            overflow: hidden; 
+            position: relative; 
         }
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .cta-content h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            margin-bottom: 20px;
-        }
-        .cta-content p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 35px;
-        }
-        .cta-content .btn {
-            font-size: 1rem;
-            padding: 16px 40px;
-        }
-        .cta-content span {
-            display: block;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: var(--primary-gold);
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        .slider-wrapper { position: relative; max-width: 420px; margin: 0 auto; border: 1px solid rgba(198, 165, 92, 0.4); border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: grab; background: #0d0d0d; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; }
+        .slider-item { min-width: 100%; height: 100%; }
+        .slider-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slider-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+        .dot { width: 12px; height: 12px; background: #222; border-radius: 50%; cursor: pointer; border: 1px solid var(--primary-gold); }
+        .dot.active { background: var(--primary-gold); transform: scale(1.3); }
+
+        /* FAQ */
+        #faq {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.96)), var(--section-bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            background-color: #000;
         }
 
-        /* FAQ - 2 Colunas */
-        #faq {
-            background-color: #000;
-            padding: 80px 0;
-        }
-        .section-title {
-            width: 100%;
-            text-align: center !important;
-            margin-bottom: 50px;
-        }
         .faq-wrapper { 
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 Colunas */
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px 30px;
             max-width: 1100px; 
             margin: 0 auto; 
@@ -485,6 +434,7 @@
             gap: 40px;
             align-items: start;
         }
+        
         .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .footer-links-group ul { list-style: none; }
         .footer-links-group ul li { margin-bottom: 12px; }
@@ -495,14 +445,14 @@
             transition: var(--transition);
         }
         .footer-links-group a:hover { color: var(--primary-gold); }
+
         .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198, 165, 92, 0.2); }
         .footer-map-container iframe { width: 100%; height: 250px; border: 0; display: block; }
-        .ampersand { font-family: 'Inter', sans-serif; font-weight: 400; color: inherit; }
 
-        /* Estabilização Fina do Modal Seletor de Contato */
+        /* Contact Modal (Seletor) */
         .contact-modal {
             position: fixed;
-            bottom: 0;
+            bottom: -100%;
             left: 0;
             width: 100%;
             background: #111;
@@ -510,15 +460,10 @@
             padding: 30px 20px;
             border-top: 3px solid var(--primary-gold);
             border-radius: 20px 20px 0 0;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
-            transform: translateY(100%);
-            visibility: hidden;
+            transition: var(--transition);
             box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
         }
-        .contact-modal.active { 
-            transform: translateY(0);
-            visibility: visible;
-        }
+        .contact-modal.active { bottom: 0; }
         .modal-option {
             display: flex;
             justify-content: space-between;
@@ -530,84 +475,19 @@
             text-decoration: none;
             color: #fff;
             border: 1px solid rgba(198, 165, 92, 0.1);
-            transition: var(--transition);
         }
-        .modal-option:hover { border-color: var(--primary-gold); background: #1a1a1a; }
+        .modal-option:hover { border-color: var(--primary-gold); }
         .modal-option h5 { color: var(--primary-gold); margin-bottom: 3px; font-size: 1rem; }
         .modal-option p { font-size: 0.8rem; color: var(--text-gray); }
 
-        #contactOverlay {
-            z-index: 5500; /* Perfeitamente acima do mobile bar e abaixo do modal */
-        }
-
-        /* Mobile Side Menu & Overlay */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 320px;
-            height: 100%;
-            background: #000;
-            z-index: 4500;
-            padding: 100px 30px;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
-            transition: right 0.4s ease;
-            border-left: 1px solid rgba(198, 165, 92, 0.2);
-        }
-        .side-menu.active { right: 0; }
-        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
-        .side-menu nav a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(198, 165, 92, 0.1);
-            padding-bottom: 10px;
-        }
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 4000;
-            display: none;
-            backdrop-filter: blur(5px);
-        }
-        .menu-overlay.active { display: block; }
-
-        /* Mobile Action Bar - FIXO */
-        .mobile-bar { 
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: #000; 
-            display: none; 
-            grid-template-columns: 1fr 1fr; 
-            border-top: 2px solid var(--primary-gold); 
-            z-index: 5000; 
-        }
-        .mobile-bar a { 
-            padding: 18px; 
-            text-align: center; 
-            text-decoration: none; 
-            color: #fff; 
-            font-weight: 600; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px; 
-            cursor: pointer; 
-        }
+        /* Mobile Action Bar */
+        .mobile-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: none; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--primary-gold); z-index: 3000; }
+        .mobile-bar a { padding: 18px; text-align: center; text-decoration: none; color: #fff; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
+        .bar-wa { background: #25d366; color: #000 !important; }
+        .bar-call { background: var(--bg-black); color: var(--primary-gold) !important; }
 
         /* Reponsividade */
         @media (max-width: 1024px) {
-            .intro-grid { grid-template-columns: 1fr; gap: 30px; }
-            .cards-grid { grid-template-columns: 1fr; }
             .accordion-container { grid-template-columns: repeat(2, 1fr); }
             .faq-wrapper { grid-template-columns: 1fr; }
         }
@@ -618,11 +498,7 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-bottom: 60px; /* Margem de segurança apenas no mobile */
-            }
-
-            /* Menu Inicial Oculto Mobile */
+            /* Menu Inicial Oculto */
             header { 
                 opacity: 0; 
                 pointer-events: none; 
@@ -642,8 +518,9 @@
                 background-image: none !important;
                 background-color: #000;
             }
+            .hero-bg-layer { display: none; }
             .hero-overlay { background: none; }
-            .hero .container { padding-left: 20px; padding-right: 20px; text-align: center; }
+            .hero .container { padding: 0 25px; text-align: center; }
             .hero-content { margin: 0 auto; text-align: center; }
             
             /* Logo Centralizado Mobile */
@@ -654,59 +531,16 @@
             .hero h1 { font-size: 1.8rem; margin-bottom: 30px; line-height: 1.5; }
             .hero .local-seo { font-size: 0.75rem; margin-bottom: 25px; letter-spacing: 3px; }
             .hero-sub { font-size: 0.8rem; margin-bottom: 40px; letter-spacing: 2px; line-height: 1.7; }
+            
             .hero .btn-group { display: none !important; }
             
             .accordion-container { grid-template-columns: 1fr; }
-            .mobile-professionals { display: none; } /* Removido para simplificar e focar em carregamento rápido */
+            .mobile-professionals { display: block; }
             .mobile-bar { display: grid; }
             .slider-wrapper { max-width: 95%; aspect-ratio: 3/4.2; }
             .accordion-header h3 { font-size: 1.1rem; }
         }
     </style>
-
-    <!-- Schema Logic -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Início",
-          "item": "https://deivesmarceladvogado.vercel.app/"
-        },{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Advogado Criminalista",
-          "item": "https://deivesmarceladvogado.vercel.app/advogado-criminalista"
-        }]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "LegalService",
-        "name": "Marcel & D'ingiullo - Advogados Associados",
-        "image": "https://deivesmarceladvogado.vercel.app/img/logotipo-letra-branca.png",
-        "telephone": "+55-11-93453-2422",
-        "url": "https://deivesmarceladvogado.vercel.app/advogado-criminalista",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "R. Gaspar Conqueiro, 118 - Vila Vitoria",
-          "addressLocality": "Mogi das Cruzes",
-          "addressRegion": "SP",
-          "postalCode": "08730-480",
-          "addressCountry": "BR"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "-23.530616",
-          "longitude": "-46.201030"
-        },
-        "knowsAbout": "Criminal Law, Criminal Defense, Habeas Corpus, Custody Hearing",
-        "areaServed": ["Mogi das Cruzes", "Suzano", "Poá", "Itaquaquecetuba", "São Paulo"]
-      }
-    ]
-    </script>
 </head>
 <body>
 
@@ -723,10 +557,14 @@
                     <a href="/direito-transito">Direito de Trânsito</a>
                     <a href="/livros">Livros</a>
                     <a href="#contato">Contato</a>
+                    <!-- Ícone Instagram Menu -->
+                    <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" class="insta-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
                 </nav>
 
                 <div class="header-cta">
-                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">WhatsApp 24h</a>
+                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold" style="font-size: 0.7rem; padding: 10px 18px;">WhatsApp 24h</a>
                 </div>
 
                 <div class="menu-toggle" id="menuToggle">
@@ -744,228 +582,140 @@
             <a href="/direito-transito">Direito de Trânsito</a>
             <a href="/livros">Livros</a>
             <a href="#contato">Contato</a>
+            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="border:none; margin-top:10px; display: flex; align-items: center; gap: 10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+            </a>
         </nav>
     </div>
 
-    <!-- Seção 1: HERO -->
     <section class="hero">
+        <div class="hero-bg-layer active" style="background-image: url('img/background-advogado-criminalista-hero.jpg');"></div>
+        <div class="hero-bg-layer" style="background-image: url('img/background-direito-trabalhista-hero-1.jpg');"></div>
+        
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <!-- Logotipo Centralizado Mobile -->
                 <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="mobile-hero-logo">
 
-                <span class="local-seo">Mogi das Cruzes • Suzano • Alto Tietê</span>
-                <h1>Advogado Criminalista em Mogi das Cruzes — Defesa 24 Horas</h1>
-                <p class="hero-sub">Proteção integral aos seus direitos constitucionais e garantias fundamentais com atuação técnica de urgência 24h nas delegacias de Mogi das Cruzes e região.</p>
+                <span class="local-seo">Mogi das Cruzes • Suzano • São Paulo</span>
+                <h1>Advogado Criminalista em Mogi das Cruzes 24h</h1>
+                <p class="hero-sub">Direito Criminal • Direito de Trânsito • Direito Bancário</p>
                 <div class="btn-group">
                     <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">WhatsApp Agora</a>
                     <a href="javascript:void(0)" onclick="openContactOptions('tel')" class="btn btn-outline">Ligar Urgente</a>
                 </div>
-                <div class="badge-urgencia">🔴 Plantão Ativo 24h — Ligue Agora</div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 2: BREADCRUMB -->
-    <section class="breadcrumb-section">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="/">Início</a>
-                <span class="separator">></span>
-                <span class="current">Advogado Criminalista</span>
-            </nav>
+    <!-- Secção mobile fotos -->
+    <section class="mobile-professionals reveal">
+        <div class="hero-person-mobile" id="mobilePersonSlider">
+            <img src="img/deives-marcel-advogado-foto.jpg" alt="Dr. Deives Marcel" class="active">
+            <img src="img/Adriana-Dingiullo.jpg" alt="Drª Adriana Dingiullo">
         </div>
     </section>
 
-    <!-- Seção 3: INTRO COPY -->
-    <section class="intro-copy-section reveal">
-        <div class="container">
-            <div class="intro-grid">
-                <div class="intro-left">
-                    <h2>Defesa Criminal Especializada em Mogi das Cruzes</h2>
-                </div>
-                <div class="intro-right">
-                    <p>Enfrentar uma acusação penal ou lidar com a iminência de uma <strong style="color: var(--primary-gold);">prisão em flagrante</strong> é um dos momentos de maior vulnerabilidade na vida de qualquer cidadão. Nesse cenário de extrema pressão, a intervenção ágil de um especialista faz toda a diferença para resguardar a liberdade e as garantias fundamentais. O papel de um experiente <strong style="color: var(--primary-gold);">advogado criminalista em Mogi das Cruzes</strong> vai além da simples representação legal: trata-se de um escudo técnico inabalável que atua ativamente para conter abusos e assegurar um processo justo desde os primeiros momentos na delegacia.</p>
-                    <p>Nas primeiras horas após uma prisão, ações estratégicas como a impetração célere de um <strong style="color: var(--primary-gold);">habeas corpus</strong> ou a sustentação oral firme durante a <strong style="color: var(--primary-gold);">audiência de custódia</strong> são determinantes para que o indivíduo responda ao processo em liberdade. Cada detalhe processual, desde a análise de nulidades no flagrante até a verificação da legalidade das provas obtidas, é esmiuçado com precisão cirúrgica por nossa banca de advogados, garantindo uma blindagem jurídica completa.</p>
-                    <p>Do acompanhamento preventivo durante a fase pré-processual do <strong style="color: var(--primary-gold);">inquérito policial</strong> até a defesa técnica combativa em ações penais complexas e no Tribunal do Júri, nosso compromisso é oferecer soluções jurídicas assertivas e sob medida. Sabemos que o tempo é um fator crítico em situações de urgência penal; por isso, nosso plantão de atendimento atua ininterruptamente, prontificando-se a intervir em qualquer repartição policial ou fórum da região metropolitana e do Alto Tietê.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção 4: CARDS DE URGÊNCIA -->
-    <section class="urgencia-cards-section reveal">
-        <div class="container">
-            <div class="urgencia-intro">
-                <h2>Quando Você Precisa de um Criminalista AGORA</h2>
-                <p>Situações de emergência exigem presença jurídica imediata para evitar prejuízos irreversíveis.</p>
-            </div>
-            <div class="cards-grid">
-                <div class="urgencia-card">
-                    <span class="card-icon">⛓️</span>
-                    <h3>Prisão em Flagrante</h3>
-                    <p>Atuação imediata em delegacias e presídios para acompanhar o auto de prisão, evitar depoimentos prejudiciais e estruturar o pedido de liberdade provisória para a audiência de custódia em menos de 24h.</p>
-                </div>
-                <div class="urgencia-card">
-                    <span class="card-icon">📄</span>
-                    <h3>Intimação Policial</h3>
-                    <p>Orientação consultiva prévia e acompanhamento presencial em depoimentos para resguardar o direito constitucional ao silêncio, evitando indiciamentos indevidos e estruturando defesas preliminares sólidas.</p>
-                </div>
-                <div class="urgencia-card">
-                    <span class="card-icon">🏠</span>
-                    <h3>Busca e Apreensão</h3>
-                    <p>Intervenção técnica rápida durante o cumprimento de mandados judiciais, fiscalizando a regularidade dos atos, evitando excessos das autoridades e garantindo a preservação de dados e direitos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção 5: ACCORDION -->
-    <section class="areas-accordion-section reveal">
+    <!-- Áreas de Atuação -->
+    <section class="areas-accordion-section reveal" id="areas-atuacao">
         <div class="container">
             <div class="section-intro">
-                <h2>Atuação Criminal Detalhada</h2>
-                <p>Nossa expertise técnica cobre todas as esferas e cenários da defesa penal.</p>
+                <h2>Áreas de Atuação Especializada</h2>
+                <p>Defesa técnica estratégica com atendimento personalizado em diversas frentes do Direito.</p>
             </div>
 
             <div class="accordion-container">
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>1. Prisão em Flagrante e Custódia</h3>
-                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <h3>Direito Criminal</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            Acompanhamento em plantões policiais e sustentação oral ágil perante o juiz de custódia, focando no relaxamento da prisão ilegal ou na concessão da liberdade provisória com ou sem medidas cautelares.
-                        </div>
-                    </div>
+                    <div class="accordion-content"><div class="accordion-body">Atuação completa: prisões, audiência de custódia, inquéritos e defesa técnica especializada.</div></div>
                 </div>
-
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>2. Habeas Corpus</h3>
-                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <h3>Direito de Trânsito</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            Impetração de Habeas Corpus Preventivo ou Liberatório perante os Tribunais de Justiça estaduais e instâncias superiores (STJ e STF), visando restabelecer ou garantir o direito fundamental de ir e vir.
-                        </div>
-                    </div>
+                    <div class="accordion-content"><div class="accordion-body">Defesa em infrações, recursos de suspensão de CNH e processos administrativos no DETRAN.</div></div>
                 </div>
-
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>3. Inquéritos e Investigações</h3>
-                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <h3>Crimes de Trânsito</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            Defesa ativa na fase indiciária, acompanhamento de oitivas e representação em procedimentos investigativos criminais para evitar o indiciamento infundado do investigado.
-                        </div>
-                    </div>
+                    <div class="accordion-content"><div class="accordion-body">Especialista em homicídio culposo, embriaguez ao volante e lesão corporal em acidentes.</div></div>
                 </div>
-
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>4. Tribunal do Júri</h3>
-                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <h3>Direito Bancário</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            Atuação altamente especializada em crimes dolosos contra a vida (homicídios tentados ou consumados), desde a primeira fase até a sustentação oral preliminar perante o Conselho de Sentença.
-                        </div>
-                    </div>
+                    <div class="accordion-content"><div class="accordion-body">Proteção do consumidor contra juros abusivos, busca e apreensão e fraudes bancárias.</div></div>
                 </div>
-
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>5. Tráfico de Drogas</h3>
-                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <h3>Tribunal do Júri</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            Defesa técnica baseada na Lei 11.343/06, focando em nulidades de busca pessoal ou domiciliar, desclassificação para porte para consumo pessoal e aplicação do tráfico privilegiado.
-                        </div>
-                    </div>
+                    <div class="accordion-content"><div class="accordion-body">Defesa técnica em plenário em crimes contra a vida com sustentação oral estratégica.</div></div>
                 </div>
-
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>6. Violência Doméstica</h3>
-                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
+                        <h3>Violência Doméstica</h3>
+                        <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            Acompanhamento especializado em inquéritos de violência doméstica, representação em audiências especiais e combate à imposição desproporcional de medidas protetivas de urgência.
-                        </div>
-                    </div>
+                    <div class="accordion-content"><div class="accordion-body">Defesa e acompanhamento em casos da Lei Maria da Penha e medidas protetivas de urgência.</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 6: BLOCO CTA CENTRAL -->
-    <section class="cta-parallax-section reveal">
+    <!-- Banner Carousel -->
+    <section class="banner-slider reveal">
         <div class="container">
-            <div class="cta-content">
-                <h2>Preso ou Investigado em Mogi das Cruzes?</h2>
-                <p>Não fale com as autoridades sem a devida orientação jurídica. Exerça seu direito ao silêncio e fale imediatamente com um especialista.</p>
-                <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">Falar com o Dr. Deives Agora →</a>
-                <span>Atendemos Mogi das Cruzes, Suzano, Poá, Itaquera, São Miguel Paulista e toda a Grande SP</span>
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slider-item"><img src="img/como-iniciar-na-advocacia-criminal.jpg" alt="Advocacia"></div>
+                    <div class="slider-item"><img src="img/defesa-em-crimes-de-transito.jpg" alt="Trânsito"></div>
+                    <div class="slider-item"><img src="img/deives-marcel-advogado-foto.jpg" alt="Dr. Deives"></div>
+                    <div class="slider-item"><img src="img/direito-bancario-e-direito-de-transito.jpg" alt="Bancário"></div>
+                    <div class="slider-item"><img src="img/livro-crimes-de-transito.jpg" alt="Livro"></div>
+                    <div class="slider-item"><img src="img/Adriana-Dingiullo.jpg" alt="Drª Adriana"></div>
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots">
+                <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 7: FAQ -->
+    <!-- FAQ -->
     <section id="faq" class="reveal">
         <div class="container">
             <div class="section-title"><h2>Perguntas Frequentes (FAQ)</h2><div class="divider"></div></div>
             <div class="faq-wrapper">
-                <div class="faq-item">
-                    <div class="faq-question">1. Como contratar um advogado criminal em Mogi das Cruzes? <span>+</span></div>
-                    <div class="faq-answer">O contato inicial pode ser feito pelo nosso canal de atendimento 24h no WhatsApp. Em casos de flagrante ou urgência policial, nossa equipe é mobilizada para atendimento imediato presencial na delegacia correspondente.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">2. O que fazer se preso em flagrante em Mogi? <span>+</span></div>
-                    <div class="faq-answer">Mantenha a calma, exorte seu direito constitucional de permanecer em silêncio e diga que só falará na presença de seu advogado. Entre em contato conosco imediatamente para que um advogado o acompanhe no depoimento policial.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">3. Quanto custa um advogado criminalista em Mogi das Cruzes? <span>+</span></div>
-                    <div class="faq-answer">Os honorários seguem as diretrizes éticas da tabela da OAB/SP e variam dependendo da complexidade do crime, fase do processo (inquérito, instrução ou recurso) e gravidade das acusações.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">4. Posso falar com meu advogado na delegacia? <span>+</span></div>
-                    <div class="faq-answer">Sim, é prerrogativa inalienável do advogado garantida pelo Estatuto da OAB (Lei 8.906/94) entrevistar-se pessoal e reservadamente com seu cliente custodiado em qualquer repartição policial ou estabelecimento prisional.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">5. O que é audiência de custódia? <span>+</span></div>
-                    <div class="faq-answer">É uma audiência realizada em até 24 horas após a prisão para que um juiz avalie se a prisão em flagrante foi legal e decida se o indiciado responderá ao processo em liberdade ou em prisão preventiva.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">6. Advogado atende à noite em Mogi das Cruzes? <span>+</span></div>
-                    <div class="faq-answer">Sim. Mantemos um plantão técnico ininterrupto de 24 horas pronto para atuar em prisões domiciliares, delegacias de plantão e ocorrências policiais urgentes a qualquer hora da noite.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">7. O que é habeas corpus preventivo? <span>+</span></div>
-                    <div class="faq-answer">É uma medida judicial utilizada quando há um perigo real ou ameaça iminente de que o indivíduo sofra uma prisão ilegal ou abusiva, buscando um salvo-conduto assinado pelo juiz ou tribunal competente.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">8. Qual o prazo após a prisão para audiência de custódia? <span>+</span></div>
-                    <div class="faq-answer">Por lei, o auto de prisão em flagrante deve ser homologado e a pessoa presa apresentada ao juiz das garantias em no máximo 24 horas após a lavratura do ato policial.</div>
-                </div>
+                <div class="faq-item"><div class="faq-question">Prisão em flagrante? <span>+</span></div><div class="faq-answer">Fundamental garantir direitos e buscar liberdade imediata na audiência de custódia.</div></div>
+                <div class="faq-item"><div class="faq-question">Atendimento 24h? <span>+</span></div><div class="faq-answer">Sim. Mantemos plantão criminal permanente para emergências em toda a região.</div></div>
+                <div class="faq-item"><div class="faq-question">Quanto custa a defesa? <span>+</span></div><div class="faq-answer">Honorários conforme tabela OAB/SP, variando pela complexidade de cada caso.</div></div>
+                <div class="faq-item"><div class="faq-question">Delegacia à noite? <span>+</span></div><div class="faq-answer">O advogado tem direito constitucional de acesso integral ao cliente a qualquer hora.</div></div>
+                <div class="faq-item"><div class="faq-question">Onde atuam? <span>+</span></div><div class="faq-answer">Mogi das Cruzes, Suzano, Poá, Itaquá, São Paulo e toda a Grande SP.</div></div>
+                <div class="faq-item"><div class="faq-question">Quando contratar? <span>+</span></div><div class="faq-answer">Imediatamente após receber intimação ou ter ciência de qualquer investigação policial.</div></div>
+                <div class="faq-item"><div class="faq-question">Falar com a polícia? <span>+</span></div><div class="faq-answer">Apenas assistido por advogado. Exerça seu direito ao silêncio.</div></div>
+                <div class="faq-item"><div class="faq-question">Audiência de Custódia? <span>+</span></div><div class="faq-answer">Ato judicial em até 24h para decidir sobre a manutenção ou não da prisão.</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 8: FOOTER -->
     <footer id="contato" class="reveal">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 25px;">
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 20px;">
                     <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
-                    <p style="color: var(--text-gray); font-size: 0.95rem; margin-top: 10px;">
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 10px;">
                         📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
                         Mogi das Cruzes - SP, 08730-480
                     </p>
@@ -977,6 +727,12 @@
                         <li><a href="/direito-bancario">Direito Bancário</a></li>
                         <li><a href="/direito-transito">Direito de Trânsito</a></li>
                         <li><a href="/livros">Livros</a></li>
+                        <li>
+                            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                Instagram
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-links footer-links-group">
@@ -991,18 +747,14 @@
             <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem;">
                 &copy; <span id="year"></span> Marcel &amp; D'ingiullo - Advogados Associados
             </div>
-            <!-- Div de desenvolvimento personalizada com link WA -->
-            <div style="text-align: center; margin-top: 15px; color: #444; font-size: 0.75rem; font-family: 'Inter', sans-serif;">
-                Desenvolvido por <a href="https://wa.me/5512988052097?text=Ol%C3%A1%21+Vim+atrav%C3%A9s+do+site+do+Dr.+Deives+Marcel+e+gostaria+de+saber+mais+sobre+a+gest%C3%A3o+do+Google+Meu+Neg%C3%B3cio." target="_blank" style="color: var(--primary-gold); text-decoration: none; font-weight: 600;">RSA Digital | Expert em Google Meu Negócio</a>
-            </div>
         </div>
     </footer>
 
-    <!-- Overlay de Contato com 2 opções -->
+    <!-- Overlay de Contato Reativado com 2 opções -->
     <div class="menu-overlay" id="contactOverlay"></div>
     <div class="contact-modal" id="contactOptionsModal">
         <div style="text-align: center; margin-bottom: 20px;">
-            <h4 id="contactModalTitle" style="font-size: 1.2rem; font-family: 'Playfair Display', serif;">Escolha o Especialista</h4>
+            <h4 id="contactModalTitle" style="font-size: 1.2rem;">Escolha o Especialista</h4>
         </div>
         <div class="modal-options">
             <a href="#" id="modalDeives" class="modal-option">
@@ -1020,7 +772,7 @@
                 <svg width="24" height="24" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             </a>
         </div>
-        <button onclick="closeContactOptions()" style="width: 100%; background: transparent; border: none; color: #777; text-decoration: underline; margin-top: 10px; cursor: pointer; font-family: 'Inter', sans-serif;">Voltar</button>
+        <button onclick="closeContactOptions()" style="width: 100%; background: transparent; border: none; color: #777; text-decoration: underline; margin-top: 10px; cursor: pointer;">Voltar</button>
     </div>
 
     <!-- Mobile Action Bar -->
@@ -1039,7 +791,7 @@
         const contactOverlay = document.getElementById('contactOverlay');
         const contactModal = document.getElementById('contactOptionsModal');
 
-        // Lógica de Scroll do Header (Web e Mobile)
+        // Scroll Logic: Header Transparente -> Sólido / Aparecer no Mobile
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
         });
@@ -1054,7 +806,7 @@
         menuOverlay.addEventListener('click', toggleMenu);
         document.querySelectorAll('.side-menu nav a').forEach(link => link.addEventListener('click', toggleMenu));
 
-        // Lógica de Contato Duas Opções
+        // Contact Modal Logic (Duas Opções)
         function openContactOptions(type) {
             const deivesBtn = document.getElementById('modalDeives');
             const adrianaBtn = document.getElementById('modalAdriana');
@@ -1086,7 +838,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
         // Sincronização Mobile fotos
@@ -1101,7 +853,7 @@
         }
         setInterval(nextMobileSlide, 3000);
 
-        // Slider de Fundo Web
+        // Slider de Fundo Web (Alternância)
         let currentWebSlide = 0;
         function nextWebSlide() {
             if (window.innerWidth > 768) {
@@ -1115,7 +867,6 @@
         }
         setInterval(nextWebSlide, 3000);
 
-        // Accordion
         document.querySelectorAll('.accordion-item').forEach(item => {
             item.querySelector('.accordion-header').addEventListener('click', () => {
                 const isActive = item.classList.contains('active');

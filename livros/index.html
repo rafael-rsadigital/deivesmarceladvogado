@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros e Autor - Dr. Deives Marcel | Marcel & D'ingiullo</title>
+    <meta name="description" content="Conheça as obras do Dr. Deives Marcel, advogado criminalista com mais de 23 anos de atuação. Adquira os livros 'Como Iniciar na Advocacia Criminal' e 'Crimes de Trânsito'.">
+    <meta name="keywords" content="deives marcel livros, livro crimes de transito deives marcel, livro como iniciar na advocacia criminal, advogado escritor mogi das cruzes, doutrinador direito de transito, marcel dingiullo">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://deivesmarceladvogado.vercel.app/livros">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Livros e Autor - Dr. Deives Marcel | Marcel & D'ingiullo">
+    <meta property="og:description" content="Conheça a trajetória de mais de 23 anos de advocacia e as obras jurídicas publicadas pelo Dr. Deives Marcel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/livros">
+    <meta property="og:image" content="img/livro-crimes-de-transito.jpg">
+
+    <!-- Schema JSON-LD (Breadcrumb + Book) -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://deivesmarceladvogado.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Livros", "item": "https://deivesmarceladvogado.vercel.app/livros" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": ["Attorney", "LegalService"],
+        "name": "Marcel & D'ingiullo - Advogados Associados",
+        "description": "Escritório liderado pelo Dr. Deives Marcel, advogado, professor e autor jurídico com 23 anos de carreira.",
+        "url": "https://deivesmarceladvogado.vercel.app/livros",
+        "telephone": "+55-11-93453-2422",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Gaspar Conqueiro, 118 - Vila Vitoria",
+          "addressLocality": "Mogi das Cruzes",
+          "addressRegion": "SP",
+          "postalCode": "08730-480",
+          "addressCountry": "BR"
+        }
+      }
+    ]
+    </script>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        :root {
+            --primary-gold: #C6A55C;
+            --dark-gold: #a68a4b;
+            --bg-black: #0a0a0a;
+            --card-black: #161616;
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --header-height: 90px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 0;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary-gold); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            filter: blur(8px);
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 0.8s ease, filter 0.8s ease;
+        }
+        .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+        /* ─── HEADER ─── */
+        header {
+            padding: 0;
+            height: var(--header-height);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: transparent;
+            z-index: 3500;
+            display: flex;
+            align-items: center;
+            border-bottom: none;
+            transition: var(--transition);
+        }
+        header.scrolled {
+            background: rgba(0,0,0,0.95);
+            height: 70px;
+            border-bottom: 1px solid rgba(198,165,92,0.2);
+            backdrop-filter: blur(10px);
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo-img { max-height: 75px; width: auto; display: block; transition: max-height 0.3s ease; }
+        header.scrolled .logo-img { max-height: 50px; }
+
+        nav.desktop-nav { display: flex; gap: 20px; align-items: center; }
+        nav.desktop-nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        nav.desktop-nav a:hover { color: var(--primary-gold); }
+
+        .insta-btn { display: flex; align-items: center; color: #fff; transition: var(--transition); }
+        .insta-btn:hover { color: var(--primary-gold); transform: scale(1.1); }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 4000;
+            padding: 10px;
+        }
+        .menu-toggle span { width: 30px; height: 2px; background-color: var(--primary-gold); transition: var(--transition); }
+
+        /* ─── HERO MINIMALISTA ─── */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+            padding-top: var(--header-height);
+        }
+        .hero-bg-layer {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 0;
+        }
+        .hero-bg-layer.active { opacity: 1; }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 1;
+        }
+        .hero .container { max-width: 100%; margin: 0; padding-left: 4%; width: 100%; position: relative; z-index: 10; }
+        .hero-content { max-width: 800px; text-align: left; }
+        .mobile-hero-logo { display: none; max-height: 120px; width: auto; margin: 0 auto 30px; }
+
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); margin-bottom: 15px; line-height: 1.2; }
+        .hero-sub {
+            font-size: 0.9rem; color: var(--text-white); font-weight: 500;
+            margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; line-height: 1.8;
+            opacity: 0.9;
+        }
+        .hero .local-seo {
+            color: var(--dark-gold); font-weight: 600; margin-bottom: 15px;
+            display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;
+        }
+        .hero .badge-urgencia {
+            display: inline-block;
+            background: rgba(198,165,92,0.12);
+            border: 1px solid rgba(198,165,92,0.4);
+            color: var(--primary-gold);
+            padding: 8px 16px; border-radius: 40px;
+            font-size: 0.85rem; font-weight: 600;
+            margin-top: 15px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* ─── BOTÕES ─── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 25px; border-radius: 4px; text-decoration: none !important;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            transition: var(--transition); cursor: pointer; gap: 10px;
+            font-size: 0.8rem; border: none; white-space: nowrap;
+        }
+        .btn-gold { background-color: var(--primary-gold); color: #000; }
+        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary-gold); color: var(--primary-gold); background: transparent; }
+        .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        /* ─── SIDE MENU ─── */
+        .side-menu {
+            position: fixed; top: 0; right: -100%;
+            width: 80%; max-width: 320px; height: 100%;
+            background: #000; z-index: 4500; padding: 100px 30px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8); transition: right 0.4s ease;
+            border-left: 1px solid rgba(198,165,92,0.2);
+        }
+        .side-menu.active { right: 0; }
+        .side-menu nav { display: flex; flex-direction: column; gap: 25px; }
+        .side-menu nav a {
+            color: var(--text-white); text-decoration: none; font-size: 1.1rem;
+            font-weight: 600; text-transform: uppercase;
+            border-bottom: 1px solid rgba(198,165,92,0.1); padding-bottom: 10px;
+        }
+
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 4000; display: none; backdrop-filter: blur(5px);
+        }
+        .menu-overlay.active { display: block; }
+
+        /* ─── PERFIL DO AUTOR (23 ANOS) ─── */
+        .autor-perfil-section { background: #000; padding: 100px 0; border-bottom: 1px solid rgba(198,165,92,0.15); }
+        .autor-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+        .autor-left { text-align: left; }
+        .autor-left h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; }
+        .autor-left .anos-badge {
+            font-size: 4.5rem; font-family: 'Playfair Display', serif; font-weight: 700;
+            color: var(--primary-gold); line-height: 1; display: block; margin-bottom: 10px;
+        }
+        .autor-left .anos-text {
+            font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
+            color: var(--text-gray); display: block; margin-bottom: 30px;
+        }
+        .autor-right { border-left: 3px solid var(--primary-gold); padding-left: 30px; }
+        .autor-right p { color: var(--text-gray); margin-bottom: 25px; font-size: 1.05rem; }
+        .autor-right p:last-child { margin-bottom: 0; }
+
+        /* ─── AS OBRAS (GRID MINIMALISTA DE LIVROS) ─── */
+        .livros-section { background: #0d0d0d; padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-header p { color: var(--text-gray); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+
+        .obras-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; max-width: 1050px; margin: 0 auto; }
+        .obra-card {
+            background: var(--card-black);
+            border: 1px solid rgba(198,165,92,0.15);
+            border-radius: 8px; overflow: hidden;
+            display: grid; grid-template-columns: 1.1fr 1.3fr;
+            transition: var(--transition);
+        }
+        .obra-card:hover { border-color: var(--primary-gold); transform: translateY(-4px); }
+        .obra-img-wrapper { position: relative; overflow: hidden; aspect-ratio: 3/4; background: #080808; display: flex; align-items: center; justify-content: center; }
+        .obra-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .obra-card:hover .obra-img { transform: scale(1.05); }
+        .obra-info { padding: 35px 25px; display: flex; flex-direction: column; justify-content: space-between; }
+        .obra-info h3 { font-size: 1.35rem; color: var(--primary-gold); margin-bottom: 15px; line-height: 1.3; }
+        .obra-info p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.7; margin-bottom: 25px; }
+        .obra-meta { font-size: 0.8rem; text-transform: uppercase; color: var(--primary-gold); letter-spacing: 1px; font-weight: 600; display: block; margin-top: auto; }
+
+        /* ─── SEÇÃO DE PALESTRAS / AGENDAMENTO ─── */
+        .palestras-section {
+            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), var(--section-bg-image);
+            background-size: cover; background-position: center; background-attachment: fixed;
+            padding: 100px 0; text-align: center;
+        }
+        .palestras-content { max-width: 750px; margin: 0 auto; }
+        .palestras-content h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 20px; }
+        .palestras-content p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 35px; }
+
+        /* ─── FAQ MINIMALISTA ─── */
+        #faq { background: #000; padding: 100px 0; }
+        .section-title { width: 100%; text-align: center !important; margin-bottom: 50px; }
+        .faq-wrapper {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px; max-width: 1100px; margin: 0 auto;
+        }
+        .faq-item { border: 1px solid rgba(198,165,92,0.15); border-radius: 4px; background: var(--card-black); }
+        .faq-question {
+            padding: 18px 20px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+            font-weight: 600; font-family: 'Playfair Display', serif;
+            color: var(--primary-gold); font-size: 1rem;
+        }
+        .faq-answer {
+            padding: 0 20px; max-height: 0; overflow: hidden;
+            transition: all 0.4s ease; color: var(--text-gray); font-size: 0.9rem;
+        }
+        .faq-item.active .faq-answer { padding-bottom: 18px; max-height: 300px; border-top: 1px solid rgba(198,165,92,0.1); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #050505; padding: 80px 0 60px;
+            border-top: 1px solid rgba(198,165,92,0.2);
+            position: relative; z-index: 10;
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: start; }
+        .footer-links-group h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links-group ul { list-style: none; }
+        .footer-links-group ul li { margin-bottom: 12px; }
+        .footer-links-group a { color: var(--text-gray); text-decoration: none; font-size: 0.9rem; transition: var(--transition); }
+        .footer-links-group a:hover { color: var(--primary-gold); }
+        .footer-map-container { width: 100%; margin-top: 30px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(198,165,92,0.2); }
+        .footer-map-container iframe { width: 100%; height: 250px; border: 0; display: block; }
+
+        /* ─── CONTACT MODAL ─── */
+        .contact-modal {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #111; z-index: 6000; padding: 30px 20px;
+            border-top: 3px solid var(--primary-gold); border-radius: 20px 20px 0 0;
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), visibility 0.5s;
+            transform: translateY(100%); visibility: hidden;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+        }
+        .contact-modal.active { transform: translateY(0); visibility: visible; }
+        .modal-options { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; }
+        .modal-option {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #222; padding: 15px 20px; border-radius: 8px;
+            text-decoration: none; color: #fff;
+            border: 1px solid rgba(198,165,92,0.1); transition: var(--transition);
+        }
+        .modal-option:hover { border-color: var(--primary-gold); background: #1a1a1a; }
+        .modal-option h5 { font-weight: 600; color: var(--primary-gold); font-size: 1rem; font-family: 'Playfair Display', serif; }
+        .modal-option p { color: var(--text-gray); font-size: 0.8rem; margin-top: 2px; }
+        #contactOverlay { z-index: 5500; }
+
+        /* ─── MOBILE BAR ─── */
+        .mobile-bar {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #000; display: none; grid-template-columns: 1fr 1fr;
+            border-top: 2px solid var(--primary-gold); z-index: 3000;
+        }
+        .mobile-bar a {
+            padding: 18px; text-align: center; text-decoration: none;
+            color: #fff; font-weight: 600; display: flex;
+            align-items: center; justify-content: center; gap: 10px; cursor: pointer;
+        }
+        .bar-wa { background: #25d366; color: #000 !important; }
+        .bar-call { background: var(--bg-black); color: var(--primary-gold) !important; }
+
+        .ampersand { font-family: 'Inter', sans-serif; font-weight: 400; color: inherit; }
+
+        /* ─── RESPONSIVIDADE ─── */
+        @media (max-width: 1024px) {
+            .faq-wrapper { grid-template-columns: 1fr; }
+            .autor-grid { grid-template-columns: 1fr; gap: 30px; }
+            .obras-grid { grid-template-columns: 1fr; gap: 30px; max-width: 600px; }
+        }
+
+        @media (max-width: 992px) {
+            nav.desktop-nav, .header-cta { display: none; }
+            .menu-toggle { display: flex; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-bottom: 60px; }
+
+            header { opacity: 0; pointer-events: none; transform: translateY(-100%); }
+            header.scrolled {
+                opacity: 1; pointer-events: auto; transform: translateY(0);
+                background: #000; height: 70px;
+            }
+
+            .hero {
+                min-height: 60vh; text-align: center; padding-top: 40px;
+                align-items: center; background-image: none !important; background-color: #000;
+            }
+            .hero-bg-layer { display: none; }
+            .hero-overlay { background: none; }
+            .hero .container { padding: 0 25px; text-align: center; }
+            .hero-content { margin: 0 auto; text-align: center; }
+            .mobile-hero-logo { display: block; }
+
+            .hero h1 { font-size: 1.8rem; margin-bottom: 30px; line-height: 1.5; }
+            .hero .local-seo { font-size: 0.75rem; margin-bottom: 25px; letter-spacing: 3px; }
+            .hero-sub { font-size: 0.8rem; margin-bottom: 40px; letter-spacing: 2px; line-height: 1.7; }
+            .hero .btn-group { display: none !important; }
+
+            .obra-card { grid-template-columns: 1fr; }
+            .obra-img-wrapper { aspect-ratio: 16/9; }
+
+            .mobile-bar { display: grid; }
+            .palestras-section { background-attachment: scroll; }
+            #faq { background-attachment: scroll; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HEADER ─── -->
+    <header id="mainHeader">
+        <div class="container" style="max-width: 100%; width: 100%;">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <img src="img/logotipo-letra-branca.png" alt="Marcel & D'ingiullo Advogados Associados" class="logo-img">
+                </a>
+                <nav class="desktop-nav">
+                    <a href="/advogado-criminalista">Advogado Criminalista</a>
+                    <a href="/direito-bancario">Direito Bancário</a>
+                    <a href="/direito-transito">Direito de Trânsito</a>
+                    <a href="/livros">Livros</a>
+                    <a href="#contato">Contato</a>
+                    <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" class="insta-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </nav>
+                <div class="header-cta">
+                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold" style="font-size: 0.7rem; padding: 10px 18px;">WhatsApp 24h</a>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <nav>
+            <a href="/advogado-criminalista">Advogado Criminalista</a>
+            <a href="/direito-bancario">Direito Bancário</a>
+            <a href="/direito-transito">Direito de Trânsito</a>
+            <a href="/livros">Livros</a>
+            <a href="#contato">Contato</a>
+            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="border:none; margin-top:10px; display:flex; align-items:center; gap:10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+            </a>
+        </nav>
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <div class="hero-bg-layer active" style="background-image: url('img/background-advogado-criminalista-hero.jpg');"></div>
+        <div class="hero-bg-layer" style="background-image: url('img/background-direito-trabalhista-hero-1.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="mobile-hero-logo">
+                <span class="local-seo">Autor • Palestrante • Jurista</span>
+                <h1>Obras Jurídicas e Trajetória Acadêmica</h1>
+                <p class="hero-sub">Publicações especializadas, produção científica e dedicação doutrinária no Direito Criminal e de Trânsito.</p>
+                <div class="btn-group">
+                    <a href="#obras" class="btn btn-gold">Conhecer Livros</a>
+                    <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-outline">Solicitar Consultoria</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PERFIL DO AUTOR (23 ANOS DE ATUAÇÃO) ─── -->
+    <section class="autor-perfil-section reveal">
+        <div class="container">
+            <div class="autor-grid">
+                <div class="autor-left">
+                    <span class="anos-badge">23+</span>
+                    <span class="anos-text">Anos de Atuação e Doutrina</span>
+                    <h2>Doutrina Aliada à Prática Advocatícia</h2>
+                </div>
+                <div class="autor-right">
+                    <p>O Dr. Deives Marcel consolidou uma carreira de mais de 23 anos dedicada incansavelmente à advocacia criminal de alto impacto e ao estudo profundo das leis penais e de trânsito no Brasil. Essa bagagem prática, desenvolvida no calor das defesas complexas e do Tribunal do Júri, deu origem à sua vocação doutrinária, resultando na publicação de obras de referência.</p>
+                    <p>A produção científica de nossa banca de advogados busca decifrar as minúcias processuais e fornecer ferramentas indispensáveis tanto para jovens advogados em início de carreira quanto para especialistas que enfrentam os desafios diários da legislação de trânsito. Unir a vivência prática de fóruns e tribunais à pesquisa acadêmica rigorosa é o pilar que diferencia nossa atuação jurídica.</p>
+                    <p>Além de escritor técnico, o Dr. Deives atua ativamente como palestrante, ministrando mentorias e workshops práticos em todo o estado de São Paulo, capacitando profissionais de todo o país para o exercício de uma advocacia combativa, ética e de resultados consistentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── AS OBRAS ─── -->
+    <section class="livros-section reveal" id="obras">
+        <div class="container">
+            <div class="section-header">
+                <h2>Obras Publicadas</h2>
+                <p>Livros desenvolvidos sob o prisma da realidade prática e da excelência processual.</p>
+            </div>
+            <div class="obras-grid">
+
+                <!-- Livro 1 -->
+                <div class="obra-card">
+                    <div class="obra-img-wrapper">
+                        <img src="img/como-iniciar-na-advocacia-criminal.jpg" alt="Livro Como Iniciar na Advocacia Criminal" class="obra-img">
+                    </div>
+                    <div class="obra-info">
+                        <div>
+                            <h3>Como Iniciar na Advocacia Criminal</h3>
+                            <p>Um verdadeiro guia prático e analítico desenhado para quem deseja ingressar na trincheira da defesa criminal. O livro traz um roteiro claro sobre atendimento em delegacias, postura em audiências de custódia, precificação de honorários e a psicologia do cliente no sistema penal brasileiro.</p>
+                        </div>
+                        <span class="obra-meta">Guia Prático • Mentoria</span>
+                    </div>
+                </div>
+
+                <!-- Livro 2 -->
+                <div class="obra-card">
+                    <div class="obra-img-wrapper">
+                        <img src="img/livro-crimes-de-transito.jpg" alt="Livro Crimes de Trânsito" class="obra-img">
+                    </div>
+                    <div class="obra-info">
+                        <div>
+                            <h3>Crimes de Trânsito</h3>
+                            <p>Obra de referência indispensável que detalha os principais crimes descritos no Código de Trânsito Brasileiro (CTB). Com análises cirúrgicas sobre homicídio culposo, embriaguez ao volante e lesão corporal culposa, o livro aborda as nulidades processuais e a correta aplicação das leis nas rodovias.</p>
+                        </div>
+                        <span class="obra-meta">Doutrina Técnica • CTB</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SEÇÃO DE PALESTRAS ─── -->
+    <section class="palestras-section reveal">
+        <div class="container">
+            <div class="palestras-content">
+                <h2>Leve essa Experiência para seu Evento ou Faculdade</h2>
+                <p>O Dr. Deives Marcel realiza palestras e workshops interativos em universidades, subseções da OAB e eventos corporativos, abordando temas práticos sobre prerrogativas profissionais, crimes de trânsito e o dia a dia da advocacia penal.</p>
+                <a href="javascript:void(0)" onclick="openContactOptions('wa')" class="btn btn-gold">Agendar Palestra ou Mentoria</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section id="faq" class="reveal">
+        <div class="container">
+            <div class="section-title"><h2>Dúvidas Frequentes sobre as Obras</h2></div>
+            <div class="faq-wrapper">
+
+                <div class="faq-item">
+                    <div class="faq-question">1. Onde posso adquirir os livros do Dr. Deives Marcel? <span>+</span></div>
+                    <div class="faq-answer">As obras podem ser solicitadas diretamente através de nossa secretaria via WhatsApp, com envio para todo o território nacional, ou adquiridas presencialmente em nosso escritório na Vila Vitória, em Mogi das Cruzes.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">2. O livro de "Crimes de Trânsito" serve para leigos? <span>+</span></div>
+                    <div class="faq-answer">Embora possua uma linguagem fluida e de fácil compreensão, o livro é de cunho eminentemente técnico e doutrinário, sendo extremamente recomendado para advogados, estudantes de direito e autoridades policiais que lidam diariamente com as autuações e crimes do CTB.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">3. O Dr. Deives realiza mentorias para jovens advogados? <span>+</span></div>
+                    <div class="faq-answer">Sim. Além do livro "Como Iniciar na Advocacia Criminal", o Dr. Deives oferece mentorias personalizadas e grupos de estudos voltados ao desenvolvimento de novos talentos nas áreas Penal e de Trânsito. Entre em contato conosco para verificar a disponibilidade de novas turmas.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">4. Como agendar uma palestra acadêmica ou corporativa? <span>+</span></div>
+                    <div class="faq-answer">Para solicitar a presença do Dr. Deives Marcel em congressos, simpósios, aulas magnas ou eventos institucionais, basta enviar uma mensagem pelo WhatsApp da nossa secretaria detalhando o local, a data sugerida e o público-alvo estimado.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer id="contato" class="reveal">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="img/logotipo-letra-branca.png" alt="Logotipo" class="logo-img" style="max-height: 50px; margin-bottom: 25px;">
+                    <h3>Marcel <span class="ampersand">&amp;</span> D'ingiullo Associados</h3>
+                    <p style="color:var(--text-gray); font-size:0.95rem; margin-top:10px;">
+                        📍 R. Gaspar Conqueiro, 118 - Vila Vitoria<br>
+                        Mogi das Cruzes - SP, 08730-480
+                    </p>
+                </div>
+                <div class="footer-links footer-links-group">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="/advogado-criminalista">Advogado Criminalista</a></li>
+                        <li><a href="/direito-bancario">Direito Bancário</a></li>
+                        <li><a href="/direito-transito">Direito de Trânsito</a></li>
+                        <li><a href="/livros">Livros</a></li>
+                        <li>
+                            <a href="https://www.instagram.com/deivesmarcelcriminalista/" target="_blank" style="display:flex; align-items:center; gap:8px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links footer-links-group">
+                    <h4>Contacto 24h</h4>
+                    <p>Deives: <a href="tel:11934532422" style="color:var(--text-gray);">(11) 93453-2422</a></p>
+                    <p style="margin-top:10px;">Adriana: <a href="tel:11996140860" style="color:var(--text-gray);">(11) 99614-0860</a></p>
+                </div>
+            </div>
+            <div class="footer-map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.052428115556!2d-46.201030188802044!3d-23.530616660375646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86d401f008b%3A0x7ef87db881f17634!2sR.%20Gaspar%20Conqueiro%2C%20118%20-%20Vila%20Vitoria%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-480!5e0!3m2!1spt-BR!2sbr!4v1776015331873!5m2!1spt-BR!2sbr" loading="lazy"></iframe>
+            </div>
+            <div style="text-align:center; margin-top:50px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.05); color:#444; font-size:0.8rem;">
+                &copy; <span id="year"></span> Marcel &amp; D'ingiullo - Advogados Associados
+            </div>
+            <div style="text-align:center; margin-top:15px; color:#444; font-size:0.75rem; font-family:'Inter', sans-serif;">
+                Desenvolvido por <a href="https://wa.me/5512988052097?text=Ol%C3%A1%21+Vim+atrav%C3%A9s+do+site+do+Dr.+Deives+Marcel+e+gostaria+de+saber+mais+sobre+a+gest%C3%A3o+do+Google+Meu+Neg%C3%B3cio." target="_blank" style="color:var(--primary-gold); text-decoration:none; font-weight:600;">RSA Digital | Expert em Google Meu Negócio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ─── CONTACT MODAL ─── -->
+    <div class="menu-overlay" id="contactOverlay"></div>
+    <div class="contact-modal" id="contactOptionsModal">
+        <div style="text-align:center; margin-bottom:20px;">
+            <h4 id="contactModalTitle" style="font-size:1.2rem; font-family:'Playfair Display', serif; color:var(--primary-gold);">Escolha o Especialista</h4>
+        </div>
+        <div class="modal-options">
+            <a href="#" id="modalDeives" class="modal-option">
+                <div>
+                    <h5>Dr. Deives Marcel</h5>
+                    <p>Direito Criminal / Trânsito</p>
+                </div>
+                <svg width="24" height="24" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </a>
+            <a href="#" id="modalAdriana" class="modal-option">
+                <div>
+                    <h5>Dra. Adriana D'ingiullo</h5>
+                    <p>Direito Bancário / Civil</p>
+                </div>
+                <svg width="24" height="24" fill="var(--primary-gold)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </a>
+        </div>
+        <button onclick="closeContactOptions()" style="width:100%; background:transparent; border:none; color:#777; text-decoration:underline; margin-top:10px; cursor:pointer; font-size:0.9rem;">Voltar</button>
+    </div>
+
+    <!-- ─── MOBILE BAR ─── -->
+    <div class="mobile-bar">
+        <a onclick="openContactOptions('tel')" class="bar-call">Ligar Agora</a>
+        <a onclick="openContactOptions('wa')" class="bar-wa">WhatsApp 24h</a>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const header = document.getElementById('mainHeader');
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const contactOverlay = document.getElementById('contactOverlay');
+        const contactModal = document.getElementById('contactOptionsModal');
+
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Menu mobile
+        const toggleMenu = () => {
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        };
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+        document.querySelectorAll('.side-menu nav a').forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Contact modal
+        function openContactOptions(type) {
+            const deivesBtn = document.getElementById('modalDeives');
+            const adrianaBtn = document.getElementById('modalAdriana');
+            const title = document.getElementById('contactModalTitle');
+
+            if (type === 'wa') {
+                title.innerText = "Chamar no WhatsApp";
+                deivesBtn.href = "https://wa.me/5511998868252?text=Olá,%20vim%20pela%20página%20de%20Livros%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Deives%20Marcel";
+                adrianaBtn.href = "https://wa.me/5511996140860?text=Olá,%20vim%20pela%20página%20de%20Livros%20e%20gostaria%20de%20falar%20com%20a%20Dra.%20Adriana%20D'ingiullo";
+            } else {
+                title.innerText = "Ligar Agora";
+                deivesBtn.href = "tel:11934532422";
+                adrianaBtn.href = "tel:11996140860";
+            }
+
+            contactOverlay.classList.add('active');
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactOptions() {
+            contactOverlay.classList.remove('active');
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        contactOverlay.addEventListener('click', closeContactOptions);
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Sincronização Mobile fotos
+        let currentSlide = 0;
+        const mobilePersons = document.querySelectorAll('#mobilePersonSlider img');
+        function nextMobileSlide() {
+            if (window.innerWidth <= 768 && mobilePersons.length > 0) {
+                mobilePersons[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % mobilePersons.length;
+                mobilePersons[currentSlide].classList.add('active');
+            }
+        }
+        setInterval(nextMobileSlide, 3000);
+
+        // Slider de Fundo Web
+        let currentWebSlide = 0;
+        function nextWebSlide() {
+            if (window.innerWidth > 768) {
+                const bgLayers = document.querySelectorAll('.hero-bg-layer');
+                if (bgLayers.length > 0) {
+                    bgLayers[currentWebSlide].classList.remove('active');
+                    currentWebSlide = (currentWebSlide + 1) % bgLayers.length;
+                    bgLayers[currentWebSlide].classList.add('active');
+                }
+            }
+        }
+        setInterval(nextWebSlide, 3000);
+
+        // Accordion
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.querySelector('.accordion-header').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.accordion-item').forEach(o => o.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const wasActive = parent.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) parent.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

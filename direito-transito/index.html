@@ -11,7 +11,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Advogado de Trânsito em Mogi das Cruzes | Marcel & D'ingiullo">
-    <meta property="og:description" content="Defesa especializada em crimes de trânsito, suspensão de CNH e recursos administrativos em Mogi das Cruzes e região.">
+    <meta property="og:description" content="Defesa especializada em crimes de trânsito, suspensão de CNH e recursos administrativos in Mogi das Cruzes e região.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deivesmarceladvogado.vercel.app/direito-transito">
     <meta property="og:image" content="img/defesa-em-crimes-de-transito.jpg">
@@ -469,7 +469,9 @@
 
     <!-- ─── HERO ─── -->
     <section class="hero">
+        <!-- Alternância de imagens idêntica à Home configurada aqui -->
         <div class="hero-bg-layer active" style="background-image: url('img/defesa-em-crimes-de-transito.jpg');"></div>
+        <div class="hero-bg-layer" style="background-image: url('img/background-direito-trabalhista-hero-1.jpg');"></div>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
@@ -585,7 +587,7 @@
                         <div class="accordion-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
                     </div>
                     <div class="accordion-content">
-                        <div class="accordion-body">Defesa em processos criminais por participação em racha (art. 308 CTB) e direção perigosa, contestando provas periciais, depoimentos e laudos, além de atuar pela desclassificação para infrações de menor potencial ofensivo.</div>
+                        <div class="accordion-body">Defesa em processos criminais por participação em racha (art. 308 CTB) and direção perigosa, contestando provas periciais, depoimentos e laudos, além de atuar pela desclassificação para infrações de menor potencial ofensivo.</div>
                     </div>
                 </div>
 
@@ -622,7 +624,7 @@
             <div class="faq-wrapper">
 
                 <div class="faq-item">
-                    <div class="faq-question">1. Posso recursar o teste do bafômetro? <span>+</span></div>
+                    <div class="faq-question">1. Posso recusar o teste do bafômetro? <span>+</span></div>
                     <div class="faq-answer">Sim. O condutor tem o direito constitucional de não produzir prova contra si mesmo e pode se recusar ao teste do bafômetro. A recusa, porém, pode gerar infração administrativa. No processo criminal, a ausência do resultado do etilômetro pode ser fundamental para a defesa.</div>
                 </div>
 
@@ -798,6 +800,32 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Sincronização Mobile fotos
+        let currentSlide = 0;
+        const mobilePersons = document.querySelectorAll('#mobilePersonSlider img');
+        function nextMobileSlide() {
+            if (window.innerWidth <= 768 && mobilePersons.length > 0) {
+                mobilePersons[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % mobilePersons.length;
+                mobilePersons[currentSlide].classList.add('active');
+            }
+        }
+        setInterval(nextMobileSlide, 3000);
+
+        // Slider de Fundo Web
+        let currentWebSlide = 0;
+        function nextWebSlide() {
+            if (window.innerWidth > 768) {
+                const bgLayers = document.querySelectorAll('.hero-bg-layer');
+                if (bgLayers.length > 0) {
+                    bgLayers[currentWebSlide].classList.remove('active');
+                    currentWebSlide = (currentWebSlide + 1) % bgLayers.length;
+                    bgLayers[currentWebSlide].classList.add('active');
+                }
+            }
+        }
+        setInterval(nextWebSlide, 3000);
 
         // Accordion
         document.querySelectorAll('.accordion-item').forEach(item => {
